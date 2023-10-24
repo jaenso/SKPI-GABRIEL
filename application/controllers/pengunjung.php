@@ -12,7 +12,7 @@ class pengunjung extends CI_Controller
     public function index()
     {
         is_logged_out();
-        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $data['user'] = get_user();
         $data['title'] = 'Dashboard';
         $this->load->view('temp_pengunjung/header', $data);
         $this->load->view('temp_pengunjung/sidebar', $data);
@@ -22,9 +22,9 @@ class pengunjung extends CI_Controller
 
     public function pengaju_nilai()
     {
-        $data['data'] = $this->akm->getNilai();
+        $data['data'] = $this->akm->getKHS();
         is_logged_out();
-        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $data['user'] = get_user();
         $data['title'] = 'Pengajuan Nilai ';
         $this->load->view('temp_pengunjung/header', $data);
         $this->load->view('temp_pengunjung/sidebar', $data);
@@ -36,7 +36,7 @@ class pengunjung extends CI_Controller
     {
         $data['data'] = $this->akm->getMBKM();
         is_logged_out();
-        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $data['user'] = get_user();
         $data['title'] = 'Merdeka Belajar Kampus Merdeka ';
         $this->load->view('temp_pengunjung/header', $data);
         $this->load->view('temp_pengunjung/sidebar', $data);
@@ -46,8 +46,9 @@ class pengunjung extends CI_Controller
 
     public function rekap_nilai()
     {
+        $data['data'] = $this->akm->getKHS();
         is_logged_out();
-        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $data['user'] = get_user();
         $data['title'] = 'Rekapitulasi Nilai ';
         $this->load->view('temp_pengunjung/header', $data);
         $this->load->view('temp_pengunjung/sidebar', $data);
@@ -60,7 +61,7 @@ class pengunjung extends CI_Controller
         $kategori = 'organisasi';
         $data['data'] = $this->kgt->getKegiatan($kategori);
         is_logged_out();
-        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $data['user'] = get_user();
         $data['title'] = 'Organisasi/Kepanitiaan/Pembinaan Mahasiswa ';
         $this->load->view('temp_pengunjung/header', $data);
         $this->load->view('temp_pengunjung/sidebar', $data);
@@ -73,7 +74,7 @@ class pengunjung extends CI_Controller
         $kategori = 'prestasi';
         $data['data'] = $this->kgt->getKegiatan($kategori);
         is_logged_out();
-        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $data['user'] = get_user();
         $data['title'] = 'Lomba/Prestasi Mahasiswa/Beasiswa ';
         $this->load->view('temp_pengunjung/header', $data);
         $this->load->view('temp_pengunjung/sidebar', $data);
@@ -86,7 +87,7 @@ class pengunjung extends CI_Controller
         $kategori = 'pertemuan';
         $data['data'] = $this->kgt->getKegiatan($kategori);
         is_logged_out();
-        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $data['user'] = get_user();
         $data['title'] = 'Pertemuan Ilmiah/Seminar/Kuliah Umum/Lokakarya ';
         $this->load->view('temp_pengunjung/header', $data);
         $this->load->view('temp_pengunjung/sidebar', $data);
@@ -99,7 +100,7 @@ class pengunjung extends CI_Controller
         $kategori = 'pelatihan';
         $data['data'] = $this->kgt->getKegiatan($kategori);
         is_logged_out();
-        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $data['user'] = get_user();
         $data['title'] = 'Pelatihan/Kursus ';
         $this->load->view('temp_pengunjung/header', $data);
         $this->load->view('temp_pengunjung/sidebar', $data);
@@ -112,7 +113,7 @@ class pengunjung extends CI_Controller
         $kategori = 'penunjang';
         $data['data'] = $this->kgt->getKegiatan($kategori);
         is_logged_out();
-        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $data['user'] = get_user();
         $data['title'] = 'Kegiatan yang Menunjang Prestasi/Kompetensi/Pengalaman Kerja ';
         $this->load->view('temp_pengunjung/header', $data);
         $this->load->view('temp_pengunjung/sidebar', $data);
@@ -123,7 +124,7 @@ class pengunjung extends CI_Controller
     public function lock_menu()
     {
         is_logged_out();
-        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $data['user'] = get_user();
         $data['title'] = 'Master Data Mahasiswa';
         $this->load->view('temp_pengunjung/header', $data);
         $this->load->view('temp_pengunjung/sidebar', $data);
@@ -134,7 +135,7 @@ class pengunjung extends CI_Controller
     public function pengaju_skpi()
     {
         is_logged_out();
-        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $data['user'] = get_user();
         $data['title'] = 'Data Pengajuan SKPI';
         $this->load->view('temp_pengunjung/header', $data);
         $this->load->view('temp_pengunjung/sidebar', $data);
@@ -145,7 +146,7 @@ class pengunjung extends CI_Controller
     public function cetak_skpi()
     {
         is_logged_out();
-        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $data['user'] = get_user();
         $data['title'] = 'Cetak SKPI';
         $this->load->view('temp_pengunjung/header', $data);
         $this->load->view('temp_pengunjung/sidebar', $data);
@@ -156,7 +157,7 @@ class pengunjung extends CI_Controller
     public function tanbah()
     {
         is_logged_out();
-        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $data['user'] = get_user();
         $data['title'] = 'Tambah SKPI';
         $this->load->view('temp_pengunjung/header', $data);
         $this->load->view('temp_pengunjung/sidebar', $data);

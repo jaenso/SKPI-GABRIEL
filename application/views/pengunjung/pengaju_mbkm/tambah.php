@@ -30,7 +30,7 @@
                                     <input class="bg-green form-control" type="file" name="file_mbkm" id="file_mbkm">
                                 </div>
                                 <div class="box-footer">
-                                    <button type="submit" class="btn btn-primary">Simpan</button>&nbsp;&nbsp;&nbsp;
+                                    <button type="submit" class="btn btn-primary">Simpan</button>
                                     <button type="button" class="btn btn-warning btn-flat" onClick="history.back();">Batalkan</button>
                                 </div>
                             </form>

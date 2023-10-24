@@ -32,9 +32,22 @@
                                     </td>
                                     <td><?= $data->kegiatan ?></td>
                                     <td><?= $data->keterangan ?></td>
-                                    <td><?= $data->keterangan ?></td>
-                                    <td><?= $data->keterangan ?></td>
-                                    <td><?= $data->keterangan ?></td>
+                                    <td>
+                                        <label class="btn bg-green" href="">VALID <i class="fa fa-check-square fa-lg"></i></label>
+
+                                        <a class="btn bg-blue"><?= $data->status ?></a>
+                                    </td>
+                                    <td><?= $data->ket_status ?></td>
+
+                                    <td align="center">
+                                        <label class="btn bg-green" href="">VALID <i class="fa fa-check-square fa-lg"></i></label>
+
+                                        <a class="btn bg-olive" href="<?= base_url('akademik/edit2/' . $data->id_mbkm); ?>">
+                                            <i class="fa fa-edit fa-lg" title="Edit"></i></a>
+                                        <a class="btn bg-orange" href="<?= base_url('akademik/hapus2/' . $data->id_mbkm); ?>" onclick="return confirm('Yakin?');">
+                                            <i class="fa fa-trash fa-lg" title="Delete"></i></a>
+
+                                    </td>
                                 </tr>
                             <?php endforeach ?>
                         </tbody>

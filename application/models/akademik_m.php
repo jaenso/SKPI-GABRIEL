@@ -2,10 +2,10 @@
 
 class akademik_m extends CI_Model
 {
-  public function getNilai()
+  public function getKHS()
   {
     $this->db->select('*');
-    $this->db->from('tbl_nilai');
+    $this->db->from('tbl_khs');
     return $this->db->get()->result();
   }
 
@@ -16,9 +16,25 @@ class akademik_m extends CI_Model
     return $this->db->get()->result();
   }
 
-  public function tambahNilai($tambah)
+  public function tambahKHS($tambah)
   {
-    $this->db->insert('tbl_nilai', $tambah);
+    $this->db->insert('tbl_khs', $tambah);
+  }
+
+  public function getKHSById($id)
+  {
+    return $this->db->get_where('tbl_khs', ['id_khs' => $id])->row_array();;
+  }
+
+  public function EditKHS($id, $edit)
+  {
+    $this->db->where('id_khs', $id);
+    $this->db->update('tbl_khs', $edit);
+  }
+
+  public function hapusKHS($id)
+  {
+    $this->db->delete('tbl_khs', ['id_khs' => $id]);
   }
 
   public function tambahMBKM($tambah)
@@ -26,19 +42,19 @@ class akademik_m extends CI_Model
     $this->db->insert('tbl_mbkm', $tambah);
   }
 
-  public function hapusNilai($id)
+  public function getMBKMById($id)
   {
-    $this->db->delete('tbl_nilai', ['id_nilai' => $id]);
+    return $this->db->get_where('tbl_mbkm', ['id_mbkm' => $id])->row_array();;
   }
 
-  public function getNilaiById($id)
+  public function ubahMBKM($id, $edit)
   {
-    return $this->db->get_where('tbl_nilai', ['id_nilai' => $id])->row_array();;
+    $this->db->where('id_mbkm', $id);
+    $this->db->update('tbl_mbkm', $edit);
   }
 
-  public function ubahNilai($id, $edit)
+  public function hapusMBKM($id)
   {
-    $this->db->where('id_nilai', $id);
-    $this->db->update('tbl_nilai', $edit);
+    $this->db->delete('tbl_mbkm', ['id_mbkm' => $id]);
   }
 }

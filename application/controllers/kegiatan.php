@@ -9,7 +9,7 @@ class kegiatan extends CI_Controller
         $this->load->library('form_validation');
     }
 
-    public function tambah1()
+    public function tambahOrganisasi()
     {
         $this->form_validation->set_rules('kegiatan', 'Kegiatan', 'required');
         $this->form_validation->set_rules('peran', 'Peran', 'required');
@@ -39,7 +39,51 @@ class kegiatan extends CI_Controller
         }
     }
 
-    public function tambah2()
+    public function editOrganisasi($id)
+    {
+        $data['user'] = get_user();
+        $data['title'] = 'Ubah Berita';
+        $data['data'] = $this->kgt->getKegiatanById($id);
+
+        $this->form_validation->set_rules('kegiatan', 'Kegiatan', 'required');
+        $this->form_validation->set_rules('peran', 'Peran', 'required');
+        $this->form_validation->set_rules('nomor', 'Nomor Sertifikat', 'required');
+        $this->form_validation->set_rules('penyelenggara', 'Penyelenggara', 'required');
+        $this->form_validation->set_rules('periode', 'Periode', 'required');
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('temp_pengunjung/header', $data);
+            $this->load->view('temp_pengunjung/sidebar', $data);
+            $this->load->view('pengunjung/organisasi/edit', $data);
+            $this->load->view('temp_pengunjung/footer');
+        } else {
+
+            $id = $this->input->post('id_kegiatan');
+            if (!empty($gambar_baru)) {
+                $edit_data = array(
+                    "kegiatan" => $this->input->post('kegiatan', true),
+                    "peran" => $this->input->post('peran', true),
+                    "no_sertifikat" => $this->input->post('nomor', true),
+                    "penyelenggara" => $this->input->post('penyelenggara', true),
+                    "periode" => $this->input->post('periode', true)
+                );
+            } else {
+                $edit_data = array(
+                    "kegiatan" => $this->input->post('kegiatan', true),
+                    "peran" => $this->input->post('peran', true),
+                    "no_sertifikat" => $this->input->post('nomor', true),
+                    "penyelenggara" => $this->input->post('penyelenggara', true),
+                    "periode" => $this->input->post('periode', true)
+                );
+            }
+
+            $this->kgt->ubahKegiatan($id, $edit_data);
+            $this->session->set_flashdata('flash', 'diubah');
+            redirect('pengunjung/organisasi');
+        }
+    }
+
+    public function tambahPrestasi()
     {
         $this->form_validation->set_rules('kegiatan', 'Kegiatan', 'required');
         $this->form_validation->set_rules('peran', 'Peran', 'required');
@@ -69,7 +113,51 @@ class kegiatan extends CI_Controller
         }
     }
 
-    public function tambah3()
+    public function editPrestasi($id)
+    {
+        $data['user'] = get_user();
+        $data['title'] = '';
+        $data['data'] = $this->kgt->getKegiatanById($id);
+
+        $this->form_validation->set_rules('kegiatan', 'Kegiatan', 'required');
+        $this->form_validation->set_rules('peran', 'Peran', 'required');
+        $this->form_validation->set_rules('nomor', 'Nomor Sertifikat', 'required');
+        $this->form_validation->set_rules('penyelenggara', 'Penyelenggara', 'required');
+        $this->form_validation->set_rules('periode', 'Periode', 'required');
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('temp_pengunjung/header', $data);
+            $this->load->view('temp_pengunjung/sidebar', $data);
+            $this->load->view('pengunjung/prestasi/edit', $data);
+            $this->load->view('temp_pengunjung/footer');
+        } else {
+
+            $id = $this->input->post('id_kegiatan');
+            if (!empty($gambar_baru)) {
+                $edit_data = array(
+                    "kegiatan" => $this->input->post('kegiatan', true),
+                    "peran" => $this->input->post('peran', true),
+                    "no_sertifikat" => $this->input->post('nomor', true),
+                    "penyelenggara" => $this->input->post('penyelenggara', true),
+                    "periode" => $this->input->post('periode', true)
+                );
+            } else {
+                $edit_data = array(
+                    "kegiatan" => $this->input->post('kegiatan', true),
+                    "peran" => $this->input->post('peran', true),
+                    "no_sertifikat" => $this->input->post('nomor', true),
+                    "penyelenggara" => $this->input->post('penyelenggara', true),
+                    "periode" => $this->input->post('periode', true)
+                );
+            }
+
+            $this->kgt->ubahKegiatan($id, $edit_data);
+            $this->session->set_flashdata('flash', 'diubah');
+            redirect('pengunjung/prestasi');
+        }
+    }
+
+    public function tambahPertemuan()
     {
         $this->form_validation->set_rules('kegiatan', 'Kegiatan', 'required');
         $this->form_validation->set_rules('peran', 'Peran', 'required');
@@ -99,8 +187,12 @@ class kegiatan extends CI_Controller
         }
     }
 
-    public function tambah5()
+    public function editPertemuan($id)
     {
+        $data['user'] = get_user();
+        $data['title'] = '';
+        $data['data'] = $this->kgt->getKegiatanById($id);
+
         $this->form_validation->set_rules('kegiatan', 'Kegiatan', 'required');
         $this->form_validation->set_rules('peran', 'Peran', 'required');
         $this->form_validation->set_rules('nomor', 'Nomor Sertifikat', 'required');
@@ -108,27 +200,38 @@ class kegiatan extends CI_Controller
         $this->form_validation->set_rules('periode', 'Periode', 'required');
 
         if ($this->form_validation->run() == FALSE) {
-            $data['user'] = get_user();
-            $data['title'] = 'Keikutsertaan Kegiatan yang Menunjang Prestasi/Kompetensi/Pengalaman Kerja';
             $this->load->view('temp_pengunjung/header', $data);
             $this->load->view('temp_pengunjung/sidebar', $data);
-            $this->load->view('pengunjung/penunjang/tambah');
+            $this->load->view('pengunjung/pertemuan/edit', $data);
             $this->load->view('temp_pengunjung/footer');
         } else {
-            $tambah = array(
-                "kategori" => "penunjang",
-                "kegiatan" => $this->input->post('kegiatan', true),
-                "peran" => $this->input->post('peran', true),
-                "no_sertifikat" => $this->input->post('nomor', true),
-                "penyelenggara" => $this->input->post('penyelenggara', true),
-                "periode" => $this->input->post('periode', true)
-            );
-            $this->kgt->tambahKegiatan($tambah);
-            $this->session->set_flashdata('flash', 'ditambahkan');
-            redirect('pengunjung/penunjang');
+
+            $id = $this->input->post('id_kegiatan');
+            if (!empty($gambar_baru)) {
+                $edit_data = array(
+                    "kegiatan" => $this->input->post('kegiatan', true),
+                    "peran" => $this->input->post('peran', true),
+                    "no_sertifikat" => $this->input->post('nomor', true),
+                    "penyelenggara" => $this->input->post('penyelenggara', true),
+                    "periode" => $this->input->post('periode', true)
+                );
+            } else {
+                $edit_data = array(
+                    "kegiatan" => $this->input->post('kegiatan', true),
+                    "peran" => $this->input->post('peran', true),
+                    "no_sertifikat" => $this->input->post('nomor', true),
+                    "penyelenggara" => $this->input->post('penyelenggara', true),
+                    "periode" => $this->input->post('periode', true)
+                );
+            }
+
+            $this->kgt->ubahKegiatan($id, $edit_data);
+            $this->session->set_flashdata('flash', 'diubah');
+            redirect('pengunjung/pertemuan');
         }
     }
-    public function tambah4()
+
+    public function tambahPelatihan()
     {
         $this->form_validation->set_rules('kegiatan', 'Kegiatan', 'required');
         $this->form_validation->set_rules('peran', 'Peran', 'required');
@@ -158,73 +261,136 @@ class kegiatan extends CI_Controller
         }
     }
 
-    public function edit1($id)
+    public function editPelatihan($id)
     {
         $data['user'] = get_user();
-        $data['title'] = 'Ubah Berita';
-        $data['konten'] = $this->berita->getBeritaById($id);
+        $data['title'] = '';
+        $data['data'] = $this->kgt->getKegiatanById($id);
 
-        $this->form_validation->set_rules('judul', 'Judul', 'required');
-        $this->form_validation->set_rules('isi', 'Isi', 'required');
+        $this->form_validation->set_rules('kegiatan', 'Kegiatan', 'required');
+        $this->form_validation->set_rules('peran', 'Peran', 'required');
+        $this->form_validation->set_rules('nomor', 'Nomor Sertifikat', 'required');
+        $this->form_validation->set_rules('penyelenggara', 'Penyelenggara', 'required');
+        $this->form_validation->set_rules('periode', 'Periode', 'required');
 
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('temp_pengunjung/header', $data);
             $this->load->view('temp_pengunjung/sidebar', $data);
-            $this->load->view('pengunjung/konten/edit', $data);
+            $this->load->view('pengunjung/pelatihan/edit', $data);
             $this->load->view('temp_pengunjung/footer');
         } else {
-            $gambar_lama = $data['konten']['gambar'];
-            $gambar_baru = '';
 
-            if ($_FILES['userfile']['size'] > 0) {
-                $config['upload_path'] = './uploads/';
-                $config['allowed_types'] = 'jpg|jpeg|png';
-                $config['max_size'] = 2048;
-                $config['encrypt_name'] = TRUE;
-
-                $this->load->library('upload', $config);
-
-                if (!$this->upload->do_upload('userfile')) {
-                    $error = array('error' => $this->upload->display_errors());
-                    $this->load->view('temp_pengunjung/header', $data);
-                    $this->load->view('temp_pengunjung/sidebar', $data);
-                    $this->load->view('pengunjung/konten/edit', $error);
-                    $this->load->view('temp_pengunjung/footer');
-                } else {
-                    $data = $this->upload->data();
-                    $gambar_baru = $data['file_name'];
-                }
-            }
-            $idk = $this->input->post('idk');
-            $tanggal = $this->input->post('tanggal', true);
-            $judul = $this->input->post('judul', true);
-            $isi = $this->input->post('isi', true);
+            $id = $this->input->post('id_kegiatan');
             if (!empty($gambar_baru)) {
                 $edit_data = array(
-                    'tanggal' => $tanggal,
-                    'judul' => $judul,
-                    'isi' => $isi,
-                    'gambar' => $gambar_baru
+                    "kegiatan" => $this->input->post('kegiatan', true),
+                    "peran" => $this->input->post('peran', true),
+                    "no_sertifikat" => $this->input->post('nomor', true),
+                    "penyelenggara" => $this->input->post('penyelenggara', true),
+                    "periode" => $this->input->post('periode', true)
                 );
-                unlink('./uploads/' . $gambar_lama);
             } else {
                 $edit_data = array(
-                    'tanggal' => $tanggal,
-                    'judul' => $judul,
-                    'isi' => $isi
+                    "kegiatan" => $this->input->post('kegiatan', true),
+                    "peran" => $this->input->post('peran', true),
+                    "no_sertifikat" => $this->input->post('nomor', true),
+                    "penyelenggara" => $this->input->post('penyelenggara', true),
+                    "periode" => $this->input->post('periode', true)
                 );
             }
 
-            $this->berita->ubahBerita($idk, $edit_data);
+            $this->kgt->ubahKegiatan($id, $edit_data);
             $this->session->set_flashdata('flash', 'diubah');
-            redirect('pengunjung/pengaju_nilai');
+            redirect('pengunjung/pelatihan');
         }
     }
 
-    public function hapus1($id)
+    public function tambahPenunjang()
     {
-        $this->kgt->hapusNilai($id);
-        $this->session->set_flashdata('flash', 'dihapus');
-        redirect('pengunjung/pengaju_nilai');
+        $this->form_validation->set_rules('kegiatan', 'Kegiatan', 'required');
+        $this->form_validation->set_rules('peran', 'Peran', 'required');
+        $this->form_validation->set_rules('nomor', 'Nomor Sertifikat', 'required');
+        $this->form_validation->set_rules('penyelenggara', 'Penyelenggara', 'required');
+        $this->form_validation->set_rules('periode', 'Periode', 'required');
+
+        if ($this->form_validation->run() == FALSE) {
+            $data['user'] = get_user();
+            $data['title'] = 'Keikutsertaan Kegiatan yang Menunjang Prestasi/Kompetensi/Pengalaman Kerja';
+            $this->load->view('temp_pengunjung/header', $data);
+            $this->load->view('temp_pengunjung/sidebar', $data);
+            $this->load->view('pengunjung/penunjang/tambah');
+            $this->load->view('temp_pengunjung/footer');
+        } else {
+            $tambah = array(
+                "kategori" => "penunjang",
+                "kegiatan" => $this->input->post('kegiatan', true),
+                "peran" => $this->input->post('peran', true),
+                "no_sertifikat" => $this->input->post('nomor', true),
+                "penyelenggara" => $this->input->post('penyelenggara', true),
+                "periode" => $this->input->post('periode', true)
+            );
+            $this->kgt->tambahKegiatan($tambah);
+            $this->session->set_flashdata('flash', 'ditambahkan');
+            redirect('pengunjung/penunjang');
+        }
+    }
+
+    public function editPenunjang($id)
+    {
+        $data['user'] = get_user();
+        $data['title'] = '';
+        $data['data'] = $this->kgt->getKegiatanById($id);
+
+        $this->form_validation->set_rules('kegiatan', 'Kegiatan', 'required');
+        $this->form_validation->set_rules('peran', 'Peran', 'required');
+        $this->form_validation->set_rules('nomor', 'Nomor Sertifikat', 'required');
+        $this->form_validation->set_rules('penyelenggara', 'Penyelenggara', 'required');
+        $this->form_validation->set_rules('periode', 'Periode', 'required');
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('temp_pengunjung/header', $data);
+            $this->load->view('temp_pengunjung/sidebar', $data);
+            $this->load->view('pengunjung/pelatihan/edit', $data);
+            $this->load->view('temp_pengunjung/footer');
+        } else {
+
+            $id = $this->input->post('id_kegiatan');
+            if (!empty($gambar_baru)) {
+                $edit_data = array(
+                    "kegiatan" => $this->input->post('kegiatan', true),
+                    "peran" => $this->input->post('peran', true),
+                    "no_sertifikat" => $this->input->post('nomor', true),
+                    "penyelenggara" => $this->input->post('penyelenggara', true),
+                    "periode" => $this->input->post('periode', true)
+                );
+            } else {
+                $edit_data = array(
+                    "kegiatan" => $this->input->post('kegiatan', true),
+                    "peran" => $this->input->post('peran', true),
+                    "no_sertifikat" => $this->input->post('nomor', true),
+                    "penyelenggara" => $this->input->post('penyelenggara', true),
+                    "periode" => $this->input->post('periode', true)
+                );
+            }
+
+            $this->kgt->ubahKegiatan($id, $edit_data);
+            $this->session->set_flashdata('flash', 'diubah');
+            redirect('pengunjung/penunjang');
+        }
+    }
+
+    public function hapusKegiatan($id, $kategori)
+    {
+        if (
+            $kategori == 'organisasi' ||
+            $kategori == 'pelatihan' ||
+            $kategori == 'penunjang' ||
+            $kategori == 'prestasi' ||
+            $kategori == 'pertemuan'
+        ) {
+            $this->kgt->hapusKegiatan($id, $kategori);
+            $this->session->set_flashdata('flash', 'dihapus');
+            redirect('pengunjung/' . $kategori);
+        }
     }
 }

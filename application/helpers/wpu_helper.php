@@ -27,7 +27,7 @@ function check_admin()
 function get_user()
 {
     $ci = &get_instance();
-    $username = $ci->session->userdata('username'); 
+    $username = $ci->session->userdata('username');
     $user = $ci->db->get_where('user', ['username' => $username])->row_array();
     return $user;
 }
