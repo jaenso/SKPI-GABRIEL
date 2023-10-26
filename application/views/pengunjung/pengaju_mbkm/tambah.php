@@ -26,8 +26,8 @@
                                     <input required type="text" class="form-control" name="ketmbkm" placeholder="Keterangan">
                                 </div>
                                 <div class="form-group">
-                                    <label for="file_mbkm">File</label>
-                                    <input class="bg-green form-control" type="file" name="file_mbkm" id="file_mbkm">
+                                    <label for="file_akademik">File</label>
+                                    <input class="bg-green form-control" type="file" name="file_akademik" id="file_akademik" accept=".jpg, .jpeg, .png" required>
                                 </div>
                                 <div class="box-footer">
                                     <button type="submit" class="btn btn-primary">Simpan</button>

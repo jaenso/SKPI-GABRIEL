@@ -46,18 +46,21 @@
                                     <td><?= $data->penyelenggara ?></td>
                                     <td><?= $data->periode ?></td>
                                     <td>
-                                        <label class="btn bg-green" href="">VALID <i class="fa fa-check-square fa-lg"></i></label>
-
-                                        <label class="btn bg-blue" href=""><?= $data->status ?></label>
+                                        <?php if ($data->validasi == 'VALID') { ?>
+                                            <label class="btn bg-green"><?= $data->validasi ?> <i class="fa fa-check-square fa-lg"></i></label>
+                                        <?php } else if ($data->validasi == 'BARU') { ?>
+                                            <label class="btn bg-blue"><?= $data->validasi ?></label>
+                                        <?php }  ?>
                                     </td>
                                     <td align="center">
-                                        <label class="btn bg-green" href="">VALID <i class="fa fa-check-square fa-lg"></i></label>
-
-                                        <a class="btn bg-olive" href="<?= base_url('kegiatan/editPrestasi/' . $data->id_kegiatan); ?>">
-                                            <i class="fa fa-edit fa-lg" title="Edit"></i></a>
-                                        <a class="btn bg-orange" href="<?= base_url('kegiatan/hapusKegiatan/' . $data->id_kegiatan . '/' . $data->kategori); ?>" onclick="return confirm('Yakin?');">
-                                            <i class="fa fa-trash fa-lg" title="Delete"></i></a>
-
+                                        <?php if ($data->validasi == 'VALID') { ?>
+                                            <label class="btn bg-green"><?= $data->validasi ?> <i class="fa fa-check-square fa-lg"></i></label>
+                                        <?php } else if ($data->validasi != 'VALID') { ?>
+                                            <a class="btn bg-olive" href="<?= base_url('kegiatan/editKegiatan/' . $data->id_kegiatan . '/' . $data->kategori); ?>">
+                                                <i class="fa fa-edit fa-lg" title="Edit"></i></a>
+                                            <a class="btn bg-orange" href="<?= base_url('kegiatan/hapusKegiatan/' . $data->id_kegiatan . '/' . $data->kategori); ?>" onclick="return confirm('Yakin?');">
+                                                <i class="fa fa-trash fa-lg" title="Delete"></i></a>
+                                        <?php } ?>
                                     </td>
                                 </tr>
                             <?php endforeach ?>

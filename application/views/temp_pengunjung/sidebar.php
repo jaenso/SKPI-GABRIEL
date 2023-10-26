@@ -85,7 +85,7 @@
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
             <li class="nav-item menu-open">
-              <a href="<?= base_url(); ?>pengunjung" class="nav-link">
+              <a href="<?= base_url('pengunjung/index/' . $user['username']); ?>" class="nav-link">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
                   Dashboard
@@ -223,7 +223,8 @@
               <ol class="breadcrumb float-sm-right">
 
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active"><?= $title ?></li>
+                <li class="breadcrumb-item active"><?= $sub_title ?></li>
+                <li class="breadcrumb-item active"><?= $deskripsi ?></li>
               </ol>
             </div>
             <!-- /.col -->

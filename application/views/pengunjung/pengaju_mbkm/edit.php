@@ -34,17 +34,18 @@
                                         <input type="text" class="form-control" name="ketmbkm" value="<?= $data['keterangan']; ?>">
                                     </div>
                                     <div class="form-group">
-                                        <label for="file_mbkm">File </label>
-                                        <input class="bg-green form-control" type="file" name="file_mbkm" id="file_mbkm">
-                                        <input type="hidden" name="filelama" value="96000akhirnya_29.pdf" />
-                                        <p class="help-block">Lihat File : <br>
-                                            <img class="img-responsive pad" src="codes/sertifikat/96000akhirnya_29.pdf" target="_blank">
-                                        </p>
+                                        <label for="file_akademik">File </label>
+                                        <input class="bg-green form-control" type="file" name="file_akademik" id="file_akademik" accept=".jpg, .jpeg, .png">
+                                        <?php if (!empty($data['file_akademik'])) : ?>
+                                            <p class="help-block">Lihat File : <br>
+                                                <img class="img-responsive pad w-50" src="<?= base_url('uploads/AKADEMIK/' . $data['file_akademik']); ?>" target="_blank">
+                                            </p>
+                                        <?php endif; ?>
+
                                     </div>
-                                    <input type="hidden" name="valmbkm" value="TINJAU ULANG">
                                     <div class="form-group">
                                         <label>Keterangan</label>
-                                        <textarea name="valketmbkm" readonly="readonly" required class="form-control" rows="3"><?= $data['ket_status']; ?></textarea>
+                                        <textarea name="valketmbkm" readonly="readonly" required class="form-control" rows="3"><?= $data['validasi']; ?></textarea>
                                     </div>
                                     <div class="box-footer">
                                         <button type="submit" class="btn btn-primary">Perbarui</button>&nbsp;&nbsp;&nbsp;

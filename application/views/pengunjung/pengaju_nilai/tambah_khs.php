@@ -38,7 +38,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputFile">File KHS Semeter yang diajukan</label>
-                                    <input class="bg-green form-control" type="file" name="file_khs" id="file_khs">
+                                    <input class="bg-green form-control" type="file" name="file_akademik" id="file_akademik" accept=".jpg, .jpeg, .png" required>
                                 </div>
                                 <div class="box-footer">
                                     <button type="submit" class="btn btn-success">Simpan</button>

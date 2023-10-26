@@ -1,8 +1,6 @@
 <section class="content">
     <div class="row">
         <div class="col-12">
-            <!-- /.box -->
-
             <div class="card card-info">
                 <div class="card-body">
                     <!-- left column -->
@@ -27,15 +25,15 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Nomor Ijazah</label>
-                                    <input required type="text" class="form-control" name="noijazah" placeholder="Nomor Ijazah">
+                                    <input required type="text" class="form-control" name="no_ijazah" placeholder="Nomor Ijazah">
                                 </div>
                                 <div class="form-group">
                                     <label>Tanggal Lulus</label>
-                                    <input required type="date" class="form-control" name="tgllulus" placeholder="Tanggal Lulus Kuliah">
+                                    <input required type="date" class="form-control" name="tgl_lulus" placeholder="Tanggal Lulus Kuliah">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputFile">File Ijazah</label>
-                                    <input class="bg-green form-control" type="file" name="uploadijazah" id="file5mb" required>
+                                    <label for="file_ijazah">File Ijazah</label>
+                                    <input class="bg-green form-control" type="file" name="file_ijazah" id="file_ijazah" accept=".jpg, .jpeg, .png" required>
                                 </div>
 
                                 <hr>

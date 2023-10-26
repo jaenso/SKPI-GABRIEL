@@ -56,7 +56,7 @@
                                     <input type="hidden" name="val_k1" value="TINJAU ULANG">
                                     <div class="form-group">
                                         <label>Keterangan</label>
-                                        <textarea name="keterangan" readonly="readonly" required class="form-control" rows="3">Pengajuan Baru. Belum Validasi.</textarea>
+                                        <textarea name="keterangan" readonly="readonly" required class="form-control" rows="3"><?= $data['ket_validasi']; ?></textarea>
                                     </div>
                                     <div class="box-footer">
                                         <button type="submit" class="btn btn-primary">Perbarui</button>&nbsp;&nbsp;&nbsp;

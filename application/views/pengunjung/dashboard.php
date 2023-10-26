@@ -61,7 +61,7 @@
             <div class="input-group-prepend">
               <button class="btn btn-secondary">NIM</button>
             </div>
-            <input type="text" class="form-control" value="DAB108066" disabled>
+            <input type="text" class="form-control" value="<?= $mhs['nim']; ?>" disabled>
           </div>
           <div class="input-group mb-3">
             <div class="input-group-prepend">

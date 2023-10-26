@@ -94,7 +94,77 @@
             </li>
             <li class="nav-item">
               <a href="#" class="nav-link">
-                <i class="nav-icon fa fa-file"></i>
+                <i class="nav-icon fas fa-certificate"></i>
+                <p>
+                  Akademik
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="<?= base_url(); ?>admin/pengaju_nilai" class="nav-link">
+                    <i class="fas fa-upload nav-icon"></i>
+                    <p>Pengajuan Input Nilai</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?= base_url(); ?>admin/pengaju_mbkm" class="nav-link">
+                    <i class="fas fa-upload nav-icon"></i>
+                    <p>Kegiatan MBKM</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?= base_url(); ?>admin/rekap_nilai" class="nav-link">
+                    <i class="fas fa-book nav-icon"></i>
+                    <p>Rekapitulasi Nilai</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-certificate"></i>
+                <p>
+                  Data Keikutsertaan
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="<?= base_url(); ?>admin/organisasi" class="nav-link">
+                    <i class="fas fa-university nav-icon"></i>
+                    <p>Organisasi/Kepanitiaan/Pembinaan Mahasiswa</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?= base_url(); ?>admin/prestasi" class="nav-link">
+                    <i class="fas fa-trophy nav-icon"></i>
+                    <p>Lomba/Prestasi Mahasiswa/Beasiswa</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?= base_url(); ?>admin/pertemuan" class="nav-link">
+                    <i class="fas fa-users nav-icon"></i>
+                    <p>Pertemuan Ilmiah/Seminar/Kuliah Umum/Lokakarya</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?= base_url(); ?>admin/pelatihan" class="nav-link">
+                    <i class="fas fa-certificate nav-icon"></i>
+                    <p>Pelatihan/Kursus</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?= base_url(); ?>admin/penunjang" class="nav-link">
+                    <i class="fas fa-users nav-icon"></i>
+                    <p>Kegiatan Penunjang Profesi/Kompetensi/Pengalaman Kerja</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-file"></i>
                 <p>
                   SKPI
                   <i class="fas fa-angle-left right"></i>

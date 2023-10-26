@@ -5,7 +5,8 @@ class akun extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('akun_model', 'akun');
+        $this->load->model('akun_m', 'akun');
+        $this->load->model('mahasiswa_m', 'mhs');
         $this->load->library('form_validation');
     }
 
@@ -42,7 +43,7 @@ class akun extends CI_Controller
                 if ($user['id_role'] == 1) {
                     redirect('admin');
                 } else {
-                    redirect('pengunjung');
+                    redirect('pengunjung/index/' . $user['username']);
                 }
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password yang dimasukkan tidak sesuai</div>');
@@ -65,10 +66,10 @@ class akun extends CI_Controller
     public function registrasi()
     {
 
+        $this->form_validation->set_rules('email', 'Email', 'required');
         $this->form_validation->set_rules('nama', 'Nama', 'required');
         $this->form_validation->set_rules('username', 'Username', 'required|trim');
-        $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[6]|matches[password2]', ['matches' => 'Password tidak sama!', 'min_length' => 'Password terlalu pendek']);
-        $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password2]');
+        $this->form_validation->set_rules('password', 'Password', 'required');
 
         if ($this->form_validation->run() == false) {
             $data['tittle'] = 'Registrasi Akun';
@@ -76,14 +77,24 @@ class akun extends CI_Controller
             $this->load->view('akun/registrasi');
             $this->load->view('temp_admin/footer');
         } else {
-            $tambah_data = array(
-                "nama" => htmlspecialchars($this->input->post('nama', true)),
-                "username" => htmlspecialchars($this->input->post('username', true)),
-                "password" => password_hash($this->input->post('password1', true), PASSWORD_DEFAULT),
+            $email = htmlspecialchars($this->input->post('email', true));
+            $nama = htmlspecialchars($this->input->post('nama', true));
+            $username = htmlspecialchars($this->input->post('username', true));
+            $password = password_hash($this->input->post('password', true), PASSWORD_DEFAULT);
+            $data_akun = array(
+                "nama" => $nama,
+                "username" => $username,
+                "password" => $password,
                 'id_role' => 2
             );
+            $data_mhs = array(
+                "nama" => $nama,
+                "nim" => $username,
+                "email" => $email
+            );
 
-            $this->akun->tambahAkun($tambah_data);
+            $this->akun->tambahAkun($data_akun);
+            $this->mhs->tambahMahasiswa($data_mhs);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Akun anda berhasil dibuat. Silahkan login</div>');
             redirect('akun');
         }

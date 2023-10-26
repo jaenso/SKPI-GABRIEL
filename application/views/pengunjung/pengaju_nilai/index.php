@@ -43,29 +43,45 @@
                                         Jumlah SKS yang Diprogramkan : <?= $data->jml_sks_program ?><br>
                                         Jumlah SKS Lulus : <?= $data->jml_sks_lulus ?> </td>
                                     <td>
-                                        <a href="#" type="button" class="btn btn-success btn-md" data-toggle="modal" data-target="#myModal4437">
-                                            <i class="fa fa-tasks fa-lg" title="Input Nilai"></i> Cek Input Nilai</a>
-                                        <a class="btn bg-maroon" href="<?= base_url('akademik/inputNilai/' . $data->id_khs); ?>">
-                                            <i class="fa fa-tasks fa-lg" title="Input Nilai"></i> Nilai Belum Diisi</a>
+                                        <?php if ($data->validasi != 'VALID') { ?>
+                                            <a href="#" type="button" class="btn btn-success btn-md" data-toggle="modal" data-target="#myModal4437">
+                                                <i class="fa fa-tasks fa-lg" title="Input Nilai"></i> Cek Input Nilai</a>
+                                            <a class="btn bg-maroon" href="<?= base_url('akademik/inputNilai/' . $data->id_khs); ?>">
+                                                <i class="fa fa-tasks fa-lg" title="Input Nilai"></i> Nilai Belum Diisi</a>
+                                        <?php } else if ($data->validasi == 'VALID') { ?>
+                                            <label class="btn bg-green"><?= $data->validasi ?> <i class="fa fa-check-square fa-lg"></i></label>
+                                        <?php } ?>
                                     </td>
                                     <td>
-                                        <label class="btn bg-green" href="">VALID <i class="fa fa-check-square fa-lg"></i></label>
-                                        <br>Keterangan : <br>
-                                        Sudah sesuai terima kasih <br>
-                                        <label class="btn bg-blue" href=""><?= $data->status ?></label>
-                                        <br>Keterangan : <br>
-                                        <?= $data->keterangan ?>
+                                        <?php if ($data->validasi == 'VALID') { ?>
+                                            <label class="btn bg-green"><?= $data->validasi ?> <i class="fa fa-check-square fa-lg"></i></label>
+                                            <br>Keterangan : <br>
+                                            <?= $data->ket_validasi ?>
+                                        <?php } else if ($data->validasi == 'TINJAU ULANG') { ?>
+                                            <label class="btn bg-warning"><?= $data->validasi ?></label>
+                                            <br>Keterangan : <br>
+                                            <?= $data->ket_validasi ?>
+                                        <?php } else if ($data->validasi == 'TIDAK VALID') { ?>
+                                            <label class="btn bg-danger"><?= $data->validasi ?></label>
+                                            <br>Keterangan : <br>
+                                            <?= $data->ket_validasi ?>
+                                        <?php } else if ($data->validasi == 'BARU') { ?>
+                                            <label class="btn bg-blue"><?= $data->validasi ?></label>
+                                            <br>Keterangan : <br>
+                                            <?= $data->ket_validasi ?>
+                                        <?php }  ?>
                                     </td>
                                     <td align="center">
-                                        <label class="btn bg-green" href="">VALID <i class="fa fa-check-square fa-lg"></i></label>
-
-                                        <a class="btn bg-olive" href="<?= base_url('akademik/editKHS/' . $data->id_khs); ?>">
-                                            <i class="fa fa-edit fa-lg" title="Edit"></i></a>
-                                        <a class="btn bg-maroon" href="<?= base_url('akademik/inputNilai/' . $data->id_khs); ?>">
-                                            <i class="fa fa-tasks fa-lg" title="Input Nilai"></i></a>
-                                        <a class="btn bg-orange" href="<?= base_url('akademik/hapusKHS/' . $data->id_khs); ?>" onclick="return confirm('Yakin?');">
-                                            <i class="fa fa-trash fa-lg" title="Delete"></i></a>
-
+                                        <?php if ($data->validasi == 'VALID') { ?>
+                                            <label class="btn bg-green"><?= $data->validasi ?> <i class="fa fa-check-square fa-lg"></i></label>
+                                        <?php } else if ($data->validasi != 'VALID') { ?>
+                                            <a class="btn bg-olive" href="<?= base_url('akademik/editKHS/' . $data->id_khs); ?>">
+                                                <i class="fa fa-edit fa-lg" title="Edit"></i></a>
+                                            <a class="btn bg-maroon" href="<?= base_url('akademik/inputNilai/' . $data->id_khs); ?>">
+                                                <i class="fa fa-tasks fa-lg" title="Input Nilai"></i></a>
+                                            <a class="btn bg-orange" href="<?= base_url('akademik/hapusKHS/' . $data->id_khs); ?>" onclick="return confirm('Yakin?');">
+                                                <i class="fa fa-trash fa-lg" title="Delete"></i></a>
+                                        <?php } ?>
                                     </td>
                                 </tr>
                             <?php endforeach ?>
