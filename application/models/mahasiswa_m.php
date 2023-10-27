@@ -4,15 +4,20 @@ class mahasiswa_m extends CI_Model
 {
     public function getMahasiswaByUsername($username)
     {
-        $this->db->select('m.*, u.*');
-        $this->db->from('tbl_mahasiswa m');
-        $this->db->join('user u', 'm.nim = u.username', 'inner');
-        $this->db->where('u.username', $username);
+        $this->db->select('*');
+        $this->db->from('tbl_mahasiswa');
+        $this->db->where('nim', $username);
         return $this->db->get()->row_array();
     }
 
     public function tambahMahasiswa($data)
     {
         $this->db->insert('tbl_mahasiswa', $data);
+    }
+
+    public function EditMahasiswa($username, $edit)
+    {
+        $this->db->where('nim', $username);
+        $this->db->update('tbl_mahasiswa', $edit);
     }
 }

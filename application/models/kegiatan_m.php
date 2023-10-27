@@ -2,11 +2,22 @@
 
 class kegiatan_m extends CI_Model
 {
-    public function getKegiatan($data)
+    public function countKegiatan($kategori, $nim)
+    {
+        $this->db->select('COUNT(*) as count');
+        $this->db->from('tbl_kegiatan');
+        $this->db->where('kategori', $kategori);
+        $this->db->where('nim', $nim);
+        $query = $this->db->get();
+        return $query->row()->count;
+    }
+
+    public function getKegiatan($kategori, $nim)
     {
         $this->db->select('*');
         $this->db->from('tbl_kegiatan');
-        $this->db->where('kategori', $data);
+        $this->db->where('kategori', $kategori);
+        $this->db->where('nim', $nim);
         return $this->db->get()->result();
     }
 

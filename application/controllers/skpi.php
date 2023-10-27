@@ -5,12 +5,23 @@ class skpi extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('akademik_m', 'akm');
+        $this->load->model('kegiatan_m', 'kgt');
+        $this->load->model('mahasiswa_m', 'mhs');
         $this->load->model('skpi_m', 'skpi');
         $this->load->library('form_validation');
     }
 
-    public function tambahSKPI()
+    public function tambahSKPI($nim)
     {
+        $data['khs'] = $this->akm->getKHS($nim);
+        $data['mbkm'] = $this->akm->getMBKM($nim);
+        $data['organisasi'] = $this->kgt->getKegiatan('organisasi', $nim);
+        $data['prestasi'] = $this->kgt->getKegiatan('prestasi', $nim);
+        $data['pertemuan'] = $this->kgt->getKegiatan('pertemuan', $nim);
+        $data['pelatihan'] = $this->kgt->getKegiatan('pelatihan', $nim);
+        $data['penunjang'] = $this->kgt->getKegiatan('penunjang', $nim);
+
         $data['user'] = get_user();
         $data['title'] = 'Data Pengajuan SKPI';
         $data['sub_title'] = 'Pengajuan SKPI';
@@ -43,6 +54,7 @@ class skpi extends CI_Controller
                 $file_name = $data['file_name'];
                 $file_path = $config['upload_path'] . $file_name;
                 $tambah = array(
+                    "nim" => $nim,
                     "nomor_ijazah" => $this->input->post('no_ijazah', true),
                     "tanggal_lulus" => $this->input->post('tgl_lulus', true),
                     "file_ijazah" => $file_name,
@@ -50,13 +62,21 @@ class skpi extends CI_Controller
                 );
                 $this->skpi->tambahSKPI($tambah);
                 $this->session->set_flashdata('flash', 'ditambahkan');
-                redirect('pengunjung/pengaju_skpi');
+                redirect('pengunjung/pengaju_skpi/' . $nim);
             }
         }
     }
 
-    public function editSKPI($id)
+    public function editSKPI($id, $nim)
     {
+        $data['khs'] = $this->akm->getKHS($nim);
+        $data['mbkm'] = $this->akm->getMBKM($nim);
+        $data['organisasi'] = $this->kgt->getKegiatan('organisasi', $nim);
+        $data['prestasi'] = $this->kgt->getKegiatan('prestasi', $nim);
+        $data['pertemuan'] = $this->kgt->getKegiatan('pertemuan', $nim);
+        $data['pelatihan'] = $this->kgt->getKegiatan('pelatihan', $nim);
+        $data['penunjang'] = $this->kgt->getKegiatan('penunjang', $nim);
+
         $data['user'] = get_user();
         $data['title'] = 'Data Pengajuan SKPI';
         $data['sub_title'] = 'Pengajuan SKPI';
@@ -105,14 +125,14 @@ class skpi extends CI_Controller
             }
             $this->skpi->EditSKPI($id, $edit);
             $this->session->set_flashdata('flash', 'diubah');
-            redirect('pengunjung/pengaju_skpi');
+            redirect('pengunjung/pengaju_skpi/' . $nim);
         }
     }
 
-    public function hapusSKPI($id)
+    public function hapusSKPI($id, $nim)
     {
         $this->skpi->hapusSKPI($id);
         $this->session->set_flashdata('flash', 'dihapus');
-        redirect('pengunjung/pengaju_skpi');
+        redirect('pengunjung/pengaju_skpi/' . $nim);
     }
 }

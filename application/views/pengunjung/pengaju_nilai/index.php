@@ -12,10 +12,9 @@
                 </div>
                 <div class="card-body">
                     <div class="btn-group">
-                        <a href="<?= base_url(); ?>akademik/tambahKHS">
-                            <button class="btn btn-block btn-primary btn-flat">Tambah Data </button>
-                        </a>
+                        <a href="<?= base_url('akademik/tambahKHS/' . $user['username']); ?>" class="btn btn-block btn-primary btn-flat">Tambah Data</a>
                     </div>
+
                 </div>
 
                 <div class="card-body">
@@ -75,11 +74,11 @@
                                         <?php if ($data->validasi == 'VALID') { ?>
                                             <label class="btn bg-green"><?= $data->validasi ?> <i class="fa fa-check-square fa-lg"></i></label>
                                         <?php } else if ($data->validasi != 'VALID') { ?>
-                                            <a class="btn bg-olive" href="<?= base_url('akademik/editKHS/' . $data->id_khs); ?>">
+                                            <a class="btn bg-olive" href="<?= base_url('akademik/editKHS/' . $data->id_khs . '/' . $user['username']); ?>">
                                                 <i class="fa fa-edit fa-lg" title="Edit"></i></a>
                                             <a class="btn bg-maroon" href="<?= base_url('akademik/inputNilai/' . $data->id_khs); ?>">
                                                 <i class="fa fa-tasks fa-lg" title="Input Nilai"></i></a>
-                                            <a class="btn bg-orange" href="<?= base_url('akademik/hapusKHS/' . $data->id_khs); ?>" onclick="return confirm('Yakin?');">
+                                            <a class="btn bg-orange" href="<?= base_url('akademik/hapusKHS/' . $data->id_khs . '/' . $user['username']); ?>" onclick="return confirm('Yakin?');">
                                                 <i class="fa fa-trash fa-lg" title="Delete"></i></a>
                                         <?php } ?>
                                     </td>

@@ -14,7 +14,7 @@
                 </div>
                 <div class="card-body">
                     <div class="btn-group">
-                        &nbsp;<a href="<?= base_url(); ?>kegiatan/tambahPenunjang">
+                        &nbsp;<a href="<?= base_url('kegiatan/tambahPenunjang/' . $user['username']); ?>">
                             <button class="btn btn-block btn-primary btn-flat">Tambah Data </button>
                         </a>
                     </div>
@@ -58,9 +58,9 @@
                                         <?php if ($data->validasi == 'VALID') { ?>
                                             <label class="btn bg-green"><?= $data->validasi ?> <i class="fa fa-check-square fa-lg"></i></label>
                                         <?php } else if ($data->validasi != 'VALID') { ?>
-                                            <a class="btn bg-olive" href="<?= base_url('kegiatan/editKegiatan/' . $data->id_kegiatan . '/' . $data->kategori); ?>">
+                                            <a class="btn bg-olive" href="<?= base_url('kegiatan/editKegiatan/' . $data->id_kegiatan . '/' . $data->kategori . '/' . $user['username']); ?>">
                                                 <i class="fa fa-edit fa-lg" title="Edit"></i></a>
-                                            <a class="btn bg-orange" href="<?= base_url('kegiatan/hapusKegiatan/' . $data->id_kegiatan . '/' . $data->kategori); ?>" onclick="return confirm('Yakin?');">
+                                            <a class="btn bg-orange" href="<?= base_url('kegiatan/hapusKegiatan/' . $data->id_kegiatan . '/' . $data->kategori . '/' . $user['username']); ?>" onclick="return confirm('Yakin?');">
                                                 <i class="fa fa-trash fa-lg" title="Delete"></i></a>
                                         <?php } ?>
                                     </td>

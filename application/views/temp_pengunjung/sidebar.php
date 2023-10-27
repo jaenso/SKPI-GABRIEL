@@ -82,8 +82,6 @@
         <!-- Sidebar Menu -->
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
             <li class="nav-item menu-open">
               <a href="<?= base_url('pengunjung/index/' . $user['username']); ?>" class="nav-link">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -94,7 +92,7 @@
             </li>
             <?php if ($user['status'] == 'tidak_aktif') { ?>
               <li class="nav-item">
-                <a href="<?= base_url(); ?>pengunjung/lock_menu" class="nav-link">
+                <a href="<?= base_url('pengunjung/lock_menu/' . $user['username']); ?>" class="nav-link">
                   <i class="nav-icon fas fa-lock"></i>
                   <p>MENU DIKUNCI LENGKAPI BIODATA UNTUK MEMBUKA MENU
                   </p>
@@ -112,19 +110,19 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="<?= base_url(); ?>pengunjung/pengaju_nilai" class="nav-link">
+                    <a href="<?= base_url('pengunjung/pengaju_nilai/' . $user['username']); ?>" class="nav-link">
                       <i class="fas fa-upload nav-icon"></i>
                       <p>Pengajuan Input Nilai</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="<?= base_url(); ?>pengunjung/pengaju_mbkm" class="nav-link">
+                    <a href="<?= base_url('pengunjung/pengaju_mbkm/' . $user['username']); ?>" class="nav-link">
                       <i class="fas fa-upload nav-icon"></i>
                       <p>Kegiatan MBKM</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="<?= base_url(); ?>pengunjung/rekap_nilai" class="nav-link">
+                    <a href="<?= base_url('pengunjung/rekap_nilai/' . $user['username']); ?>" class="nav-link">
                       <i class="fas fa-book nav-icon"></i>
                       <p>Rekapitulasi Nilai</p>
                     </a>
@@ -141,31 +139,31 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="<?= base_url(); ?>pengunjung/organisasi" class="nav-link">
+                    <a href="<?= base_url('pengunjung/organisasi/' . $user['username']); ?>" class="nav-link">
                       <i class="fas fa-university nav-icon"></i>
                       <p>Organisasi/Kepanitiaan/Pembinaan Mahasiswa</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="<?= base_url(); ?>pengunjung/prestasi" class="nav-link">
+                    <a href="<?= base_url('pengunjung/prestasi/' . $user['username']); ?>" class="nav-link">
                       <i class="fas fa-trophy nav-icon"></i>
                       <p>Lomba/Prestasi Mahasiswa/Beasiswa</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="<?= base_url(); ?>pengunjung/pertemuan" class="nav-link">
+                    <a href="<?= base_url('pengunjung/pertemuan/' . $user['username']); ?>" class="nav-link">
                       <i class="fas fa-users nav-icon"></i>
                       <p>Pertemuan Ilmiah/Seminar/Kuliah Umum/Lokakarya</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="<?= base_url(); ?>pengunjung/pelatihan" class="nav-link">
+                    <a href="<?= base_url('pengunjung/pelatihan/' . $user['username']); ?>" class="nav-link">
                       <i class="fas fa-certificate nav-icon"></i>
                       <p>Pelatihan/Kursus</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="<?= base_url(); ?>pengunjung/penunjang" class="nav-link">
+                    <a href="<?= base_url('pengunjung/penunjang/' . $user['username']); ?>" class="nav-link">
                       <i class="fas fa-users nav-icon"></i>
                       <p>Kegiatan Penunjang Profesi/Kompetensi/Pengalaman Kerja</p>
                     </a>
@@ -182,13 +180,13 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="<?= base_url(); ?>pengunjung/pengaju_skpi" class="nav-link">
+                    <a href="<?= base_url('pengunjung/pengaju_skpi/' . $user['username']); ?>" class="nav-link">
                       <i class="bi bi-ticket-detailed nav-icon"></i>
                       <p>Pengajuan SKPI</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="<?= base_url(); ?>pengunjung/cetak_skpi" class="nav-link">
+                    <a href="<?= base_url('pengunjung/cetak_skpi/' . $user['username']); ?>" class="nav-link">
                       <i class="fas fa-file nav-icon"></i>
                       <p>Cetak SKPI</p>
                     </a>

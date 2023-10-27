@@ -52,9 +52,22 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td colspan=3>tidak ada data</td>
-                                        </tr>
+                                        <?php
+                                        $no = 1;
+                                        foreach ($khs as $khs) : ?>
+                                            <tr>
+                                                <td>
+                                                    <?= $no++ ?>
+                                                </td>
+                                                <td><?= $khs->semester ?></td>
+                                                <td> <label class="btn bg-warning"><?= $khs->validasi ?></label>
+                                                </td>
+                                                <td><?= $khs->ket_validasi ?></td>
+                                            </tr>
+                                            <!-- <tr>
+                                                <td colspan=3>tidak ada data</td>
+                                            </tr> -->
+                                        <?php endforeach ?>
                                     </tbody>
                                 </table>
 
@@ -74,9 +87,21 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td colspan=3>tidak ada data</td>
-                                        </tr>
+                                        <?php
+                                        $no = 1;
+                                        foreach ($mbkm as $mbkm) : ?>
+                                            <tr>
+                                                <td>
+                                                    <?= $no++ ?>
+                                                </td>
+                                                <td><?= $mbkm->kegiatan ?></td>
+                                                <td> <label class="btn bg-warning"><?= $mbkm->validasi ?></label>
+                                                </td>
+                                            </tr>
+                                            <!-- <tr>
+                                                <td colspan=3>tidak ada data</td>
+                                            </tr> -->
+                                        <?php endforeach ?>
                                     </tbody>
                                 </table>
 
@@ -96,9 +121,21 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td colspan=3>tidak ada data</td>
-                                        </tr>
+                                        <?php
+                                        $no = 1;
+                                        foreach ($organisasi as $pts) : ?>
+                                            <tr>
+                                                <td>
+                                                    <?= $no++ ?>
+                                                </td>
+                                                <td><?= $pts->kegiatan ?></td>
+                                                <td> <label class="btn bg-warning"><?= $pts->validasi ?></label>
+                                                </td>
+                                            </tr>
+                                            <!-- <tr>
+                                                <td colspan=3>tidak ada data</td>
+                                            </tr> -->
+                                        <?php endforeach ?>
                                     </tbody>
                                 </table>
 
@@ -117,9 +154,21 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td colspan=3>tidak ada data</td>
-                                        </tr>
+                                        <?php
+                                        $no = 1;
+                                        foreach ($prestasi as $ogs) : ?>
+                                            <tr>
+                                                <td>
+                                                    <?= $no++ ?>
+                                                </td>
+                                                <td><?= $ogs->kegiatan ?></td>
+                                                <td> <label class="btn bg-warning"><?= $ogs->validasi ?></label>
+                                                </td>
+                                            </tr>
+                                            <!-- <tr>
+                                                <td colspan=3>tidak ada data</td>
+                                            </tr> -->
+                                        <?php endforeach ?>
                                     </tbody>
                                 </table>
 
@@ -138,9 +187,21 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td colspan=3>tidak ada data</td>
-                                        </tr>
+                                        <?php
+                                        $no = 1;
+                                        foreach ($pertemuan as $ptm) : ?>
+                                            <tr>
+                                                <td>
+                                                    <?= $no++ ?>
+                                                </td>
+                                                <td><?= $ptm->kegiatan ?></td>
+                                                <td> <label class="btn bg-warning"><?= $ptm->validasi ?></label>
+                                                </td>
+                                            </tr>
+                                            <!-- <tr>
+                                                <td colspan=3>tidak ada data</td>
+                                            </tr> -->
+                                        <?php endforeach ?>
                                     </tbody>
                                 </table>
 
@@ -159,9 +220,21 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td colspan=3>tidak ada data</td>
-                                        </tr>
+                                        <?php
+                                        $no = 1;
+                                        foreach ($pelatihan as $plt) : ?>
+                                            <tr>
+                                                <td>
+                                                    <?= $no++ ?>
+                                                </td>
+                                                <td><?= $plt->kegiatan ?></td>
+                                                <td> <label class="btn bg-warning"><?= $plt->validasi ?></label>
+                                                </td>
+                                            </tr>
+                                            <!-- <tr>
+                                                <td colspan=3>tidak ada data</td>
+                                            </tr> -->
+                                        <?php endforeach ?>
                                     </tbody>
                                 </table>
 
@@ -180,16 +253,28 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td colspan=3>tidak ada data</td>
-                                        </tr>
+                                        <?php
+                                        $no = 1;
+                                        foreach ($penunjang as $pnj) : ?>
+                                            <tr>
+                                                <td>
+                                                    <?= $no++ ?>
+                                                </td>
+                                                <td><?= $pnj->kegiatan ?></td>
+                                                <td> <label class="btn bg-warning"><?= $pnj->validasi ?></label>
+                                                </td>
+                                            </tr>
+                                            <!-- <tr>
+                                                <td colspan=3>tidak ada data</td>
+                                            </tr> -->
+                                        <?php endforeach ?> </tr>
                                     </tbody>
                                 </table>
                                 <hr>
                                 <div class="col-xs-12">
                                     <div class="checkbox icheck bg-success">
                                         <label>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" required><i> Data Akademik dan Data Keikutsertaan <b><u>SUDAH LENGKAP DAN VALID</u></b></i>
+                                            <input type="checkbox" required><i> Data Akademik dan Data Keikutsertaan <b><u>SUDAH LENGKAP DAN VALID</u></b></i>
                                         </label>
                                     </div>
                                 </div>
@@ -197,7 +282,7 @@
                                 <hr>
 
                                 <div class="box-footer">
-                                    <button type="submit" class="btn btn-primary">Ajukan</button>&nbsp;&nbsp;&nbsp;
+                                    <button type="submit" class="btn btn-primary">Ajukan</button>
                                     <button type="button" class="btn btn-warning btn-flat" onClick="history.back();">Batalkan</button>
                                 </div>
                             </form>

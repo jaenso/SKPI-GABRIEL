@@ -2,17 +2,19 @@
 
 class akademik_m extends CI_Model
 {
-  public function getKHS()
+  public function getKHS($username)
   {
     $this->db->select('*');
     $this->db->from('tbl_khs');
+    $this->db->where('nim', $username);
     return $this->db->get()->result();
   }
 
-  public function getMBKM()
+  public function getMBKM($username)
   {
     $this->db->select('*');
     $this->db->from('tbl_mbkm');
+    $this->db->where('nim', $username);
     return $this->db->get()->result();
   }
 

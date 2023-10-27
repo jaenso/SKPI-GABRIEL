@@ -2,10 +2,11 @@
 
 class skpi_m extends CI_Model
 {
-    public function getSKPI()
+    public function getSKPI($nim)
     {
         $this->db->select('*');
         $this->db->from('tbl_skpi');
+        $this->db->where('nim', $nim);
         return $this->db->get()->result();
     }
 

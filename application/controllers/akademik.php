@@ -70,7 +70,7 @@ class akademik extends CI_Controller
         }
     }
 
-    public function tambahKHS()
+    public function tambahKHS($nim)
     {
         $data['user'] = get_user();
         $data['title'] = 'Data Pengajuan Nilai';
@@ -104,7 +104,7 @@ class akademik extends CI_Controller
                 $file_name = $data['file_name'];
                 $file_path = $config['upload_path'] . $file_name;
                 $tambah = array(
-                    "id_user" => $this->input->post('id_user'),
+                    "nim" => $nim,
                     "semester" => $this->input->post('smt', true),
                     "jml_matkul" => $this->input->post('jml_matkul', true),
                     "jml_sks_program" => $this->input->post('sks_beban', true),
@@ -114,12 +114,12 @@ class akademik extends CI_Controller
                 );
                 $this->akm->tambahKHS($tambah);
                 $this->session->set_flashdata('flash', 'ditambahkan');
-                redirect('pengunjung/pengaju_nilai');
+                redirect('pengunjung/pengaju_nilai/' . $nim);
             }
         }
     }
 
-    public function editKHS($id)
+    public function editKHS($id, $nim)
     {
         $data['data'] = $this->akm->getKHSById($id);
         $data['user'] = get_user();
@@ -154,14 +154,12 @@ class akademik extends CI_Controller
                 $file_path = $config['upload_path'] . $file_name;
             }
 
-            $id_user = $this->input->post('id_user', true);
             $semester = $this->input->post('semester', true);
             $jml_matkul = $this->input->post('jml_matkul', true);
             $jml_sks_program = $this->input->post('jml_sks_program', true);
             $jml_sks_lulus = $this->input->post('jml_sks_lulus', true);
             if (!empty($file_name)) {
                 $edit = array(
-                    "id_user" => $id_user,
                     "semester" => $semester,
                     "jml_matkul" => $jml_matkul,
                     "jml_sks_program" => $jml_sks_program,
@@ -171,7 +169,6 @@ class akademik extends CI_Controller
                 );
             } else {
                 $edit = array(
-                    "id_user" => $id_user,
                     "semester" => $semester,
                     "jml_matkul" => $jml_matkul,
                     "jml_sks_program" => $jml_sks_program,
@@ -180,18 +177,18 @@ class akademik extends CI_Controller
             }
             $this->akm->EditKHS($id, $edit);
             $this->session->set_flashdata('flash', 'diubah');
-            redirect('pengunjung/pengaju_nilai');
+            redirect('pengunjung/pengaju_nilai/' . $nim);
         }
     }
 
-    public function hapusKHS($id)
+    public function hapusKHS($id, $nim)
     {
         $this->akm->hapusKHS($id);
         $this->session->set_flashdata('flash', 'dihapus');
-        redirect('pengunjung/pengaju_nilai');
+        redirect('pengunjung/pengaju_nilai/' . $nim);
     }
 
-    public function tambahMBKM()
+    public function tambahMBKM($nim)
     {
         $data['user'] = get_user();
         $data['title'] = 'Kegiatan Merdeka Belajar Kampus Merdeka';
@@ -223,7 +220,7 @@ class akademik extends CI_Controller
                 $file_name = $data['file_name'];
                 $file_path = $config['upload_path'] . $file_name;
                 $tambah = array(
-                    "id_user" => $this->input->post('id_user'),
+                    "nim" => $nim,
                     "kegiatan" => $this->input->post('kegmbkm', true),
                     "keterangan" => $this->input->post('ketmbkm', true),
                     "file_akademik" => $file_name,
@@ -231,12 +228,12 @@ class akademik extends CI_Controller
                 );
                 $this->akm->tambahMBKM($tambah);
                 $this->session->set_flashdata('flash', 'ditambahkan');
-                redirect('pengunjung/pengaju_mbkm');
+                redirect('pengunjung/pengaju_mbkm/' . $nim);
             }
         }
     }
 
-    public function editMBKM($id)
+    public function editMBKM($id, $nim)
     {
         $data['data'] = $this->akm->getMBKMById($id);
         $data['user'] = get_user();
@@ -287,14 +284,14 @@ class akademik extends CI_Controller
             }
             $this->akm->ubahMBKM($id, $edit);
             $this->session->set_flashdata('flash', 'diubah');
-            redirect('pengunjung/pengaju_mbkm');
+            redirect('pengunjung/pengaju_mbkm/' . $nim);
         }
     }
 
-    public function hapusMBKM($id)
+    public function hapusMBKM($id, $nim)
     {
         $this->akm->hapusMBKM($id);
         $this->session->set_flashdata('flash', 'dihapus');
-        redirect('pengunjung/pengaju_mbkm');
+        redirect('pengunjung/pengaju_mbkm/' . $nim);
     }
 }

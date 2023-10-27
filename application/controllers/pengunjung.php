@@ -19,15 +19,23 @@ class pengunjung extends CI_Controller
         $data['title'] = 'Dashboard Utama';
         $data['sub_title'] = 'Dashboard';
         $data['deskripsi'] = 'Data Mahasiswa';
+
+        $data['organisasi'] = $this->kgt->countKegiatan('organisasi', $username);
+        $data['prestasi'] = $this->kgt->countKegiatan('prestasi', $username);
+        $data['pertemuan'] = $this->kgt->countKegiatan('pertemuan', $username);
+        $data['pelatihan'] = $this->kgt->countKegiatan('pelatihan', $username);
+        $data['penunjang'] = $this->kgt->countKegiatan('penunjang', $username);
+
         $this->load->view('temp_pengunjung/header', $data);
         $this->load->view('temp_pengunjung/sidebar', $data);
         $this->load->view('pengunjung/dashboard', $data);
         $this->load->view('temp_pengunjung/footer');
     }
 
-    public function pengaju_nilai()
+
+    public function pengaju_nilai($username)
     {
-        $data['data'] = $this->akm->getKHS();
+        $data['data'] = $this->akm->getKHS($username);
         is_logged_out();
         $data['user'] = get_user();
         $data['title'] = 'Data Pengajuan Nilai';
@@ -35,13 +43,13 @@ class pengunjung extends CI_Controller
         $data['deskripsi'] = 'Pengajuan Input Nilai';
         $this->load->view('temp_pengunjung/header', $data);
         $this->load->view('temp_pengunjung/sidebar', $data);
-        $this->load->view('pengunjung/pengaju_nilai/index');
+        $this->load->view('pengunjung/pengaju_nilai/index', $data);
         $this->load->view('temp_pengunjung/footer');
     }
 
-    public function pengaju_mbkm()
+    public function pengaju_mbkm($username)
     {
-        $data['data'] = $this->akm->getMBKM();
+        $data['data'] = $this->akm->getMBKM($username);
         is_logged_out();
         $data['user'] = get_user();
         $data['title'] = 'Kegiatan Merdeka Belajar Kampus Merdeka';
@@ -53,9 +61,9 @@ class pengunjung extends CI_Controller
         $this->load->view('temp_pengunjung/footer');
     }
 
-    public function rekap_nilai()
+    public function rekap_nilai($username)
     {
-        $data['data'] = $this->akm->getKHS();
+        $data['data'] = $this->akm->getKHS($username);
         is_logged_out();
         $data['user'] = get_user();
         $data['title'] = 'Data Rekapitulasi Nilai';
@@ -67,10 +75,10 @@ class pengunjung extends CI_Controller
         $this->load->view('temp_pengunjung/footer');
     }
 
-    public function organisasi()
+    public function organisasi($username)
     {
         $kategori = 'organisasi';
-        $data['data'] = $this->kgt->getKegiatan($kategori);
+        $data['data'] = $this->kgt->getKegiatan($kategori, $username);
         is_logged_out();
         $data['user'] = get_user();
         $data['title'] = 'Daftar Keikutsertaan';
@@ -82,10 +90,10 @@ class pengunjung extends CI_Controller
         $this->load->view('temp_pengunjung/footer');
     }
 
-    public function prestasi()
+    public function prestasi($username)
     {
         $kategori = 'prestasi';
-        $data['data'] = $this->kgt->getKegiatan($kategori);
+        $data['data'] = $this->kgt->getKegiatan($kategori, $username);
         is_logged_out();
         $data['user'] = get_user();
         $data['title'] = 'Daftar Keikutsertaan';
@@ -97,10 +105,10 @@ class pengunjung extends CI_Controller
         $this->load->view('temp_pengunjung/footer');
     }
 
-    public function pertemuan()
+    public function pertemuan($username)
     {
         $kategori = 'pertemuan';
-        $data['data'] = $this->kgt->getKegiatan($kategori);
+        $data['data'] = $this->kgt->getKegiatan($kategori, $username);
         is_logged_out();
         $data['user'] = get_user();
         $data['title'] = 'Daftar Keikutsertaan';
@@ -112,10 +120,10 @@ class pengunjung extends CI_Controller
         $this->load->view('temp_pengunjung/footer');
     }
 
-    public function pelatihan()
+    public function pelatihan($username)
     {
         $kategori = 'pelatihan';
-        $data['data'] = $this->kgt->getKegiatan($kategori);
+        $data['data'] = $this->kgt->getKegiatan($kategori, $username);
         is_logged_out();
         $data['user'] = get_user();
         $data['title'] = 'Daftar Keikutsertaan';
@@ -127,10 +135,10 @@ class pengunjung extends CI_Controller
         $this->load->view('temp_pengunjung/footer');
     }
 
-    public function penunjang()
+    public function penunjang($username)
     {
         $kategori = 'penunjang';
-        $data['data'] = $this->kgt->getKegiatan($kategori);
+        $data['data'] = $this->kgt->getKegiatan($kategori, $username);
         is_logged_out();
         $data['user'] = get_user();
         $data['title'] = 'Daftar Keikutsertaan';
@@ -142,22 +150,23 @@ class pengunjung extends CI_Controller
         $this->load->view('temp_pengunjung/footer');
     }
 
-    public function lock_menu()
+    public function lock_menu($username)
     {
         is_logged_out();
         $data['user'] = get_user();
+        $data['mhs'] = $this->mhs->getMahasiswaByUsername($username);
         $data['title'] = 'Master Data Mahasiswa';
         $data['sub_title'] = 'Dashboard';
         $data['deskripsi'] = 'Merdeka Belajar Kampus Merdeka';
         $this->load->view('temp_pengunjung/header', $data);
         $this->load->view('temp_pengunjung/sidebar', $data);
-        $this->load->view('pengunjung/lock_menu/index');
+        $this->load->view('pengunjung/lock_menu/index', $data);
         $this->load->view('temp_pengunjung/footer');
     }
 
-    public function pengaju_skpi()
+    public function pengaju_skpi($username)
     {
-        $data['data'] = $this->skpi->getSKPI();
+        $data['data'] = $this->skpi->getSKPI($username);
         is_logged_out();
         $data['user'] = get_user();
         $data['title'] = 'Data Pengajuan SKPI';
@@ -166,6 +175,20 @@ class pengunjung extends CI_Controller
         $this->load->view('temp_pengunjung/header', $data);
         $this->load->view('temp_pengunjung/sidebar', $data);
         $this->load->view('pengunjung/pengaju_skpi/index', $data);
+        $this->load->view('temp_pengunjung/footer');
+    }
+
+    public function cetak_skpi($username)
+    {
+        $data['data'] = $this->skpi->getSKPI($username);
+        is_logged_out();
+        $data['user'] = get_user();
+        $data['title'] = 'Data Pengajuan SKPI';
+        $data['sub_title'] = 'Pengajuan SKPI';
+        $data['deskripsi'] = 'Surat Keterangan Pengganti Ijazah';
+        $this->load->view('temp_pengunjung/header', $data);
+        $this->load->view('temp_pengunjung/sidebar', $data);
+        $this->load->view('pengunjung/cetak_skpi/index', $data);
         $this->load->view('temp_pengunjung/footer');
     }
 }

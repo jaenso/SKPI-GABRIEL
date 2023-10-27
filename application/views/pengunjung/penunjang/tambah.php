@@ -42,11 +42,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Waktu/Periode</label>
-                                    <input required type="date" class="form-control" name="periode" placeholder="Contoh. 20-22 Agustus 2021 , 29 Agustus 2021">
+                                    <input required type="text" class="form-control" name="periode" placeholder="Contoh. 20-22 Agustus 2021 , 29 Agustus 2021">
                                 </div>
                                 <div class="form-group">
                                     <label for="file_sertifikat">File Sertifikat</label>
-                                    <input class="bg-green form-control" type="file" name="file_sertifikat" id="file_sertifikat" required>
+                                    <input class="bg-green form-control" type="file" name="file_sertifikat" id="file_sertifikat" accept=".pdf" required>
                                 </div>
                                 <div class="box-footer">
                                     <button type="submit" class="btn btn-primary">Simpan</button>&nbsp;&nbsp;&nbsp;

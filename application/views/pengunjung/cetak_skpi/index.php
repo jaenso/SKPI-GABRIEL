@@ -14,17 +14,28 @@
               <tr align="center">
                 <th width="5%">No.</th>
                 <th>Nama File</th>
-                <th>Nama Mahasiswa</th>
+                <th>NIM Mahasiswa</th>
                 <th>File</th>
               </tr>
             </thead>
             <tbody>
-
+              <?php
+              $no = 1;
+              foreach ($data as $data) : ?>
+                <tr>
+                  <td><?= $no++ ?></td>
+                  <td><?= $data->file_skpi ?></td>
+                  <td><?= $data->nim ?></td>
+                  <td>
+                    <a href="<?= base_url('uploads/IJAZAH/' . $data->file_skpi); ?>" target="_blank"><?= $data->file_skpi; ?></a>
+                  </td>
+                </tr>
+              <?php endforeach ?>
             </tbody>
           </table>
 
         </div><!-- /.box-body -->
       </div><!-- /.box -->
     </div><!-- /.col -->
-  </div><!-- /.row -->
+  </div><!-- /.data -->
 </section>

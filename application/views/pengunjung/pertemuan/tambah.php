@@ -44,7 +44,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputFile">File Sertifikat</label>
-                                    <input class="bg-green form-control" type="file" name="file_sertifikat" id="file_sertifikat" required>
+                                    <input class="bg-green form-control" type="file" name="file_sertifikat" id="file_sertifikat" accept=".pdf" required>
                                 </div>
                                 <div class="box-footer">
                                     <button type="submit" class="btn btn-primary">Simpan</button>&nbsp;&nbsp;&nbsp;

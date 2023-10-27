@@ -9,7 +9,7 @@ class kegiatan extends CI_Controller
         $this->load->library('form_validation');
     }
 
-    public function tambahOrganisasi()
+    public function tambahOrganisasi($nim)
     {
         $this->form_validation->set_rules('kegiatan', 'Kegiatan', 'required');
         $this->form_validation->set_rules('peran', 'Peran', 'required');
@@ -46,6 +46,7 @@ class kegiatan extends CI_Controller
                 $file_path = $config['upload_path'] . $file_name;
 
                 $tambah = array(
+                    "nim" => $nim,
                     "kategori" => "organisasi",
                     "kegiatan" => $this->input->post('kegiatan', true),
                     "peran" => $this->input->post('peran', true),
@@ -57,12 +58,12 @@ class kegiatan extends CI_Controller
                 );
                 $this->kgt->tambahKegiatan($tambah);
                 $this->session->set_flashdata('flash', 'ditambahkan');
-                redirect('pengunjung/organisasi');
+                redirect('pengunjung/organisasi/' . $nim);
             }
         }
     }
 
-    public function tambahPrestasi()
+    public function tambahPrestasi($nim)
     {
         $this->form_validation->set_rules('kegiatan', 'Kegiatan', 'required');
         $this->form_validation->set_rules('peran', 'Peran', 'required');
@@ -99,6 +100,7 @@ class kegiatan extends CI_Controller
                 $file_path = $config['upload_path'] . $file_name;
 
                 $tambah = array(
+                    "nim" => $nim,
                     "kategori" => "prestasi",
                     "kegiatan" => $this->input->post('kegiatan', true),
                     "peran" => $this->input->post('peran', true),
@@ -110,12 +112,12 @@ class kegiatan extends CI_Controller
                 );
                 $this->kgt->tambahKegiatan($tambah);
                 $this->session->set_flashdata('flash', 'ditambahkan');
-                redirect('pengunjung/prestasi');
+                redirect('pengunjung/prestasi/' . $nim);
             }
         }
     }
 
-    public function tambahPertemuan()
+    public function tambahPertemuan($nim)
     {
         $this->form_validation->set_rules('kegiatan', 'Kegiatan', 'required');
         $this->form_validation->set_rules('peran', 'Peran', 'required');
@@ -151,6 +153,7 @@ class kegiatan extends CI_Controller
                 $file_name = $data['file_name'];
                 $file_path = $config['upload_path'] . $file_name;
                 $tambah = array(
+                    "nim" => $nim,
                     "kategori" => "pertemuan",
                     "kegiatan" => $this->input->post('kegiatan', true),
                     "peran" => $this->input->post('peran', true),
@@ -162,12 +165,12 @@ class kegiatan extends CI_Controller
                 );
                 $this->kgt->tambahKegiatan($tambah);
                 $this->session->set_flashdata('flash', 'ditambahkan');
-                redirect('pengunjung/pertemuan');
+                redirect('pengunjung/pertemuan/' . $nim);
             }
         }
     }
 
-    public function tambahPelatihan()
+    public function tambahPelatihan($nim)
     {
         $this->form_validation->set_rules('kegiatan', 'Kegiatan', 'required');
         $this->form_validation->set_rules('peran', 'Peran', 'required');
@@ -203,6 +206,7 @@ class kegiatan extends CI_Controller
                 $file_name = $data['file_name'];
                 $file_path = $config['upload_path'] . $file_name;
                 $tambah = array(
+                    "nim" => $nim,
                     "kategori" => "pelatihan",
                     "kegiatan" => $this->input->post('kegiatan', true),
                     "peran" => $this->input->post('peran', true),
@@ -214,12 +218,12 @@ class kegiatan extends CI_Controller
                 );
                 $this->kgt->tambahKegiatan($tambah);
                 $this->session->set_flashdata('flash', 'ditambahkan');
-                redirect('pengunjung/pelatihan');
+                redirect('pengunjung/pelatihan/' . $nim);
             }
         }
     }
 
-    public function tambahPenunjang()
+    public function tambahPenunjang($nim)
     {
         $this->form_validation->set_rules('kegiatan', 'Kegiatan', 'required');
         $this->form_validation->set_rules('peran', 'Peran', 'required');
@@ -256,6 +260,7 @@ class kegiatan extends CI_Controller
                 $file_path = $config['upload_path'] . $file_name;
 
                 $tambah = array(
+                    "nim" => $nim,
                     "kategori" => "penunjang",
                     "kegiatan" => $this->input->post('kegiatan', true),
                     "peran" => $this->input->post('peran', true),
@@ -267,12 +272,12 @@ class kegiatan extends CI_Controller
                 );
                 $this->kgt->tambahKegiatan($tambah);
                 $this->session->set_flashdata('flash', 'ditambahkan');
-                redirect('pengunjung/penunjang');
+                redirect('pengunjung/penunjang/' . $nim);
             }
         }
     }
 
-    public function editKegiatan($id, $kategori)
+    public function editKegiatan($id, $kategori, $nim)
     {
         $data['user'] = get_user();
         if ($kategori == 'organisasi') {
@@ -357,14 +362,14 @@ class kegiatan extends CI_Controller
 
             $this->kgt->ubahKegiatan($id, $edit_data);
             $this->session->set_flashdata('flash', 'diubah');
-            redirect('pengunjung/' . $kategori);
+            redirect('pengunjung/' . $kategori . '/' . $nim);
         }
     }
 
-    public function hapusKegiatan($id, $kategori)
+    public function hapusKegiatan($id, $kategori, $nim)
     {
         $this->kgt->hapusKegiatan($id, $kategori);
         $this->session->set_flashdata('flash', 'dihapus');
-        redirect('pengunjung/' . $kategori);
+        redirect('pengunjung/' . $kategori . '/' . $nim);
     }
 }
