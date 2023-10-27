@@ -14,9 +14,11 @@
                             </div><!-- /.box-header -->
                             <!-- form start -->
                             <form method="post" enctype="multipart/form-data">
-                                <input type="hidden" name="id_user" value="<?= $user['id_user'] ?>" />
-                                <input type="hidden" name="id_nilai" value="<?= $data['id_khs']; ?>">
                                 <div class="box-body">
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Nama Mahasiswa</label>
+                                        <input required type="text" class="form-control" name="id_mahasiswa" value="<?= $data['nama'] ?> - <?= $data['nim'] ?>" readonly="readonly">
+                                    </div>
 
                                     <div style="margin:10px" class="callout callout-success">
                                         <h4>Ketentuan Pengajuan</h4>
@@ -28,7 +30,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Semester</label>
-                                        <input type="text" class="form-control" name="smt" value="<?= $data['semester']; ?>">
+                                        <input type="text" class="form-control" name="semester" value="<?= $data['semester']; ?>">
                                     </div>
                                     <div class="form-group">
                                         <label>Jumlah Mata Kuliah</label>
@@ -36,25 +38,34 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Jumlah SKS yang Diprogramkan</label>
-                                        <input type="text" class="form-control" name="sks_beban" value="<?= $data['jml_sks_program']; ?>">
+                                        <input type="text" class="form-control" name="jml_sks_program" value="<?= $data['jml_sks_program']; ?>">
                                     </div>
                                     <div class="form-group">
                                         <label>Jumlah SKS yang Lulus</label>
-                                        <input type="text" class="form-control" name="sks_lulus" value="<?= $data['jml_sks_lulus']; ?>">
+                                        <input type="text" class="form-control" name="jml_sks_lulus" value="<?= $data['jml_sks_lulus']; ?>">
                                     </div>
 
                                     <div class="form-group">
                                         <label for="exampleInputFile">File KHS</label>
-                                        <input class="bg-green form-control" type="file" name="file_khs" id="file_khs">
+                                        <input class="bg-green form-control" type="file" name="file_akademik" id="file_akademik" accept=".jpg, .jpeg, .png">
                                         <p class="help-block">Lihat KHS :
-                                            <!--<a href="codes/khs/38akhirnya_29.pdf" target="_blank">38akhirnya_29.pdf</a>-->
-                                            <img class="img-responsive pad" src="codes/khs/38akhirnya_29.pdf" target="_blank">
+                                            <?php if (!empty($data['file_akademik'])) : ?>
+                                                <img class="img-responsive pad" src="<?= base_url('uploads/AKADEMIK/' . $data['file_akademik']); ?>" alt="KHS">
                                         </p>
+                                    <?php endif; ?> </p>
                                     </div>
-                                    <input type="hidden" name="valdn" value="BARU">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Validasi</label>
+                                        <select name="validasi" required class="form-control">
+                                            <option value="BARU" <?= ($data['validasi'] == 'BARU') ? 'selected' : '' ?>>BARU</option>
+                                            <option value="VALID" <?= ($data['validasi'] == 'VALID') ? 'selected' : '' ?>>VALID</option>
+                                            <option value="TIDAK VALID" <?= ($data['validasi'] == 'TIDAK VALID') ? 'selected' : '' ?>>TIDAK VALID</option>
+                                            <option value="TINJAU ULANG" <?= ($data['validasi'] == 'TINJAU ULANG') ? 'selected' : '' ?>>TINJAU ULANG</option>
+                                        </select>
+                                    </div>
                                     <div class="form-group">
                                         <label>Keterangan</label>
-                                        <textarea name="valketdn" readonly="readonly" required class="form-control" rows="3"><?= $data['ket_validasi']; ?></textarea>
+                                        <textarea name="ket_validasi" required class="form-control" rows="3" placeholder="Masukan Keterangan"><?= $data['ket_validasi']; ?></textarea>
                                     </div>
                                     <div class="box-footer">
                                         <button type="submit" class="btn btn-primary">Perbarui</button>

@@ -7,7 +7,10 @@
                         <h2 class="card-title">File Upload KHS Semester 7</h2>
                     </b>
                 </div>
-                <img class="img-responsive pad" src="codes/khs/38akhirnya_29.pdf">
+                <?php if (!empty($data['file_akademik'])) : ?>
+                    <img class="img-responsive pad" src="<?= base_url('uploads/AKADEMIK/' . $data['file_akademik']); ?>" alt="KHS">
+                    </p>
+                <?php endif; ?> </p>
             </div>
         </div>
 
@@ -41,16 +44,7 @@
                         </p>
                     </div>
 
-                    <div class="form-group">
-                        <div class="col-sm-8">
-                            <h5 class="box-title">Mata Kuliah</h5>
-                        </div>
-                        <div class="col-sm-3">
-                            <h5 class="box-title">Nilai Mutu</h5>
-                        </div>
-                    </div>
-
-                    <form class="form-horizontal" role="form" action="codes/proses_pengajuannilai.php?proses=updatenilai" method="post">
+                    <form class="form-horizontal" method="post">
                         <input type="hidden" class="form-control" name="iddn" value="4437" readonly>
                         <input type="hidden" class="form-control" name="jummatkul" value="5" readonly>
                         <input type="hidden" class="form-control" name="idnilai" value="30289" readonly>
@@ -72,13 +66,22 @@
                                 </select>
                             </div>
                         </div>
-                    </form>
+                        <div class="col-12">
+                            <div class="checkbox icheck">
+                                <label>
+                                    <input type="checkbox" required> Nilai yang dimasukkan <b><u>SUDAH SESUAI</u></b> dengan KHS Akademik
+                                </label>
+                            </div>
+                        </div><!-- /.col -->
 
-                    <div class="box-footer">
-                        <button type="button" class="btn bg-yellow btn-flat" onClick="history.back();">Kembali</button>
-                    </div>
-                </div>
+                </div><!-- /.box-body -->
+                <div class="box-footer">
+                    <button type="button" class="btn btn-warning btn-flat" onClick="history.back();">Kembali</button>
+                    <button type="submit" class="btn btn-success pull-right">SIMPAN NILAI</button>
+                </div><!-- /.box-footer -->
+                </form>
             </div>
         </div>
+    </div>
     </div>
 </section>

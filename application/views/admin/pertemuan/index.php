@@ -23,6 +23,7 @@
                         <thead>
                             <tr align="center">
                                 <th>No.</th>
+                                <th width="5%">NIM</th>
                                 <th>Bentuk Kegiatan</th>
                                 <th>Peran</th>
                                 <th>No. Sertifikat/Surat</th>
@@ -40,24 +41,30 @@
                                     <td>
                                         <?= $no++ ?>
                                     </td>
+                                    <td>
+                                        <?= $data->nim ?>
+                                        <br>
+                                        <?= $data->nama ?>
+                                    </td>
                                     <td><?= $data->kegiatan ?></td>
                                     <td><?= $data->peran ?></td>
                                     <td><?= $data->no_sertifikat ?></td>
                                     <td><?= $data->penyelenggara ?></td>
                                     <td><?= $data->periode ?></td>
                                     <td>
-                                        <label class="btn bg-green"><?= $data->validasi ?> <i class="fa fa-check-square fa-lg"></i></label>
-
-                                        <label class="btn bg-blue"><?= $data->validasi ?></label>
+                                        <?php if ($data->validasi == 'VALID') { ?>
+                                            <label class="btn bg-green"><?= $data->validasi ?> <i class="fa fa-check-square fa-lg"></i></label>
+                                        <?php } else if ($data->validasi == 'TIDAK VALID') { ?>
+                                            <label class="btn bg-danger"><?= $data->validasi ?></label>
+                                        <?php } else if ($data->validasi == 'BARU') { ?>
+                                            <label class="btn bg-blue"><?= $data->validasi ?></label>
+                                        <?php }  ?>
                                     </td>
                                     <td align="center">
-                                        <label class="btn bg-green"><?= $data->validasi ?> <i class="fa fa-check-square fa-lg"></i></label>
-
-                                        <a class="btn bg-olive" href="<?= base_url('kegiatan/editPertemuan/' . $data->id_kegiatan); ?>">
+                                        <a class="btn bg-olive" href="<?= base_url('kegiatan/editKegiatanAdmin/' . $data->id_kegiatan . '/' . $data->kategori); ?>">
                                             <i class="fa fa-edit fa-lg" title="Edit"></i></a>
-                                        <a class="btn bg-orange" href="<?= base_url('kegiatan/hapusKegiatan/' . $data->id_kegiatan . '/' . $data->kategori); ?>" onclick="return confirm('Yakin?');">
+                                        <a class="btn bg-orange" href="<?= base_url('kegiatan/hapusKegiatanAdmin/' . $data->id_kegiatan . '/' . $data->kategori); ?>" onclick="return confirm('Yakin?');">
                                             <i class="fa fa-trash fa-lg" title="Delete"></i></a>
-
                                     </td>
                                 </tr>
                             <?php endforeach ?>

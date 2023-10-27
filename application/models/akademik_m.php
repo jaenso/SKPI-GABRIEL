@@ -2,11 +2,27 @@
 
 class akademik_m extends CI_Model
 {
+  public function getKHSAdmin()
+  {
+    $this->db->select('*');
+    $this->db->from('tbl_khs khs');
+    $this->db->join('tbl_mahasiswa mhs', 'khs.nim = mhs.nim');
+    return $this->db->get()->result();
+  }
+
   public function getKHS($username)
   {
     $this->db->select('*');
     $this->db->from('tbl_khs');
     $this->db->where('nim', $username);
+    return $this->db->get()->result();
+  }
+
+  public function getMBKMAdmin()
+  {
+    $this->db->select('*');
+    $this->db->from('tbl_mbkm mbkm');
+    $this->db->join('tbl_mahasiswa mhs', 'mbkm.nim = mhs.nim');
     return $this->db->get()->result();
   }
 
@@ -23,9 +39,18 @@ class akademik_m extends CI_Model
     $this->db->insert('tbl_khs', $tambah);
   }
 
+  public function getKHSByIdAdmin($id)
+  {
+    $this->db->select('*');
+    $this->db->from('tbl_khs khs');
+    $this->db->join('tbl_mahasiswa mhs', 'khs.nim = mhs.nim');
+    $this->db->where('khs.id_khs', $id);
+    return $this->db->get()->row_array();
+  }
+
   public function getKHSById($id)
   {
-    return $this->db->get_where('tbl_khs', ['id_khs' => $id])->row_array();;
+    return $this->db->get_where('tbl_khs', ['id_khs' => $id])->row_array();
   }
 
   public function EditKHS($id, $edit)
@@ -44,9 +69,18 @@ class akademik_m extends CI_Model
     $this->db->insert('tbl_mbkm', $tambah);
   }
 
+  public function getMBKMByIdAdmin($id)
+  {
+    $this->db->select('*');
+    $this->db->from('tbl_mbkm mbkm');
+    $this->db->join('tbl_mahasiswa mhs', 'mbkm.nim = mhs.nim');
+    $this->db->where('mbkm.id_mbkm', $id);
+    return $this->db->get()->row_array();
+  }
+
   public function getMBKMById($id)
   {
-    return $this->db->get_where('tbl_mbkm', ['id_mbkm' => $id])->row_array();;
+    return $this->db->get_where('tbl_mbkm', ['id_mbkm' => $id])->row_array();
   }
 
   public function ubahMBKM($id, $edit)

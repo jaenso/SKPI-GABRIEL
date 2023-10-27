@@ -93,33 +93,20 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="<?= base_url(); ?>admin/pengaju_nilai" class="nav-link">
                 <i class="nav-icon fas fa-certificate"></i>
                 <p>
-                  Akademik
-                  <i class="fas fa-angle-left right"></i>
+                  Pengajuan Input Nilai
                 </p>
               </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="<?= base_url(); ?>admin/pengaju_nilai" class="nav-link">
-                    <i class="fas fa-upload nav-icon"></i>
-                    <p>Pengajuan Input Nilai</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="<?= base_url(); ?>admin/pengaju_mbkm" class="nav-link">
-                    <i class="fas fa-upload nav-icon"></i>
-                    <p>Kegiatan MBKM</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="<?= base_url(); ?>admin/rekap_nilai" class="nav-link">
-                    <i class="fas fa-book nav-icon"></i>
-                    <p>Rekapitulasi Nilai</p>
-                  </a>
-                </li>
-              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="<?= base_url(); ?>admin/pengaju_mbkm" class="nav-link">
+                <i class="nav-icon fas fa-certificate"></i>
+                <p>
+                  Kegiatan MBKM
+                </p>
+              </a>
             </li>
             <li class="nav-item">
               <a href="#" class="nav-link">
@@ -200,20 +187,21 @@
       <!-- /.sidebar -->
     </aside>
 
-    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
       <div class="content-header">
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0"><?= $tittle ?></h1>
+              <h1 class="m-0"><?= $title ?></h1>
             </div>
             <!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
+
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active"><?= $tittle ?></li>
+                <li class="breadcrumb-item active"><?= $sub_title ?></li>
+                <li class="breadcrumb-item active"><?= $deskripsi ?></li>
               </ol>
             </div>
             <!-- /.col -->

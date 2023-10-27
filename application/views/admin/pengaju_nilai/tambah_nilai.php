@@ -7,7 +7,10 @@
                         <h2 class="card-title">File Upload KHS Semester 7</h2>
                     </b>
                 </div>
-                <img class="img-responsive pad" src="codes/khs/38akhirnya_29.pdf">
+                <?php if (!empty($data['file_akademik'])) : ?>
+                    <img class="img-responsive pad" src="<?= base_url('uploads/AKADEMIK/' . $data['file_akademik']); ?>" alt="KHS">
+                    </p>
+                <?php endif; ?> </p>
             </div>
         </div>
 
@@ -16,22 +19,21 @@
                 <div class="card-header with-border">
                     <h3 class="card-title">Input Nilai berdasarkan KHS</h3>
                 </div>
+
                 <div class="card-body">
                     <div class="form-group">
                         <label for="inputEmail3" class="col-sm-2 control-label">NAMA</label>
                         <div class="col-sm-10">
-                            <label for="inputEmail3" class="col-sm-8 control-label"><?= $user['nama']; ?></label>
+                            <label for="inputEmail3" class="col-sm-8 control-label"><?= $data['nim']; ?> - <?= $data['nama']; ?></label>
                         </div>
                     </div>
+
                     <div class="form-group">
                         <label for="inputEmail3" class="col-sm-2 control-label">Semester</label>
                         <div class="col-sm-10">
                             <label for="inputEmail3" class="col-sm-8 control-label"><?= $data['semester']; ?></label>
                         </div>
                     </div>
-
-                    <hr>
-                    <hr>
 
                     <div class="callout callout-warning">
                         <h4>Perhatian!</h4>
@@ -50,35 +52,25 @@
                         </div>
                     </div>
 
-                    <form class="form-horizontal" role="form" action="codes/proses_pengajuannilai.php?proses=updatenilai" method="post">
-                        <input type="hidden" class="form-control" name="iddn" value="4437" readonly>
-                        <input type="hidden" class="form-control" name="jummatkul" value="5" readonly>
-                        <input type="hidden" class="form-control" name="idnilai" value="30289" readonly>
-
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">Mata Kuliah</label>
-                            <div class="col-sm-10">
-                                <select name="idmatkul[]" required class="form-control select2">
-                                    <option value="1">PANCASILA</option>
-                                </select>
-                            </div>
+                    <div class="form-group">
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" value="KEWARGANEGARAAN" readonly>
                         </div>
-
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">Nilai Mutu</label>
-                            <div class="col-sm-10">
-                                <select class="form-control" name="nilaimatkul[]" required>
-                                    <option value="A">A</option>
-                                </select>
-                            </div>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" value="B" readonly>
                         </div>
-                    </form>
-
-                    <div class="box-footer">
-                        <button type="button" class="btn bg-yellow btn-flat" onClick="history.back();">Kembali</button>
                     </div>
+
+                    <!-- Add more Mata Kuliah and Nilai Mutu rows here -->
+
+                </div>
+
+                <div class="box-footer">
+                    <button type="button" class="btn bg-yellow btn-flat" onClick="history.back();">Kembali</button>
+                    <button class="btn btn-success pull-right">NILAI VALID <i class="fa fa-check-square-o fa-lg"></i></button>
                 </div>
             </div>
         </div>
+
     </div>
 </section>

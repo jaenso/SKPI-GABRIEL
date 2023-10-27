@@ -9,6 +9,14 @@
         </div>
 
         <div class="card-body">
+          <div class="btn-group">
+            <a href="<?= base_url('skpi/tambahFileSKPI'); ?>">
+              <button class="btn btn-block btn-primary btn-flat">Tambah Data </button>
+            </a>
+          </div>
+        </div>
+
+        <div class="card-body">
           <table id="example1" class="table table-bordered table-striped">
             <thead>
               <tr align="center">
@@ -19,7 +27,15 @@
               </tr>
             </thead>
             <tbody>
-
+              <?php
+              $no = 1;
+              foreach ($data as $data) : ?>
+                <tr>
+                  <td><?= $no++ ?></td>
+                  <td><?= $data->nama_file_skpi ?></td>
+                  <td><?= $data->nama ?> - <?= $data->nim ?></td>
+                  <td><a href="<?= base_url('uploads/IJAZAH/' . $data->file_skpi); ?>" target="_blank"><?= $data->file_skpi; ?></a></td>
+                <?php endforeach ?>
             </tbody>
           </table>
 

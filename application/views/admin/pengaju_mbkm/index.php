@@ -3,18 +3,11 @@
         <div class="col-12">
             <div class="card card-info">
                 <div class="card-body">
-                    <div class="btn-group">
-                        &nbsp;<a href="<?= base_url(); ?>akademik/tambahMBKM">
-                            <button class="btn btn-block btn-primary btn-flat">Tambah Data </button>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="card-body">
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr align="center">
                                 <th>No.</th>
+                                <th width="5%">NIM</th>
                                 <th>Bentuk Kegiatan</th>
                                 <th>Keterangan</th>
                                 <th>Validasi</th>
@@ -30,22 +23,41 @@
                                     <td>
                                         <?= $no++ ?>
                                     </td>
+                                    <td>
+                                        <?= $data->nim ?>
+                                        <br>
+                                        <?= $data->nama ?>
+                                    </td>
                                     <td><?= $data->kegiatan ?></td>
                                     <td><?= $data->keterangan ?></td>
                                     <td>
-                                        <label class="btn bg-green"><?= $data->validasi ?> <i class="fa fa-check-square fa-lg"></i></label>
-                                        <a class="btn bg-blue"><?= $data->validasi ?></a>
+                                        <?php if ($data->validasi == 'VALID') { ?>
+                                            <label class="btn bg-green"><?= $data->validasi ?> <i class="fa fa-check-square fa-lg"></i></label>
+                                        <?php } else if ($data->validasi == 'TINJAU ULANG') { ?>
+                                            <label class="btn bg-warning"><?= $data->validasi ?></label>
+                                        <?php } else if ($data->validasi == 'TIDAK VALID') { ?>
+                                            <label class="btn bg-danger"><?= $data->validasi ?></label>
+                                        <?php } else if ($data->validasi == 'BARU') { ?>
+                                            <label class="btn bg-blue"><?= $data->validasi ?></label>
+                                        <?php }  ?>
                                     </td>
-                                    <td><?= $data->ket_validasi ?></td>
+                                    <td>
+                                        <?php if ($data->validasi == 'VALID') { ?>
+                                            <?= $data->ket_validasi ?>
+                                        <?php } else if ($data->validasi == 'TINJAU ULANG') { ?>
+                                            <?= $data->ket_validasi ?>
+                                        <?php } else if ($data->validasi == 'TIDAK VALID') { ?>
+                                            <?= $data->ket_validasi ?>
+                                        <?php } else if ($data->validasi == 'BARU') { ?>
+                                            <?= $data->ket_validasi ?>
+                                        <?php }  ?>
+                                    </td>
 
                                     <td align="center">
-                                        <label class="btn bg-green"><?= $data->validasi ?> <i class="fa fa-check-square fa-lg"></i></label>
-
-                                        <a class="btn bg-olive" href="<?= base_url('akademik/editMBKM/' . $data->id_mbkm); ?>">
+                                        <a class="btn bg-olive" href="<?= base_url('akademik/editMBKMAdmin/' . $data->id_mbkm); ?>">
                                             <i class="fa fa-edit fa-lg" title="Edit"></i></a>
-                                        <a class="btn bg-orange" href="<?= base_url('akademik/hapusMBKM/' . $data->id_mbkm); ?>" onclick="return confirm('Yakin?');">
+                                        <a class="btn bg-orange" href="<?= base_url('akademik/hapusMBKMAdmin/' . $data->id_mbkm); ?>" onclick="return confirm('Yakin?');">
                                             <i class="fa fa-trash fa-lg" title="Delete"></i></a>
-
                                     </td>
                                 </tr>
                             <?php endforeach ?>

@@ -51,7 +51,6 @@
                                         <?php } else if ($data->validasi == 'BARU') { ?>
                                             <label class="btn bg-blue"><?= $data->validasi ?></label>
                                         <?php }  ?>
-
                                     </td>
                                     <td align="center">
                                         <?php if ($data->validasi == 'VALID') { ?>
@@ -62,7 +61,6 @@
                                             <a class="btn bg-orange" href="<?= base_url('kegiatan/hapusKegiatan/' . $data->id_kegiatan . '/' . $data->kategori . '/' . $user['username']); ?>" onclick="return confirm('Yakin?');">
                                                 <i class="fa fa-trash fa-lg" title="Delete"></i></a>
                                         <?php } ?>
-
                                     </td>
                                 </tr>
                             <?php endforeach ?>

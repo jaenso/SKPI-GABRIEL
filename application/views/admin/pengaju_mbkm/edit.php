@@ -14,8 +14,10 @@
                             </div><!-- /.box-header -->
                             <!-- form start -->
                             <form method="post" enctype="multipart/form-data">
-                                <input type="hidden" name="id_user" value="<?= $user['id_user'] ?>" />
-                                <input type="hidden" name="id_mbkm" value="<?= $data['id_mbkm']; ?>">
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Nama Mahasiswa</label>
+                                    <input required type="text" class="form-control" name="id_mahasiswa" value="<?= $data['nama'] ?> - <?= $data['nim'] ?>" readonly="readonly">
+                                </div>
                                 <div class="box-body">
 
                                     <div style="margin:10px" class="callout callout-success">
@@ -35,16 +37,25 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="file_mbkm">File </label>
-                                        <input class="bg-green form-control" type="file" name="file_mbkm" id="file_mbkm">
-                                        <input type="hidden" name="filelama" value="96000akhirnya_29.pdf" />
+                                        <input class="bg-green form-control" type="file" name="file_mbkm" id="file_mbkm" accept=".jpg, .png, .jpeg">
                                         <p class="help-block">Lihat File : <br>
-                                            <img class="img-responsive pad" src="codes/sertifikat/96000akhirnya_29.pdf" target="_blank">
+                                            <?php if (!empty($data['file_akademik'])) : ?>
+                                                <img class="img-responsive pad" src="<?= base_url('uploads/AKADEMIK/' . $data['file_akademik']); ?>" alt="KHS">
                                         </p>
+                                    <?php endif; ?> </p>
                                     </div>
-                                    <input type="hidden" name="valmbkm" value="TINJAU ULANG">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Validasi</label>
+                                        <select name="validasi" required class="form-control">
+                                            <option value="BARU" <?= ($data['validasi'] == 'BARU') ? 'selected' : '' ?>>BARU</option>
+                                            <option value="VALID" <?= ($data['validasi'] == 'VALID') ? 'selected' : '' ?>>VALID</option>
+                                            <option value="TIDAK VALID" <?= ($data['validasi'] == 'TIDAK VALID') ? 'selected' : '' ?>>TIDAK VALID</option>
+                                            <option value="TINJAU ULANG" <?= ($data['validasi'] == 'TINJAU ULANG') ? 'selected' : '' ?>>TINJAU ULANG</option>
+                                        </select>
+                                    </div>
                                     <div class="form-group">
                                         <label>Keterangan</label>
-                                        <textarea name="valketmbkm" readonly="readonly" required class="form-control" rows="3"><?= $data['validasi']; ?></textarea>
+                                        <textarea name="ket_validasi" required class="form-control" rows="3" placeholder="Masukan Keterangan"><?= $data['ket_validasi']; ?></textarea>
                                     </div>
                                     <div class="box-footer">
                                         <button type="submit" class="btn btn-primary">Perbarui</button>&nbsp;&nbsp;&nbsp;

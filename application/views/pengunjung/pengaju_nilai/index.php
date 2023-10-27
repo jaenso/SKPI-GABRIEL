@@ -102,74 +102,42 @@
                 <h4 class="modal-title">Validasi Input Nilai</h4>
             </div>
             <div class="modal-body">
-
                 <!-- ISI MODAL -->
-                <div class="modal-body col-md-8">
-                    <div class="box box-primary">
-                        <div class="box-header with-border">
-                            <b>
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="box box-primary">
+                            <div class="box-header with-border">
                                 <h2 class="box-title">File Upload KHS Semester 7</h2>
-                            </b>
+                            </div>
+                            <img class="img-responsive pad" src="codes/khs/38akhirnya_29.pdf">
+                            <p>Jumlah Mata Kuliah: 5</p>
+                            <p>Jumlah SKS yang Diprogramkan: 18</p>
+                            <p>Jumlah SKS Lulus: 112</p>
                         </div>
-                        <img class="img-responsive pad" src="codes/khs/38akhirnya_29.pdf">
-                        Jumlah Mata Kuliah: 5<br>
-                        Jumlah SKS yang Diprogramkan: 18<br>
-                        Jumlah SKS Lulus: 112
                     </div>
-                </div>
 
-                <div class="modal-body col-md-4">
-                    <div class="box box-primary">
-                        <div class="box-header with-border">
-                            <b>
+                    <div class="col-md-4">
+                        <div class="box box-primary">
+                            <div class="box-header with-border">
                                 <h2 class="box-title">Input Nilai berdasarkan KHS</h2>
-                            </b>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-sm-12">
+                            </div>
+                            <div class="form-group">
                                 <h5 class="box-title">Mata Kuliah</h5>
                             </div>
-                        </div>
 
-                        <div class="form-group">
-                            <input type="text" class="form-control" value="MATEMATIKA TEKNIK I" readonly>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" value="C+" size="1px" readonly>
-                        </div>
+                            <!-- Example entry -->
+                            <div class="form-group">
+                                <input type="text" class="form-control" value="MATEMATIKA TEKNIK I" readonly>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" value="C+" size="1px" readonly>
+                            </div>
 
-                        <div class="form-group">
-                            <input type="text" class="form-control" value="FISIKA TEKNIK" readonly>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" value="A" size="1px" readonly>
-                        </div>
-
-                        <div class="form-group">
-                            <input type="text" class="form-control" value="ALGORITMA DAN PEMROGRAMAN - PRAKTIKUM" readonly>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" value="A" size="1px" readonly>
-                        </div>
-
-                        <div class="form-group">
-                            <input type="text" class="form-control" value="BAHASA INGGRIS TEKNIK" readonly>
-                        </div>
-                        <div class "form-group">
-                            <input type="text" class="form-control" value="A" size="1px" readonly>
-                        </div>
-
-                        <div class="form-group">
-                            <input type="text" class="form-control" value="AGAMA BUDHA" readonly>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" value="A" size="1px" readonly>
+                            <!-- Repeat this pattern for each subject -->
                         </div>
                     </div>
                 </div>
                 <!-- END ISI MODAL -->
-
             </div><!-- DIV MODAL BODY -->
         </div>
     </div>

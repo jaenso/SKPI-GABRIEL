@@ -2,6 +2,19 @@
 
 class mahasiswa_m extends CI_Model
 {
+    public function getNamaDanNIM()
+    {
+        $query = $this->db->select('nama, nim')->from('tbl_mahasiswa')->get();
+        return $query->result();
+    }
+
+    public function getMahasiswa()
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_mahasiswa');
+        return $this->db->get()->result();
+    }
+
     public function getMahasiswaByUsername($username)
     {
         $this->db->select('*');

@@ -12,6 +12,15 @@ class kegiatan_m extends CI_Model
         return $query->row()->count;
     }
 
+    public function getKegiatanAdmin($kategori)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_kegiatan kgt');
+        $this->db->join('tbl_mahasiswa mhs', 'kgt.nim = mhs.nim');
+        $this->db->where('kategori', $kategori);
+        return $this->db->get()->result();
+    }
+
     public function getKegiatan($kategori, $nim)
     {
         $this->db->select('*');
@@ -29,6 +38,15 @@ class kegiatan_m extends CI_Model
     public function hapusKegiatan($id)
     {
         $this->db->delete('tbl_kegiatan', ['id_kegiatan' => $id]);
+    }
+
+    public function getKegiatanByIdAdmin($id)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_kegiatan kgt');
+        $this->db->join('tbl_mahasiswa mhs', 'kgt.nim = mhs.nim');
+        $this->db->where('kgt.id_kegiatan', $id);
+        return $this->db->get()->row_array();
     }
 
     public function getKegiatanById($id)

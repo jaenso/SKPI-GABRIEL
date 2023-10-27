@@ -2,32 +2,10 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-3 col-6">
-        <div class="small-box bg-info">
-          <div class="inner">
-            <h3>150</h3>
-            <p>New Orders</p>
-          </div>
-          <div class="icon">
-            <i class="ion ion-bag"></i>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-6">
-        <div class="small-box bg-success">
-          <div class="inner">
-            <h3>53<sup style="font-size: 20px">%</sup></h3>
-            <p>Bounce Rate</p>
-          </div>
-          <div class="icon">
-            <i class="ion ion-stats-bars"></i>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-6">
         <div class="small-box bg-warning">
           <div class="inner">
             <h3>44</h3>
-            <p>User Registrations</p>
+            <p>Admin Staff</p>
           </div>
           <div class="icon">
             <i class="ion ion-person-add"></i>
@@ -35,13 +13,13 @@
         </div>
       </div>
       <div class="col-lg-3 col-6">
-        <div class="small-box bg-danger">
+        <div class="small-box bg-success">
           <div class="inner">
-            <h3>65</h3>
-            <p>Unique Visitors</p>
+            <h3>44</h3>
+            <p>Mahasiswa</p>
           </div>
           <div class="icon">
-            <i class="ion ion-pie-graph"></i>
+            <i class="ion ion-person-add"></i>
           </div>
         </div>
       </div>
@@ -65,70 +43,17 @@
           </div>
           <div class="card-body">
             <div class="row">
-              <div class="col-3">
-                <div class="card">
-                  <div class="card-body">
-                    <img src="<?= base_url(); ?>uploads/itb.png" class="  w-50" />
-                    <h3>Gabriel Sangalang</h3>
+              <?php
+              foreach ($data as $data) : ?>
+                <div class="col-3">
+                  <div class="card">
+                    <div class="card-body">
+                      <img src="<?= base_url('uploads/MAHASISWA/' . $data->foto); ?>" class="  w-50" />
+                      <h3><?= $data->nama ?></h3>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-3">
-                <div class="card">
-                  <div class="card-body">
-                    <img src="<?= base_url(); ?>uploads/itb.png" class="  w-50" />
-                    <h3>Gabriel Sangalang</h3>
-                  </div>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="card">
-                  <div class="card-body">
-                    <img src="<?= base_url(); ?>uploads/itb.png" class="  w-50" />
-                    <h3>Gabriel Sangalang</h3>
-                  </div>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="card">
-                  <div class="card-body">
-                    <img src="<?= base_url(); ?>uploads/itb.png" class="  w-50" />
-                    <h3>Gabriel Sangalang</h3>
-                  </div>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="card">
-                  <div class="card-body">
-                    <img src="<?= base_url(); ?>uploads/itb.png" class="  w-50" />
-                    <h3>Gabriel Sangalang</h3>
-                  </div>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="card">
-                  <div class="card-body">
-                    <img src="<?= base_url(); ?>uploads/itb.png" class="  w-50" />
-                    <h3>Gabriel Sangalang</h3>
-                  </div>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="card">
-                  <div class="card-body">
-                    <img src="<?= base_url(); ?>uploads/itb.png" class="  w-50" />
-                    <h3>Gabriel Sangalang</h3>
-                  </div>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="card">
-                  <div class="card-body">
-                    <img src="<?= base_url(); ?>uploads/itb.png" class="  w-50" />
-                    <h3>Gabriel Sangalang</h3>
-                  </div>
-                </div>
-              </div>
+              <?php endforeach ?>
             </div>
           </div>
         </div>
