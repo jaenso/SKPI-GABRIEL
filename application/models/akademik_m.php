@@ -39,18 +39,27 @@ class akademik_m extends CI_Model
     $this->db->insert('tbl_khs', $tambah);
   }
 
+  public function tambahNilai($tambah)
+  {
+    $this->db->insert('tbl_nilai', $tambah);
+  }
+
   public function getKHSByIdAdmin($id)
   {
-    $this->db->select('*');
-    $this->db->from('tbl_khs khs');
-    $this->db->join('tbl_mahasiswa mhs', 'khs.nim = mhs.nim');
-    $this->db->where('khs.id_khs', $id);
+    $this->db->select('*')
+      ->from('tbl_khs khs')
+      ->join('tbl_mahasiswa mhs', 'khs.nim = mhs.nim')
+      ->where('khs.id_khs', $id);
     return $this->db->get()->row_array();
   }
 
   public function getKHSById($id)
   {
-    return $this->db->get_where('tbl_khs', ['id_khs' => $id])->row_array();
+    $this->db->select('*')
+      ->from('tbl_khs khs')
+      ->join('tbl_mahasiswa mhs', 'khs.nim = mhs.nim')
+      ->where('khs.id_khs', $id);
+    return $this->db->get()->row_array();
   }
 
   public function EditKHS($id, $edit)

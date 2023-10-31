@@ -23,7 +23,7 @@
                     <div class="form-group">
                         <label for="inputEmail3" class="col-sm-2 control-label">NAMA</label>
                         <div class="col-sm-10">
-                            <label for="inputEmail3" class="col-sm-8 control-label"><?= $user['nama']; ?></label>
+                            <label for="inputEmail3" class="col-sm-8 control-label"><?= $data['nama']; ?></label>
                         </div>
                     </div>
                     <div class="form-group">

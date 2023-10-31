@@ -3,14 +3,11 @@
         <div class="col-12">
             <div class="card card-info">
                 <div class="card-body">
-                    <!-- left column -->
                     <div class="col-md-12">
-                        <!-- general form elements -->
                         <div class="box box-primary">
                             <div class="box-header with-border">
                                 <h3 class="box-title">Tambah Data Pengajuan Input Nilai</h3>
-                            </div><!-- /.box-header -->
-                            <!-- form start -->
+                            </div>
                             <div style="margin:10px" class="callout callout-success">
                                 <h4>Ketentuan Pengajuan</h4>
                                 <p>

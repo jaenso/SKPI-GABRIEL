@@ -77,10 +77,8 @@ class akademik extends CI_Controller
         $data['deskripsi'] = 'Pengajuan Input Nilai';
         $data['matkul'] = $this->mk->getMataKuliah();
         $data['data'] = $this->akm->getKHSById($id);
-        $this->form_validation->set_rules('smt', 'Semester', 'required');
-        $this->form_validation->set_rules('jml_matkul', 'Jumlah Mata Kuliah', 'required|numeric');
-        $this->form_validation->set_rules('sks_beban', 'Jumlah SKS yang Diprogramkan', 'required|numeric');
-        $this->form_validation->set_rules('sks_lulus', 'Jumlah SKS yang Lulus', 'required|numeric');
+
+        $this->form_validation->set_rules('nilai', 'Nilai', 'required');
 
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('temp_pengunjung/header', $data);
@@ -89,10 +87,9 @@ class akademik extends CI_Controller
             $this->load->view('temp_pengunjung/footer');
         } else {
             $tambah = array(
-                "semester" => $this->input->post('smt', true),
-                "jml_matkul" => $this->input->post('jml_matkul', true),
-                "jml_sks_program" => $this->input->post('sks_beban', true),
-                "jml_sks_lulus" => $this->input->post('sks_lulus', true)
+                "nilai" => $this->input->post('nilai', true),
+                "id_matkul" => $this->input->post('id_matkul', true),
+                "nim" => $id
             );
             $this->akm->tambahNilai($tambah);
             $this->session->set_flashdata('flash', 'ditambahkan');
@@ -136,6 +133,7 @@ class akademik extends CI_Controller
     public function tambahKHS($nim)
     {
         $data['user'] = get_user();
+        $data['username'] = $nim;
         $data['title'] = 'Data Pengajuan Nilai';
         $data['sub_title'] = 'Data Pengajuan Input Nilai';
         $data['deskripsi'] = 'Pengajuan Input Nilai';
@@ -145,7 +143,7 @@ class akademik extends CI_Controller
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('temp_pengunjung/header', $data);
             $this->load->view('temp_pengunjung/sidebar', $data);
-            $this->load->view('pengunjung/pengaju_nilai/tambah_khs');
+            $this->load->view('pengunjung/pengaju_nilai/tambah_khs', $data);
             $this->load->view('temp_pengunjung/footer');
         } else {
             $config['upload_path'] = './uploads/AKADEMIK/';
@@ -158,18 +156,22 @@ class akademik extends CI_Controller
                 $error = array('error' => $this->upload->display_errors());
                 $this->load->view('temp_pengunjung/header', $data);
                 $this->load->view('temp_pengunjung/sidebar', $data);
-                $this->load->view('pengunjung/organisasi/tambah');
+                $this->load->view('pengunjung/organisasi/tambah', $data);
                 $this->load->view('temp_pengunjung/footer');
             } else {
                 $data = $this->upload->data();
                 $file_name = $data['file_name'];
                 $file_path = $config['upload_path'] . $file_name;
+                $semester = $this->input->post('semester', true);
+                $jml_matkul = $this->input->post('jml_matkul', true);
+                $jml_sks_program = $this->input->post('jml_sks_program', true);
+                $jml_sks_lulus = $this->input->post('jml_sks_lulus', true);
                 $tambah = array(
                     "nim" => $nim,
-                    "semester" => $this->input->post('semester', true),
-                    "jml_matkul" => $this->input->post('jml_matkul', true),
-                    "jml_sks_program" => $this->input->post('jml_sks_program', true),
-                    "jml_sks_lulus" => $this->input->post('jml_sks_lulus', true),
+                    "semester" => $semester,
+                    "jml_matkul" => $jml_matkul,
+                    "jml_sks_program" => $jml_sks_program,
+                    "jml_sks_lulus" => $jml_sks_lulus,
                     "file_akademik" => $file_name,
                     "path_akademik" => $file_path
                 );

@@ -22,13 +22,22 @@
                     <div class="form-group">
                         <label for="inputEmail3" class="col-sm-2 control-label">NAMA</label>
                         <div class="col-sm-10">
-                            <label for="inputEmail3" class="col-sm-8 control-label"><?= $user['nama']; ?></label>
+                            <label for="inputEmail3" class="col-sm-8 control-label"><?= $data['nama']; ?></label>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputEmail3" class="col-sm-2 control-label">Semester</label>
                         <div class="col-sm-10">
                             <label for="inputEmail3" class="col-sm-8 control-label"><?= $data['semester']; ?></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-12 control-label">Jumlah Mata Kuliah Yang Diambil:</label>
+                        <div class="col-5">
+                            <input type="number" class="form-control" id="jml_matkul" name="jml_matkul" value="<?= $data['jml_matkul']; ?>" disabled>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <button id="generateForm" class="btn btn-success">Generate Form</button>
                         </div>
                     </div>
                     <div class="row">
