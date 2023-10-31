@@ -90,16 +90,16 @@
                 </p>
               </a>
             </li>
-            <?php if ($user['status'] == 'tidak_aktif') { ?>
+            <?php if ($user['validasi'] == 'tidak_aktif') { ?>
               <li class="nav-item">
-                <a href="<?= base_url('pengunjung/lock_menu/' . $user['username']); ?>" class="nav-link">
+                <a href="<?= base_url('mahasiswa/editMahasiswa/' . $user['username']); ?>" class="nav-link">
                   <i class="nav-icon fas fa-lock"></i>
                   <p>MENU DIKUNCI LENGKAPI BIODATA UNTUK MEMBUKA MENU
                   </p>
                 </a>
               </li>
             <?php } ?>
-            <?php if ($user['status'] == 'aktif') { ?>
+            <?php if ($user['validasi'] == 'aktif') { ?>
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-certificate"></i>

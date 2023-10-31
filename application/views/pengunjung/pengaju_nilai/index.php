@@ -14,7 +14,6 @@
                     <div class="btn-group">
                         <a href="<?= base_url('akademik/tambahKHS/' . $user['username']); ?>" class="btn btn-block btn-primary btn-flat">Tambah Data</a>
                     </div>
-
                 </div>
 
                 <div class="card-body">
@@ -43,7 +42,7 @@
                                         Jumlah SKS Lulus : <?= $data->jml_sks_lulus ?> </td>
                                     <td>
                                         <?php if ($data->validasi != 'VALID') { ?>
-                                            <a href="#" type="button" class="btn btn-success btn-md" data-toggle="modal" data-target="#myModal4437">
+                                            <a class="btn bg-success" href="<?= base_url('akademik/cekNilai/' . $data->id_khs); ?>">
                                                 <i class="fa fa-tasks fa-lg" title="Input Nilai"></i> Cek Input Nilai</a>
                                             <a class="btn bg-maroon" href="<?= base_url('akademik/inputNilai/' . $data->id_khs); ?>">
                                                 <i class="fa fa-tasks fa-lg" title="Input Nilai"></i> Nilai Belum Diisi</a>
@@ -73,7 +72,7 @@
                                     <td align="center">
                                         <?php if ($data->validasi == 'VALID') { ?>
                                             <label class="btn bg-green"><?= $data->validasi ?> <i class="fa fa-check-square fa-lg"></i></label>
-                                        <?php } else if ($data->validasi != 'VALID') { ?>
+                                        <?php } else if ($data->validasi != 'VALID' && $data->validasi != 'BARU') { ?>
                                             <a class="btn bg-olive" href="<?= base_url('akademik/editKHS/' . $data->id_khs . '/' . $user['username']); ?>">
                                                 <i class="fa fa-edit fa-lg" title="Edit"></i></a>
                                             <a class="btn bg-maroon" href="<?= base_url('akademik/inputNilai/' . $data->id_khs); ?>">
@@ -91,54 +90,3 @@
         </div>
     </div>
 </section>
-
-<!-- Modal Edit Mahasiswa-->
-<div class="modal fade" id="myModal4437" role="dialog">
-    <div class="modal-dialog modal-lg">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Validasi Input Nilai</h4>
-            </div>
-            <div class="modal-body">
-                <!-- ISI MODAL -->
-                <div class="row">
-                    <div class="col-md-8">
-                        <div class="box box-primary">
-                            <div class="box-header with-border">
-                                <h2 class="box-title">File Upload KHS Semester 7</h2>
-                            </div>
-                            <img class="img-responsive pad" src="codes/khs/38akhirnya_29.pdf">
-                            <p>Jumlah Mata Kuliah: 5</p>
-                            <p>Jumlah SKS yang Diprogramkan: 18</p>
-                            <p>Jumlah SKS Lulus: 112</p>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="box box-primary">
-                            <div class="box-header with-border">
-                                <h2 class="box-title">Input Nilai berdasarkan KHS</h2>
-                            </div>
-                            <div class="form-group">
-                                <h5 class="box-title">Mata Kuliah</h5>
-                            </div>
-
-                            <!-- Example entry -->
-                            <div class="form-group">
-                                <input type="text" class="form-control" value="MATEMATIKA TEKNIK I" readonly>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" value="C+" size="1px" readonly>
-                            </div>
-
-                            <!-- Repeat this pattern for each subject -->
-                        </div>
-                    </div>
-                </div>
-                <!-- END ISI MODAL -->
-            </div><!-- DIV MODAL BODY -->
-        </div>
-    </div>
-</div>

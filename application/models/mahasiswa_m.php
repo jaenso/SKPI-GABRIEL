@@ -8,11 +8,31 @@ class mahasiswa_m extends CI_Model
         return $query->result();
     }
 
+    public function getMahasiswaOffline($status)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_mahasiswa mhs');
+        $this->db->join('user usr', 'mhs.nim = usr.username');
+        $this->db->where('usr.validasi', $status);
+        return $this->db->get()->result();
+    }
+
+
     public function getMahasiswa()
     {
         $this->db->select('*');
-        $this->db->from('tbl_mahasiswa');
+        $this->db->from('tbl_mahasiswa mhs');
+        $this->db->join('user usr', 'mhs.nim = usr.username');
         return $this->db->get()->result();
+    }
+
+    public function getMahasiswaByAdmin($username)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_mahasiswa mhs');
+        $this->db->join('user usr', 'mhs.nim = usr.username');
+        $this->db->where('usr.username', $username);
+        return $this->db->get()->row_array();
     }
 
     public function getMahasiswaByUsername($username)

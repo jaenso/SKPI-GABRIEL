@@ -32,7 +32,6 @@ class pengunjung extends CI_Controller
         $this->load->view('temp_pengunjung/footer');
     }
 
-
     public function pengaju_nilai($username)
     {
         $data['data'] = $this->akm->getKHS($username);

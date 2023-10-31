@@ -1,10 +1,10 @@
 <section class="content">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-6">
             <div class="card card-primary">
                 <div class="card-header with-border">
                     <b>
-                        <h2 class="card-title">File Upload KHS Semester <?= $data['semester'] ?></h2>
+                        <h2 class="card-title">File Upload KHS Semester 7</h2>
                     </b>
                 </div>
                 <?php if (!empty($data['file_akademik'])) : ?>
@@ -13,7 +13,7 @@
             </div>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-6">
             <div class="card card-info">
                 <div class="card-header with-border">
                     <h3 class="card-title">Input Nilai berdasarkan KHS</h3>

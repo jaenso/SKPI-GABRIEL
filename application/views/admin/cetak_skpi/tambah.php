@@ -3,7 +3,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <div class="col-md-8">
+                    <div class="col-md-12">
                         <div class="card card-primary">
                             <div class="card-header with-border">
                                 <h3 class="card-title">Tambah Data Cetak SKPI</h3>

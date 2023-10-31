@@ -11,7 +11,6 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?= base_url(); ?>asset_admin/plugins/fontawesome-free/css/all.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-
   <!-- DataTables -->
   <link rel="stylesheet" href="<?= base_url(); ?>asset_admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="<?= base_url(); ?>asset_admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
@@ -28,8 +27,7 @@
   <link rel="stylesheet" href="<?= base_url(); ?>asset_admin/dist/css/adminlte.min.css" />
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="<?= base_url(); ?>asset_admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css" />
-  <!-- Daterange picker -->
-  <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css" />
-  <!-- summernote -->
-  <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ttskch/select2-bootstrap4-theme@x.x.x/dist/select2-bootstrap4.min.css">
 </head>

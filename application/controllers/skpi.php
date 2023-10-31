@@ -1,4 +1,5 @@
 <?php
+require FCPATH . 'vendor/autoload.php';
 
 class skpi extends CI_Controller
 {
@@ -10,6 +11,25 @@ class skpi extends CI_Controller
         $this->load->model('mahasiswa_m', 'mhs');
         $this->load->model('skpi_m', 'skpi');
         $this->load->library('form_validation');
+    }
+
+    public function printSKPI($nim)
+    {
+        $data['khs'] = $this->akm->getKHS($nim);
+        $data['mbkm'] = $this->akm->getMBKM($nim);
+        $data['organisasi'] = $this->kgt->getKegiatan('organisasi', $nim);
+        $data['prestasi'] = $this->kgt->getKegiatan('prestasi', $nim);
+        $data['pertemuan'] = $this->kgt->getKegiatan('pertemuan', $nim);
+        $data['pelatihan'] = $this->kgt->getKegiatan('pelatihan', $nim);
+        $data['penunjang'] = $this->kgt->getKegiatan('penunjang', $nim);
+
+        $html = $this->load->view('admin/cetak_skpi/File_SKPI_pdf', $data, true);
+
+        $mpdf = new \Mpdf\Mpdf(['format' => 'A4-P']);
+
+        $mpdf->WriteHTML($html);
+
+        $mpdf->Output('Ijzah_SKPI.pdf', \Mpdf\Output\Destination::DOWNLOAD);
     }
 
     public function tambahSKPI($nim)
@@ -76,12 +96,12 @@ class skpi extends CI_Controller
         $data['pertemuan'] = $this->kgt->getKegiatan('pertemuan', $nim);
         $data['pelatihan'] = $this->kgt->getKegiatan('pelatihan', $nim);
         $data['penunjang'] = $this->kgt->getKegiatan('penunjang', $nim);
+        $data['data'] = $this->skpi->getSKPIByIdAdmin($id);
 
         $data['user'] = get_user();
         $data['title'] = 'Data Pengajuan SKPI';
         $data['sub_title'] = 'Pengajuan SKPI';
         $data['deskripsi'] = 'Surat Keterangan Pengganti Ijazah';
-        $data['data'] = $this->skpi->getSKPIByIdAdmin($id);
 
         $this->form_validation->set_rules('no_ijazah', 'Nomor Ijazah', 'required');
         $this->form_validation->set_rules('tgl_lulus', 'Tanggal Kelulusan', 'required');
@@ -144,12 +164,12 @@ class skpi extends CI_Controller
         $data['pertemuan'] = $this->kgt->getKegiatan('pertemuan', $nim);
         $data['pelatihan'] = $this->kgt->getKegiatan('pelatihan', $nim);
         $data['penunjang'] = $this->kgt->getKegiatan('penunjang', $nim);
+        $data['data'] = $this->skpi->getSKPIById($id);
 
         $data['user'] = get_user();
         $data['title'] = 'Data Pengajuan SKPI';
         $data['sub_title'] = 'Pengajuan SKPI';
         $data['deskripsi'] = 'Surat Keterangan Pengganti Ijazah';
-        $data['data'] = $this->skpi->getSKPIById($id);
 
         $this->form_validation->set_rules('no_ijazah', 'Nomor Ijazah', 'required');
         $this->form_validation->set_rules('tgl_lulus', 'Tanggal Kelulusan', 'required');

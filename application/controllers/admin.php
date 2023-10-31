@@ -5,6 +5,7 @@ class admin extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('akun_m', 'akn');
         $this->load->model('akademik_m', 'akm');
         $this->load->model('kegiatan_m', 'kgt');
         $this->load->model('mahasiswa_m', 'mhs');
@@ -13,7 +14,10 @@ class admin extends CI_Controller
 
     public function index()
     {
-        $data['data'] = $this->mhs->getMahasiswa();
+        $data['admin'] = $this->akn->countAkun(1);
+        $data['mhs_all'] = $this->akn->countAkun(2);
+        $data['mhs_offline'] = $this->akn->countMahasiswaOffline(2, 'tidak_aktif');
+        $data['data'] = $this->mhs->getMahasiswaOffline('tidak_aktif');
         is_logged_out();
         $data['user'] = get_user();
         $data['title'] = 'Dashboard Utama';

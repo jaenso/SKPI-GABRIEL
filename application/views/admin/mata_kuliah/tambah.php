@@ -21,24 +21,12 @@
                             </div>
                             <form method="POST" enctype="multipart/form-data">
                                 <div class="form-group">
+                                    <label>Mata Kuliah</label>
+                                    <input required type="text" class="form-control" name="mata_kuliah" placeholder="Masukkan mata kuliah">
+                                </div>
+                                <div class="form-group">
                                     <label>Semester</label>
-                                    <input required type="text" class="form-control" name="semester" placeholder="Masukkan Semester yang diajukan dengan angka. Contoh. 8">
-                                </div>
-                                <div class="form-group">
-                                    <label>Jumlah Mata Kuliah</label>
-                                    <input required type="text" class="form-control" name="jml_matkul" placeholder="Jumlah Mata Kuliah di Semester yang diajukan, isi dengan angka. Contoh. 8">
-                                </div>
-                                <div class="form-group">
-                                    <label>Jumlah SKS yang Diprogramkan</label>
-                                    <input required type="text" class="form-control" name="jml_sks_program" placeholder="Jumlah SKS Mata Kuliah yang diprogramkan di Semester yang diajukan, isi dengan angka. Contoh. 12">
-                                </div>
-                                <div class="form-group">
-                                    <label>Jumlah SKS yang Lulus</label>
-                                    <input required type="text" class="form-control" name="jml_sks_lulus" placeholder="Jumlah SKS Mata Kuliah yang lulus di Semester yang diajukan, isi dengan angka. Contoh. 12">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputFile">File KHS Semeter yang diajukan</label>
-                                    <input class="bg-green form-control" type="file" name="file_akademik" id="file_akademik" accept=".jpg, .jpeg, .png" required>
+                                    <input required type="text" class="form-control" name="semester" placeholder="Masukkan semester mata kuliah">
                                 </div>
                                 <div class="box-footer">
                                     <button type="submit" class="btn btn-success">Simpan</button>

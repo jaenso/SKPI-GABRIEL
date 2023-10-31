@@ -6,7 +6,51 @@ class mahasiswa extends CI_Controller
     {
         parent::__construct();
         $this->load->model('mahasiswa_m', 'mhs');
+        $this->load->model('akun_m', 'akn');
         $this->load->library('form_validation');
+    }
+
+    public function index()
+    {
+        $data['data'] = $this->mhs->getMahasiswa();
+
+        is_logged_out();
+        $data['user'] = get_user();
+        $data['title'] = 'Master Data Mahasiswa';
+        $data['sub_title'] = 'Master Data';
+        $data['deskripsi'] = 'Data Mahasiswa';
+
+        $this->load->view('temp_admin/header', $data);
+        $this->load->view('temp_admin/sidebar', $data);
+        $this->load->view('admin/mahasiswa/index', $data);
+        $this->load->view('temp_admin/footer');
+    }
+
+    public function validasiMahasiswa($id)
+    {
+        $data['data'] = $this->mhs->getMahasiswaByAdmin($id);
+
+        is_logged_out();
+        $data['user'] = get_user();
+        $data['title'] = 'Master Data Mahasiswa';
+        $data['sub_title'] = 'Master Data';
+        $data['deskripsi'] = 'Data Mahasiswa';
+
+        $this->form_validation->set_rules('validasi', 'Validasi', 'required');
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('temp_admin/header', $data);
+            $this->load->view('temp_admin/sidebar', $data);
+            $this->load->view('admin/mahasiswa/edit', $data);
+            $this->load->view('temp_admin/footer');
+        } else {
+            $edit = array(
+                "validasi" => $this->input->post('validasi', true)
+            );
+            $this->akn->editAktivasi($id, $edit);
+            $this->session->set_flashdata('flash', 'diubah');
+            redirect('mahasiswa');
+        }
     }
 
     public function editMahasiswa($username)

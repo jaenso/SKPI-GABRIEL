@@ -4,7 +4,7 @@
       <div class="col-lg-3 col-6">
         <div class="small-box bg-warning">
           <div class="inner">
-            <h3>44</h3>
+            <h3><?= $admin ?></h3>
             <p>Admin Staff</p>
           </div>
           <div class="icon">
@@ -15,7 +15,7 @@
       <div class="col-lg-3 col-6">
         <div class="small-box bg-success">
           <div class="inner">
-            <h3>44</h3>
+            <h3><?= $mhs_all ?></h3>
             <p>Mahasiswa</p>
           </div>
           <div class="icon">
@@ -34,7 +34,7 @@
             </h3>
             <div class="card-tools">
               <h3 class="card-title">
-                70 Mahasiswa
+                <?= $mhs_offline ?> Mahasiswa
               </h3>
               <button type="button" class="btn btn-primary btn-sm" data-card-widget="collapse" title="Collapse">
                 <i class="fas fa-user"></i>
@@ -48,7 +48,11 @@
                 <div class="col-3">
                   <div class="card">
                     <div class="card-body">
-                      <img src="<?= base_url('uploads/MAHASISWA/' . $data->foto); ?>" class="  w-50" />
+                      <?php if (empty($data->foto)) { ?>
+                        <img src="<?= base_url('uploads/MAHASISWA/default.jpg'); ?>" class="  w-50" />
+                      <?php } else { ?>
+                        <img src="<?= base_url('uploads/MAHASISWA/' . $data->foto); ?>" class="  w-50" />
+                      <?php } ?>
                       <h3><?= $data->nama ?></h3>
                     </div>
                   </div>

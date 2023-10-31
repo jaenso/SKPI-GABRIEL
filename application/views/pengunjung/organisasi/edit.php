@@ -35,7 +35,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>No. Sertifikat/Surat</label>
-                                        <input type="text" class="form-control" name="no_sertifikat" value="<?= $data['no_sertifikat']; ?>">
+                                        <input type="text" class="form-control" name="nomor" value="<?= $data['no_sertifikat']; ?>">
                                     </div>
                                     <div class="form-group">
                                         <label>Penyelenggara</label>

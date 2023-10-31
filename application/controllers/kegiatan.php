@@ -9,13 +9,18 @@ class kegiatan extends CI_Controller
         $this->load->library('form_validation');
     }
 
-    public function tambahOrganisasi($nim)
+    public function set_rules()
     {
         $this->form_validation->set_rules('kegiatan', 'Kegiatan', 'required');
         $this->form_validation->set_rules('peran', 'Peran', 'required');
         $this->form_validation->set_rules('nomor', 'Nomor Sertifikat', 'required');
         $this->form_validation->set_rules('penyelenggara', 'Penyelenggara', 'required');
         $this->form_validation->set_rules('periode', 'Periode', 'required');
+    }
+
+    public function tambahOrganisasi($nim)
+    {
+        $this->set_rules();
 
         $data['user'] = get_user();
         $data['title'] = 'Daftar Keikutsertaan';
@@ -65,11 +70,7 @@ class kegiatan extends CI_Controller
 
     public function tambahPrestasi($nim)
     {
-        $this->form_validation->set_rules('kegiatan', 'Kegiatan', 'required');
-        $this->form_validation->set_rules('peran', 'Peran', 'required');
-        $this->form_validation->set_rules('nomor', 'Nomor Sertifikat', 'required');
-        $this->form_validation->set_rules('penyelenggara', 'Penyelenggara', 'required');
-        $this->form_validation->set_rules('periode', 'Periode', 'required');
+        $this->set_rules();
 
         $data['user'] = get_user();
         $data['title'] = 'Daftar Keikutsertaan';
@@ -119,11 +120,7 @@ class kegiatan extends CI_Controller
 
     public function tambahPertemuan($nim)
     {
-        $this->form_validation->set_rules('kegiatan', 'Kegiatan', 'required');
-        $this->form_validation->set_rules('peran', 'Peran', 'required');
-        $this->form_validation->set_rules('nomor', 'Nomor Sertifikat', 'required');
-        $this->form_validation->set_rules('penyelenggara', 'Penyelenggara', 'required');
-        $this->form_validation->set_rules('periode', 'Periode', 'required');
+        $this->set_rules();
 
         $data['user'] = get_user();
         $data['title'] = 'Daftar Keikutsertaan';
@@ -172,11 +169,7 @@ class kegiatan extends CI_Controller
 
     public function tambahPelatihan($nim)
     {
-        $this->form_validation->set_rules('kegiatan', 'Kegiatan', 'required');
-        $this->form_validation->set_rules('peran', 'Peran', 'required');
-        $this->form_validation->set_rules('nomor', 'Nomor Sertifikat', 'required');
-        $this->form_validation->set_rules('penyelenggara', 'Penyelenggara', 'required');
-        $this->form_validation->set_rules('periode', 'Periode', 'required');
+        $this->set_rules();
 
         $data['user'] = get_user();
         $data['title'] = 'Daftar Keikutsertaan';
@@ -225,11 +218,7 @@ class kegiatan extends CI_Controller
 
     public function tambahPenunjang($nim)
     {
-        $this->form_validation->set_rules('kegiatan', 'Kegiatan', 'required');
-        $this->form_validation->set_rules('peran', 'Peran', 'required');
-        $this->form_validation->set_rules('nomor', 'Nomor Sertifikat', 'required');
-        $this->form_validation->set_rules('penyelenggara', 'Penyelenggara', 'required');
-        $this->form_validation->set_rules('periode', 'Periode', 'required');
+        $this->set_rules();
 
         $data['user'] = get_user();
         $data['title'] = 'Daftar Keikutsertaan';
@@ -304,10 +293,7 @@ class kegiatan extends CI_Controller
 
         $data['data'] = $this->kgt->getKegiatanByIdAdmin($id);
 
-        $this->form_validation->set_rules('kegiatan', 'Kegiatan', 'required');
-        $this->form_validation->set_rules('peran', 'Peran', 'required');
-        $this->form_validation->set_rules('no_sertifikat', 'Nomor Sertifikat', 'required');
-        $this->form_validation->set_rules('penyelenggara', 'Penyelenggara', 'required');
+        $this->set_rules();
 
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('temp_admin/header', $data);
@@ -395,10 +381,7 @@ class kegiatan extends CI_Controller
 
         $data['data'] = $this->kgt->getKegiatanById($id);
 
-        $this->form_validation->set_rules('kegiatan', 'Kegiatan', 'required');
-        $this->form_validation->set_rules('peran', 'Peran', 'required');
-        $this->form_validation->set_rules('no_sertifikat', 'Nomor Sertifikat', 'required');
-        $this->form_validation->set_rules('penyelenggara', 'Penyelenggara', 'required');
+        $this->set_rules();
 
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('temp_pengunjung/header', $data);
@@ -425,7 +408,7 @@ class kegiatan extends CI_Controller
 
             $kegiatan = $this->input->post('kegiatan', true);
             $peran = $this->input->post('peran', true);
-            $no_sertifikat = $this->input->post('no_sertifikat', true);
+            $no_sertifikat = $this->input->post('nomor', true);
             $penyelenggara = $this->input->post('penyelenggara', true);
             $periode = $this->input->post('periode', true);
             $id = $this->input->post('id_kegiatan');

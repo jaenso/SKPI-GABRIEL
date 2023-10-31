@@ -6,7 +6,22 @@ class akademik extends CI_Controller
     {
         parent::__construct();
         $this->load->model('akademik_m', 'akm');
+        $this->load->model('mata_kuliah_m', 'mk');
         $this->load->library('form_validation');
+    }
+
+    public function set_rulesMBKM()
+    {
+        $this->form_validation->set_rules('kegmbkm', 'Kegiatan MBKM', 'required');
+        $this->form_validation->set_rules('ketmbkm', 'Keterangan MBKM', 'required');
+    }
+
+    public function set_rulesKHS()
+    {
+        $this->form_validation->set_rules('semester', 'Semester', 'required');
+        $this->form_validation->set_rules('jml_matkul', 'Jumlah Mata Kuliah', 'required|numeric');
+        $this->form_validation->set_rules('jml_sks_program', 'Jumlah SKS yang Diprogramkan', 'required|numeric');
+        $this->form_validation->set_rules('jml_sks_lulus', 'Jumlah SKS yang Lulus', 'required|numeric');
     }
 
     public function inputNilaiAdmin($id)
@@ -39,12 +54,28 @@ class akademik extends CI_Controller
         }
     }
 
+    public function cekNilai($id)
+    {
+        $data['user'] = get_user();
+        $data['title'] = 'Data Pengajuan Input Nilai';
+        $data['sub_title'] = 'Data Pengajuan Input Nilai';
+        $data['deskripsi'] = 'Pengajuan Input Nilai';
+        $data['data'] = $this->akm->getKHSById($id);
+        $data['matkul'] = $this->mk->getMataKuliah();
+
+        $this->load->view('temp_pengunjung/header', $data);
+        $this->load->view('temp_pengunjung/sidebar', $data);
+        $this->load->view('pengunjung/pengaju_nilai/cek_nilai', $data);
+        $this->load->view('temp_pengunjung/footer');
+    }
+
     public function inputNilai($id)
     {
         $data['user'] = get_user();
         $data['title'] = 'Data Pengajuan Input Nilai';
         $data['sub_title'] = 'Data Pengajuan Input Nilai';
         $data['deskripsi'] = 'Pengajuan Input Nilai';
+        $data['matkul'] = $this->mk->getMataKuliah();
         $data['data'] = $this->akm->getKHSById($id);
         $this->form_validation->set_rules('smt', 'Semester', 'required');
         $this->form_validation->set_rules('jml_matkul', 'Jumlah Mata Kuliah', 'required|numeric');
@@ -108,10 +139,8 @@ class akademik extends CI_Controller
         $data['title'] = 'Data Pengajuan Nilai';
         $data['sub_title'] = 'Data Pengajuan Input Nilai';
         $data['deskripsi'] = 'Pengajuan Input Nilai';
-        $this->form_validation->set_rules('smt', 'Semester', 'required');
-        $this->form_validation->set_rules('jml_matkul', 'Jumlah Mata Kuliah', 'required|numeric');
-        $this->form_validation->set_rules('sks_beban', 'Jumlah SKS yang Diprogramkan', 'required|numeric');
-        $this->form_validation->set_rules('sks_lulus', 'Jumlah SKS yang Lulus', 'required|numeric');
+
+        $this->set_rulesKHS();
 
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('temp_pengunjung/header', $data);
@@ -137,10 +166,10 @@ class akademik extends CI_Controller
                 $file_path = $config['upload_path'] . $file_name;
                 $tambah = array(
                     "nim" => $nim,
-                    "semester" => $this->input->post('smt', true),
+                    "semester" => $this->input->post('semester', true),
                     "jml_matkul" => $this->input->post('jml_matkul', true),
-                    "jml_sks_program" => $this->input->post('sks_beban', true),
-                    "jml_sks_lulus" => $this->input->post('sks_lulus', true),
+                    "jml_sks_program" => $this->input->post('jml_sks_program', true),
+                    "jml_sks_lulus" => $this->input->post('jml_sks_lulus', true),
                     "file_akademik" => $file_name,
                     "path_akademik" => $file_path
                 );
@@ -158,10 +187,8 @@ class akademik extends CI_Controller
         $data['title'] = 'Data Pengajuan Nilai';
         $data['sub_title'] = 'Data Pengajuan Input Nilai';
         $data['deskripsi'] = 'Pengajuan Input Nilai';
-        $this->form_validation->set_rules('semester', 'Semester', 'required');
-        $this->form_validation->set_rules('jml_matkul', 'Jumlah Mata Kuliah', 'required|numeric');
-        $this->form_validation->set_rules('jml_sks_program', 'Jumlah SKS yang Diprogramkan', 'required|numeric');
-        $this->form_validation->set_rules('jml_sks_lulus', 'Jumlah SKS yang Lulus', 'required|numeric');
+
+        $this->set_rulesKHS();
 
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('temp_admin/header', $data);
@@ -226,10 +253,8 @@ class akademik extends CI_Controller
         $data['title'] = 'Data Pengajuan Nilai';
         $data['sub_title'] = 'Data Pengajuan Input Nilai';
         $data['deskripsi'] = 'Pengajuan Input Nilai';
-        $this->form_validation->set_rules('semester', 'Semester', 'required');
-        $this->form_validation->set_rules('jml_matkul', 'Jumlah Mata Kuliah', 'required|numeric');
-        $this->form_validation->set_rules('jml_sks_program', 'Jumlah SKS yang Diprogramkan', 'required|numeric');
-        $this->form_validation->set_rules('jml_sks_lulus', 'Jumlah SKS yang Lulus', 'required|numeric');
+
+        $this->set_rulesKHS();
 
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('temp_pengunjung/header', $data);
@@ -301,8 +326,8 @@ class akademik extends CI_Controller
         $data['title'] = 'Kegiatan Merdeka Belajar Kampus Merdeka';
         $data['sub_title'] = 'MBKM';
         $data['deskripsi'] = 'Merdeka Belajar Kampus Merdeka';
-        $this->form_validation->set_rules('kegmbkm', 'Kegiatan MBKM', 'required');
-        $this->form_validation->set_rules('ketmbkm', 'Keterangan MBKM', 'required');
+
+        $this->set_rulesMBKM();
 
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('temp_pengunjung/header', $data);
@@ -347,8 +372,8 @@ class akademik extends CI_Controller
         $data['title'] = 'Kegiatan Merdeka Belajar Kampus Merdeka';
         $data['sub_title'] = 'MBKM';
         $data['deskripsi'] = 'Merdeka Belajar Kampus Merdeka';
-        $this->form_validation->set_rules('kegmbkm', 'Kegiatan MBKM', 'required');
-        $this->form_validation->set_rules('ketmbkm', 'Keterangan MBKM', 'required');
+
+        $this->set_rulesMBKM();
 
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('temp_admin/header', $data);
@@ -408,8 +433,8 @@ class akademik extends CI_Controller
         $data['title'] = 'Kegiatan Merdeka Belajar Kampus Merdeka';
         $data['sub_title'] = 'MBKM';
         $data['deskripsi'] = 'Merdeka Belajar Kampus Merdeka';
-        $this->form_validation->set_rules('kegmbkm', 'Kegiatan MBKM', 'required');
-        $this->form_validation->set_rules('ketmbkm', 'Keterangan MBKM', 'required');
+
+        $this->set_rulesMBKM();
 
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('temp_pengunjung/header', $data);
