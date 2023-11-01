@@ -44,7 +44,7 @@
                                     <td align="center">
                                         <?php if ($data->validasi == 'VALID') { ?>
                                             <label class="btn bg-green"><?= $data->validasi ?> <i class="fa fa-check-square fa-lg"></i></label>
-                                        <?php } else if ($data->validasi != 'VALID') { ?>
+                                        <?php } else if ($data->validasi != 'VALID' && $data->validasi != 'BARU') { ?>
                                             <a class="btn bg-olive" href="<?= base_url('akademik/editMBKM/' . $data->id_mbkm . '/' . $user['username']); ?>">
                                                 <i class="fa fa-edit fa-lg" title="Edit"></i></a>
                                             <a class="btn bg-orange" href="<?= base_url('akademik/hapusMBKM/' . $data->id_mbkm . '/' . $user['username']); ?>" onclick="return confirm('Yakin?');">

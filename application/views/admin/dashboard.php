@@ -26,7 +26,6 @@
     </div>
     <div class="row">
       <section class="col-lg-12">
-        <!-- Map card -->
         <div class="card bg-gradient-light">
           <div class="card-header border-0">
             <h3 class="card-title">
@@ -61,14 +60,7 @@
             </div>
           </div>
         </div>
-
       </section>
-      <!-- right col -->
     </div>
-    <!-- /.row (main row) -->
   </div>
-  <!-- /.container-fluid -->
 </section>
-<!-- /.content -->
-</div>
-<!-- /.content-wrapper -->

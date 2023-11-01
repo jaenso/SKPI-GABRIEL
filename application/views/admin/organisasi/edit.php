@@ -3,14 +3,11 @@
         <div class="col-12">
             <div class="card card-info">
                 <div class="card-body">
-                    <!-- left column -->
                     <div class="col-md-12">
-                        <!-- general form elements -->
                         <div class="box box-primary">
                             <div class="box-header with-border">
                                 <h3 class="box-title">Edit Data Keikutsertaan <?= $deskripsi ?></h3>
-                            </div><!-- /.box-header -->
-                            <!-- form start -->
+                            </div>
                             <form method="post" enctype="multipart/form-data">
                                 <div class="box-body">
                                     <div class="form-group">
@@ -25,31 +22,28 @@
                                             [3] File Bukti Sertifikat berformat <b><u> .pdf </b></u>
                                         </p>
                                     </div>
-
                                     <div class="form-group">
                                         <label>Bentuk Kegiatan</label>
-                                        <input type="text" class="form-control" name="kegiatan" value="<?= $data['kegiatan']; ?>">
+                                        <input type="text" class="form-control" name="kegiatan" value="<?= $data['kegiatan']; ?>" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label>Jabatan</label>
-                                        <input type="text" class="form-control" name="peran" value="<?= $data['peran']; ?>">
+                                        <input type="text" class="form-control" name="peran" value="<?= $data['peran']; ?>" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label>No. Sertifikat/Surat</label>
-                                        <input type="text" class="form-control" name="no_sertifikat" value="<?= $data['no_sertifikat']; ?>">
+                                        <input type="text" class="form-control" name="no_sertifikat" value="<?= $data['no_sertifikat']; ?>" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label>Penyelenggara</label>
-                                        <input type="text" class="form-control" name="penyelenggara" value="<?= $data['penyelenggara']; ?>">
+                                        <input type="text" class="form-control" name="penyelenggara" value="<?= $data['penyelenggara']; ?>" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label>Waktu/Periode</label>
-                                        <input type="text" class="form-control" name="periode" value="<?= $data['periode']; ?>">
+                                        <input type="text" class="form-control" name="periode" value="<?= $data['periode']; ?>" readonly>
                                     </div>
-
                                     <div class="form-group">
                                         <label for="file_sertifikat">File Sertifikat</label>
-                                        <input class="bg-green form-control" type="file" name="file_sertifikat" id="file_sertifikat" accept=".pdf ">
                                         <?php if (!empty($data['file_sertifikat'])) : ?>
                                             <p class="help-block">Lihat Sertifikat : <a href="<?= base_url('uploads/SERTIFIKAT/' . $data['file_sertifikat']); ?>" target="_blank"><?= $data['file_sertifikat']; ?></a></p>
                                         <?php endif; ?>
@@ -67,12 +61,10 @@
                                         <button type="button" class="btn btn-warning btn-flat" onClick="history.back();">Batalkan</button>
                                     </div>
                             </form>
-                        </div><!-- /.box -->
-
-                    </div><!-- /.box-body -->
-                </div><!-- /.box -->
-
-            </div><!--/.col (left) -->
-
-        </div><!-- /.box-body -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>

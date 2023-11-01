@@ -1,6 +1,6 @@
 <section class="content">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-6">
       <div class="card card-info">
         <div class="card card-outline card-primary">
           <div class="card-header">
@@ -38,12 +38,10 @@
             </span>
             <i class="fa fa-signal"></i> Data Keikutsertaan Kegiatan Penunjang Profesi/Kompetensi/Pengalaman Kerja
           </a>
-
         </div>
       </div>
     </div>
-
-    <div class="col-md-6">
+    <div class="col-6">
       <div class="card card-info">
         <div class="card card-outline card-primary">
           <div class="card-header">
@@ -153,55 +151,4 @@
       </div>
     </div>
   </div>
-
-
-  <div class="row">
-    <div class="col-md-4 col-sm-6 col-xs-12">
-      <div class="info-box">
-        <span class="info-box-icon bg-aqua">IPK</span>
-        <div class="info-box-content">
-          <span class="info-box-text">IP Kumulatif</span>
-          <span class="info-box-number">0</span>
-        </div><!-- /.info-box-content -->
-      </div><!-- /.info-box -->
-    </div><!-- /.col -->
-    <div class="col-md-4 col-sm-6 col-xs-12">
-      <div class="info-box">
-        <span class="info-box-icon bg-green"><i class="fa fa-list-ol"></i></span>
-        <div class="info-box-content">
-          <span class="info-box-text">SKS Lulus</span>
-          <span class="info-box-number">0</span>
-        </div><!-- /.info-box-content -->
-      </div><!-- /.info-box -->
-    </div><!-- /.col -->
-    <div class="col-md-4 col-sm-6 col-xs-12">
-      <div class="info-box">
-        <span class="info-box-icon bg-yellow"><i class="fa fa-list"></i></span>
-        <div class="info-box-content">
-          <span class="info-box-text">SKS Tempuh</span>
-          <span class="info-box-number">0</span>
-        </div><!-- /.info-box-content -->
-      </div><!-- /.info-box -->
-    </div><!-- /.col -->
-    <div class="col-md-4 col-sm-6 col-xs-12">
-      <div class="info-box">
-        <span class="info-box-icon bg-red"><i class="fa  fa-list-ul"></i></span>
-        <div class="info-box-content">
-          <span class="info-box-text">SKS Sisa</span>
-          <span class="info-box-number">- </span>
-        </div><!-- /.info-box-content -->
-      </div><!-- /.info-box -->
-    </div><!-- /.col -->
-    <div class="col-md-6 col-sm-6 col-xs-12">
-      <div class="info-box">
-        <span class="info-box-icon bg-purple"><i class="fa  fa-clock"></i></span>
-        <div class="info-box-content">
-          <span class="info-box-text">Masa Studi <i>*sampai sekarang</i></span>
-          <span class="info-box-number"><label class='btn bg-red'><i class='fa fa-tasks fa-lg'></i> Biodata belum dilengkapi</label> </span> <!-- <span class="info-box-number"></span>-->
-        </div><!-- /.info-box-content -->
-      </div><!-- /.info-box -->
-    </div><!-- /.col -->
-  </div><!-- /.row -->
-
-
 </section>

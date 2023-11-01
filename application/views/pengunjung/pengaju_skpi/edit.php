@@ -1,17 +1,13 @@
 <section class="content">
     <div class="row">
         <div class="col-12">
-
             <div class="card card-info">
                 <div class="card-body">
-                    <!-- left column -->
                     <div class="col-md-12">
-                        <!-- general form elements -->
                         <div class="box box-primary">
                             <div class="box-header with-border">
                                 <h3 class="box-title">Edit Data Pengajuan SKPI</h3>
-                            </div><!-- /.box-header -->
-                            <!-- form start -->
+                            </div>
                             <form method="post" enctype="multipart/form-data">
                                 <input type="hidden" name="idskpi" value="59" />
                                 <input type="hidden" name="id_user" value="40" />
@@ -20,7 +16,6 @@
                                         <label for="exampleInputPassword1">Nama Mahasiswa</label>
                                         <input required type="text" class="form-control" name="id_mahasiswa" value="<?= $user['nama']; ?>" readonly="readonly">
                                     </div>
-
                                     <div style="margin:10px" class="callout callout-success">
                                         <h4>Ketentuan Khusus</h4>
                                         <p>
@@ -30,7 +25,6 @@
                                             [4] File Ijazah berformat gambar <b><u> .JPG / .PNG </b></u> untuk memvalidasi Nomor Ijazah yang diinput
                                         </p>
                                     </div>
-
                                     <div class="form-group">
                                         <label>Nomor Ijazah</label>
                                         <input required type="text" class="form-control" name="no_ijazah" value="<?= $data['nomor_ijazah']; ?>">
@@ -48,13 +42,11 @@
                                             </p>
                                         <?php endif; ?>
                                     </div>
-
                                     <hr>
                                     <div class="box-header with-border">
                                         <h3 class="box-title"><b>Data Akademik (KHS)</b></h3>
                                         <font class="bg-orange">*) Pastikan Data KHS telah LENGKAP DAN VALID sebelum mengajukan pembuatan SKPI</font>
                                     </div>
-
                                     <table class="table">
                                         <thead>
                                             <tr align="center">
@@ -77,20 +69,14 @@
                                                     </td>
                                                     <td><?= $khs->ket_validasi ?></td>
                                                 </tr>
-                                                <!-- <tr>
-                                                <td colspan=3>tidak ada data</td>
-                                            </tr> -->
                                             <?php endforeach ?>
                                         </tbody>
                                     </table>
-
-
                                     <hr>
                                     <div class="box-header with-border">
                                         <h3 class="box-title"><b>Data Akademik (MBKM)</b></h3>
                                         <font class="bg-orange">*) Pastikan Informasi MBKM telah LENGKAP DAN VALID sebelum mengajukan pembuatan SKPI</font>
                                     </div>
-
                                     <table class="table">
                                         <thead>
                                             <tr align="center">
@@ -111,20 +97,14 @@
                                                     <td> <label class="btn bg-warning"><?= $mbkm->validasi ?></label>
                                                     </td>
                                                 </tr>
-                                                <!-- <tr>
-                                                <td colspan=3>tidak ada data</td>
-                                            </tr> -->
                                             <?php endforeach ?>
                                         </tbody>
                                     </table>
-
-
                                     <hr>
                                     <div class="box-header with-border">
                                         <h3 class="box-title"><b>Daftar Keikutsertaan dalam Organisasi/Kepanitiaan/Pembinaan Mahasiswa</b></h3><br>
                                         <font class="bg-orange">*) Pastikan Informasi Keikutsertaan telah LENGKAP DAN VALID sebelum mengajukan pembuatan SKPI</font>
                                     </div>
-
                                     <table class="table">
                                         <thead>
                                             <tr align="center">
@@ -145,19 +125,14 @@
                                                     <td> <label class="btn bg-warning"><?= $pts->validasi ?></label>
                                                     </td>
                                                 </tr>
-                                                <!-- <tr>
-                                                <td colspan=3>tidak ada data</td>
-                                            </tr> -->
                                             <?php endforeach ?>
                                         </tbody>
                                     </table>
-
                                     <hr>
                                     <div class="box-header with-border">
                                         <h3 class="box-title"><b>Daftar Keikutsertaan dalam Lomba/Prestasi Mahasiswa/Beasiswa</b></h3><br>
                                         <font class="bg-orange">*) Pastikan Informasi Keikutsertaan telah LENGKAP DAN VALID sebelum mengajukan pembuatan SKPI</font>
                                     </div>
-
                                     <table class="table">
                                         <thead>
                                             <tr align="center">
@@ -178,19 +153,14 @@
                                                     <td> <label class="btn bg-warning"><?= $ogs->validasi ?></label>
                                                     </td>
                                                 </tr>
-                                                <!-- <tr>
-                                                <td colspan=3>tidak ada data</td>
-                                            </tr> -->
                                             <?php endforeach ?>
                                         </tbody>
                                     </table>
-
                                     <hr>
                                     <div class="box-header with-border">
                                         <h3 class="box-title"><b>Daftar Keikutsertaan dalam Pertemuan Ilmiah/Seminar/Kuliah Umum/Lokakarya</b></h3><br>
                                         <font class="bg-orange">*) Pastikan Informasi Keikutsertaan telah LENGKAP DAN VALID sebelum mengajukan pembuatan SKPI</font>
                                     </div>
-
                                     <table class="table">
                                         <thead>
                                             <tr align="center">
@@ -211,9 +181,6 @@
                                                     <td> <label class="btn bg-warning"><?= $ptm->validasi ?></label>
                                                     </td>
                                                 </tr>
-                                                <!-- <tr>
-                                                <td colspan=3>tidak ada data</td>
-                                            </tr> -->
                                             <?php endforeach ?>
                                         </tbody>
                                     </table>
@@ -223,7 +190,6 @@
                                         <h3 class="box-title"><b>Daftar Keikutsertaan dalam Pelatihan/Kursus</b></h3><br>
                                         <font class="bg-orange">*) Pastikan Informasi Keikutsertaan telah LENGKAP DAN VALID sebelum mengajukan pembuatan SKPI</font>
                                     </div>
-
                                     <table class="table">
                                         <thead>
                                             <tr align="center">
@@ -244,19 +210,14 @@
                                                     <td> <label class="btn bg-warning"><?= $plt->validasi ?></label>
                                                     </td>
                                                 </tr>
-                                                <!-- <tr>
-                                                <td colspan=3>tidak ada data</td>
-                                            </tr> -->
                                             <?php endforeach ?>
                                         </tbody>
                                     </table>
-
                                     <hr>
                                     <div class="box-header with-border">
                                         <h3 class="box-title"><b>Daftar Keikutsertaan dalam Kegiatan yang Menunjang Prestasi/Kompetensi/Pengalaman Kerja/Jurnal/Prosiding</b></h3><br>
                                         <font class="bg-orange">*) Pastikan Informasi Keikutsertaan telah LENGKAP DAN VALID sebelum mengajukan pembuatan SKPI</font>
                                     </div>
-
                                     <table class="table">
                                         <thead>
                                             <tr align="center">
@@ -277,14 +238,9 @@
                                                     <td> <label class="btn bg-warning"><?= $pnj->validasi ?></label>
                                                     </td>
                                                 </tr>
-                                                <!-- <tr>
-                                                <td colspan=3>tidak ada data</td>
-                                            </tr> -->
                                             <?php endforeach ?> </tr>
                                         </tbody>
                                     </table>
-
-
                                     <hr>
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Validasi</label>
@@ -304,12 +260,10 @@
                                         <button type="button" class="btn btn-warning btn-flat" onClick="history.back();">Batalkan</button>
                                     </div>
                             </form>
-                        </div><!-- /.box -->
-
-                    </div><!-- /.box-body -->
-                </div><!-- /.box -->
-
-            </div><!--/.col (left) -->
-
-        </div><!-- /.box-body -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>

@@ -1,25 +1,19 @@
 <section class="content">
     <div class="row">
         <div class="col-12">
-            <!-- /.box -->
-
             <div class="card card-info">
                 <div class="card-body">
-                    <!-- left column -->
                     <div class="col-md-12">
-                        <!-- general form elements -->
                         <div class="box box-primary">
                             <div class="box-header with-border">
                                 <h3 class="box-title">Edit Data Pengajuan Input Nilai</h3>
-                            </div><!-- /.box-header -->
-                            <!-- form start -->
+                            </div>
                             <form method="post" enctype="multipart/form-data">
                                 <div class="box-body">
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Nama Mahasiswa</label>
-                                        <input required type="text" class="form-control" name="id_mahasiswa" value="<?= $data['nama'] ?> - <?= $data['nim'] ?>" readonly="readonly">
+                                        <input required type="text" class="form-control" name="id_mahasiswa" value="<?= $data['nama'] ?> - <?= $data['nim'] ?>" readonly>
                                     </div>
-
                                     <div style="margin:10px" class="callout callout-success">
                                         <h4>Ketentuan Pengajuan</h4>
                                         <p>
@@ -30,25 +24,23 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Semester</label>
-                                        <input type="text" class="form-control" name="semester" value="<?= $data['semester']; ?>">
+                                        <input type="text" class="form-control" name="semester" value="<?= $data['semester']; ?>" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label>Jumlah Mata Kuliah</label>
-                                        <input type="text" class="form-control" name="jml_matkul" value="<?= $data['jml_matkul']; ?>">
+                                        <input type="text" class="form-control" name="jml_matkul" value="<?= $data['jml_matkul']; ?>" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label>Jumlah SKS yang Diprogramkan</label>
-                                        <input type="text" class="form-control" name="jml_sks_program" value="<?= $data['jml_sks_program']; ?>">
+                                        <input type="text" class="form-control" name="jml_sks_program" value="<?= $data['jml_sks_program']; ?>" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label>Jumlah SKS yang Lulus</label>
-                                        <input type="text" class="form-control" name="jml_sks_lulus" value="<?= $data['jml_sks_lulus']; ?>">
+                                        <input type="text" class="form-control" name="jml_sks_lulus" value="<?= $data['jml_sks_lulus']; ?>" readonly>
                                     </div>
-
                                     <div class="form-group">
                                         <label for="exampleInputFile">File KHS</label>
-                                        <input class="bg-green form-control" type="file" name="file_akademik" id="file_akademik" accept=".jpg, .jpeg, .png">
-                                        <p class="help-block">Lihat KHS :
+                                        <p class="help-block">Lihat KHS : <br>
                                             <?php if (!empty($data['file_akademik'])) : ?>
                                                 <img class="img-responsive pad" src="<?= base_url('uploads/AKADEMIK/' . $data['file_akademik']); ?>" alt="KHS">
                                         </p>
@@ -72,12 +64,9 @@
                                         <button type="button" class="btn btn-warning btn-flat" onClick="history.back();">Batalkan</button>
                                     </div>
                             </form>
-                        </div><!-- /.box -->
-
-                    </div><!-- /.box-body -->
-                </div><!-- /.box -->
-
-            </div><!--/.col (left) -->
-
-        </div><!-- /.box-body -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 </section>

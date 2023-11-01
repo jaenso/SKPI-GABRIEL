@@ -34,17 +34,17 @@ CREATE TABLE `tbl_kegiatan` (
   `nim` varchar(256) DEFAULT NULL,
   `path_sertifikat` text DEFAULT NULL,
   PRIMARY KEY (`id_kegiatan`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `tbl_kegiatan` */
 
 insert  into `tbl_kegiatan`(`id_kegiatan`,`kegiatan`,`peran`,`no_sertifikat`,`penyelenggara`,`periode`,`file_sertifikat`,`kategori`,`validasi`,`ket_validasi`,`nim`,`path_sertifikat`) values 
-(21,'file2','file2','file2','file2','23213','AdminLTE_3_Merdeka_Belajar_Kampus_Merdeka.pdf','prestasi','VALID','Pengajuan Baru. Belum Validasi.','203020503044','./uploads/SERTIFIKAT/AdminLTE_3_Merdeka_Belajar_Kampus_Merdeka.pdf'),
-(22,'file3','file3','file3','file3','21 Oktoner','AdminLTE_3_Merdeka_Belajar_Kampus_Merdeka1.pdf','pertemuan','VALID','Pengajuan Baru. Belum Validasi.','203020503044','./uploads/SERTIFIKAT/AdminLTE_3_Merdeka_Belajar_Kampus_Merdeka1.pdf'),
-(23,'file4','file4','file4','file4','file4','AdminLTE_3_Merdeka_Belajar_Kampus_Merdeka4.pdf','pelatihan','VALID','Pengajuan Baru. Belum Validasi.','203020503044','./uploads/SERTIFIKAT/AdminLTE_3_Merdeka_Belajar_Kampus_Merdeka4.pdf'),
-(27,'hayu hore lagi kita cpna ;oat','apakah bisa','sekali lagi','sekali lagi','sekali lagi','223020503157_Alvin_Valerian_Tugas03.pdf','organisasi','VALID','Pengajuan Baru. Belum Validasi.','203020503044','./uploads/SERTIFIKAT/223020503157_Alvin_Valerian_Tugas03.pdf'),
-(32,'pelatihan berhasil','pelatihan berhasil','pelatihan berhasil','pelatihan berhasil','pelatihan berhasil','sampel_siateks1.pdf','pelatihan','BARU','Pengajuan Baru. Belum Validasi.',NULL,'./uploads/SERTIFIKAT/sampel_siateks1.pdf'),
-(38,'12345','12345','12345','12345','12345','223030503218_One_Dhylan_barletyano_Tugas_SS_Modul_3.pdf','prestasi','BARU','Pengajuan Baru. Belum Validasi.','203020503044','./uploads/SERTIFIKAT/223030503218_One_Dhylan_barletyano_Tugas_SS_Modul_3.pdf');
+(39,'organisasi','o','o','o','o','FORMULIR_KKN3.pdf','organisasi','TIDAK VALID','Pengajuan Baru. Belum Validasi.','203020503044','./uploads/SERTIFIKAT/FORMULIR_KKN3.pdf'),
+(40,'o1','o1','o1','o1','o1','KESANGGUPAN_KKN.pdf','organisasi','BARU','Pengajuan Baru. Belum Validasi.','203020503044','./uploads/SERTIFIKAT/KESANGGUPAN_KKN.pdf'),
+(41,'l','l','l','l','l','KESANGGUPAN_KKN1.pdf','prestasi','TIDAK VALID','Pengajuan Baru. Belum Validasi.','203020503044','./uploads/SERTIFIKAT/KESANGGUPAN_KKN1.pdf'),
+(42,'ku','ku','ku','ku','ku','FORMULIR_KKN.pdf','pertemuan','TIDAK VALID','Pengajuan Baru. Belum Validasi.','203020503044','./uploads/SERTIFIKAT/FORMULIR_KKN.pdf'),
+(43,'pk','pk','pk','pk','pk','FORMULIR_KKN1.pdf','pelatihan','TIDAK VALID','Pengajuan Baru. Belum Validasi.','203020503044','./uploads/SERTIFIKAT/FORMULIR_KKN1.pdf'),
+(44,'pn','pn','pn','pn','pn','FORMULIR_KKN2.pdf','penunjang','TIDAK VALID','Pengajuan Baru. Belum Validasi.','203020503044','./uploads/SERTIFIKAT/FORMULIR_KKN2.pdf');
 
 /*Table structure for table `tbl_khs` */
 
@@ -62,18 +62,12 @@ CREATE TABLE `tbl_khs` (
   `file_akademik` text DEFAULT NULL,
   `path_akademik` text DEFAULT NULL,
   PRIMARY KEY (`id_khs`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `tbl_khs` */
 
 insert  into `tbl_khs`(`id_khs`,`semester`,`jml_matkul`,`jml_sks_program`,`jml_sks_lulus`,`validasi`,`ket_validasi`,`nim`,`file_akademik`,`path_akademik`) values 
-(13,40,6,20,122,'VALID','OKE','203020503044','flora2.png','./uploads/AKADEMIK/flora2.png'),
-(15,2,7,21,130,'VALID','astajim\r\n','203020503044','organisasi.png','./uploads/AKADEMIK/organisasi.png'),
-(17,12,123456123,123452,12345123,'BARU','Pengajuan Nilai Baru. Silahkan Input Nilai.','203020503044','1234_drawio_(3).png','./uploads/AKADEMIK/1234_drawio_(3).png'),
-(18,11,12345,123452,12345123,'BARU','Pengajuan Nilai Baru. Silahkan Input Nilai.','203020503045','flora4.png','./uploads/AKADEMIK/flora4.png'),
-(19,123545,12345,123452,12345123,'BARU','Pengajuan Nilai Baru. Silahkan Input Nilai.','203020503044','WhatsApp_Image_2023-10-29_at_00_01_42.jpeg','./uploads/AKADEMIK/WhatsApp_Image_2023-10-29_at_00_01_42.jpeg'),
-(20,8,8,8,8,'BARU','Pengajuan Nilai Baru. Silahkan Input Nilai.','203020503044','WhatsApp_Image_2023-10-29_at_00_11_12.jpeg','./uploads/AKADEMIK/WhatsApp_Image_2023-10-29_at_00_11_12.jpeg'),
-(21,1,1,1,1,'BARU','Pengajuan Nilai Baru. Silahkan Input Nilai.','203020503044','WhatsApp_Image_2023-10-29_at_14_56_41.jpeg','./uploads/AKADEMIK/WhatsApp_Image_2023-10-29_at_14_56_41.jpeg');
+(22,12,12,12,12,'TINJAU ULANG','berhasil','203020503044','PROFIL_KKN.jpg','./uploads/AKADEMIK/PROFIL_KKN.jpg');
 
 /*Table structure for table `tbl_mahasiswa` */
 
@@ -109,24 +103,6 @@ insert  into `tbl_mahasiswa`(`id_mhs`,`nama`,`tgl_lahir`,`tempat_lahir`,`no_hp`,
 (3,'Jason Statham','2023-10-27','Sydenham, Inggris','+6287811914076','joshuaevansavero@gmail.com','Pria','Protestan','1234','Jl. Ranying Suring No. 2','Jl. Ranying Suring No. 2','astyu','ASSTT',NULL,'Dr. Rudi Waluyo, S.T., M.T.','NUR.png','203020503044','2023','Teknik Sipil','./uploads/MAHASISWA/NUR.png'),
 (5,'Chara Sinta','2023-10-30','Jawa Tengah','+6287811914076','saverojoshua@gmail.com','Pria','Protestan','1234','0','0','astyu','ASSTT',NULL,'Dr. Rudi Waluyo, S.T., M.T.',NULL,'203020503045','2023','Teknik Sipil',NULL);
 
-/*Table structure for table `tbl_matkul` */
-
-DROP TABLE IF EXISTS `tbl_matkul`;
-
-CREATE TABLE `tbl_matkul` (
-  `id_matkul` int(11) NOT NULL AUTO_INCREMENT,
-  `mata_kuliah` text DEFAULT NULL,
-  `semester` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_matkul`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-/*Data for the table `tbl_matkul` */
-
-insert  into `tbl_matkul`(`id_matkul`,`mata_kuliah`,`semester`) values 
-(2,'Algoritma Pemograman II',7),
-(4,'Keamanan Jaringan',5),
-(5,'Basis Data II',2);
-
 /*Table structure for table `tbl_mbkm` */
 
 DROP TABLE IF EXISTS `tbl_mbkm`;
@@ -135,40 +111,18 @@ CREATE TABLE `tbl_mbkm` (
   `id_mbkm` int(11) NOT NULL AUTO_INCREMENT,
   `kegiatan` text DEFAULT NULL,
   `keterangan` text DEFAULT NULL,
-  `validasi` varchar(11) DEFAULT 'BARU',
+  `validasi` varchar(256) DEFAULT 'BARU',
   `ket_validasi` varchar(256) DEFAULT 'Pengajuan Baru. Belum Validasi.',
   `nim` varchar(256) DEFAULT NULL,
   `file_akademik` text DEFAULT NULL,
   `path_akademik` text DEFAULT NULL,
   PRIMARY KEY (`id_mbkm`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `tbl_mbkm` */
 
 insert  into `tbl_mbkm`(`id_mbkm`,`kegiatan`,`keterangan`,`validasi`,`ket_validasi`,`nim`,`file_akademik`,`path_akademik`) values 
-(1,'MBKM','BKM','VALID','oke\r\n','203020503044','Screenshot_391.png','./uploads/AKADEMIK/Screenshot_391.png'),
-(6,'1234','1234','VALID','Sesuai\r\n','203020503044','SUPRAYITNO1.png','./uploads/AKADEMIK/SUPRAYITNO1.png');
-
-/*Table structure for table `tbl_nilai` */
-
-DROP TABLE IF EXISTS `tbl_nilai`;
-
-CREATE TABLE `tbl_nilai` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_matkul` varchar(256) DEFAULT NULL,
-  `nilai` varchar(256) DEFAULT NULL,
-  `nim` text DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-/*Data for the table `tbl_nilai` */
-
-insert  into `tbl_nilai`(`id`,`id_matkul`,`nilai`,`nim`) values 
-(10,'Keamanan Jaringan','A',NULL),
-(11,'Keamanan Jaringan','B+',NULL),
-(12,'Keamanan Jaringan','B+',NULL),
-(13,'Keamanan Jaringan','B',NULL),
-(14,'Basis Data II','B+',NULL);
+(7,'12','12','TINJAU ULANG','berhasil','203020503044','tabel_tb_tiket.jpeg','./uploads/AKADEMIK/tabel_tb_tiket.jpeg');
 
 /*Table structure for table `tbl_skpi` */
 
@@ -186,13 +140,14 @@ CREATE TABLE `tbl_skpi` (
   `file_skpi` text DEFAULT NULL,
   `path_skpi` text DEFAULT NULL,
   `nama_file_skpi` text DEFAULT NULL,
+  `status` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`id_skpi`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `tbl_skpi` */
 
-insert  into `tbl_skpi`(`id_skpi`,`nim`,`nomor_ijazah`,`tanggal_lulus`,`validasi`,`ket_validasi`,`file_ijazah`,`path_ijazah`,`file_skpi`,`path_skpi`,`nama_file_skpi`) values 
-(4,'203020503044','JAYA RAYA','2023-10-26','VALID','ok','1234_drawio_(3).png','./uploads/IJAZAH/1234_drawio_(3).png','223020503157_Alvin_Valerian_Latihan-02.pdf','./uploads/IJAZAH/223020503157_Alvin_Valerian_Latihan-02.pdf','SEMOGA BERHASIL');
+insert  into `tbl_skpi`(`id_skpi`,`nim`,`nomor_ijazah`,`tanggal_lulus`,`validasi`,`ket_validasi`,`file_ijazah`,`path_ijazah`,`file_skpi`,`path_skpi`,`nama_file_skpi`,`status`) values 
+(6,'203020503044','skpi1','2023-11-01','VALID','ok','desc_tbl.jpeg','./uploads/IJAZAH/desc_tbl.jpeg','TIDAK_MAGANG.pdf','./uploads/IJAZAH/TIDAK_MAGANG.pdf','akhirnya yeeee','selesai');
 
 /*Table structure for table `user` */
 
@@ -214,7 +169,7 @@ insert  into `user`(`id_user`,`nama`,`username`,`password`,`id_role`,`validasi`)
 (1,'Admin','123','$2y$10$PlENJmkK85./6WMD1p87muLxVWhSY0II0DVJ8ZHRwPts4BLgbxEN.',1,'aktif'),
 (3,'Gabriel Ambatukan','321','$2y$10$gEeGQVwDKnCaFbitkjVcpu22aHhJN8/h9l4owHQwWrKuAeCZMqTpu',2,'aktif'),
 (11,'Jason Statham','203020503044','$2y$10$XB0joOFr7YfZn8kgKLnf2.8gaiXOrHFCJhL/Dz0asUM6/d0E3Nqbu',2,'aktif'),
-(13,'Chara','203020503045','$2y$10$Yhn7juWEOvgLVSGsqjB80uBupxQ4N9SB2eP/sELB2u44TRLYPAq3C',2,'tidak_aktif');
+(13,'Chara','203020503045','$2y$10$Yhn7juWEOvgLVSGsqjB80uBupxQ4N9SB2eP/sELB2u44TRLYPAq3C',2,'aktif');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

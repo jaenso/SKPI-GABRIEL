@@ -11,40 +11,40 @@
         <form method="POST" action="<?= base_url('akun/registrasi'); ?>">
           <div class="input-group mb-3">
             <input type="text" class="form-control" id="username" name="username" placeholder="NIM">
-            <small class=" form-text text-danger"><?= form_error('username'); ?></small>
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-envelope"></span>
               </div>
             </div>
           </div>
+          <small class=" form-text text-danger"><?= form_error('username'); ?></small>
           <div class="input-group mb-3">
             <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama">
-            <small class="form-text text-danger"><?= form_error('nama'); ?></small>
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-envelope"></span>
               </div>
             </div>
           </div>
+          <small class="form-text text-danger"><?= form_error('nama'); ?></small>
           <div class="input-group mb-3">
             <input type="email" class="form-control" id="email" name="email" placeholder="Email">
-            <small class="form-text text-danger"><?= form_error('email'); ?></small>
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-envelope"></span>
               </div>
             </div>
           </div>
+          <small class="form-text text-danger"><?= form_error('email'); ?></small>
           <div class="input-group mb-3">
             <input type="password" class="form-control" id="password1" name="password" placeholder="Password">
-            <small class="form-text text-danger"><?= form_error('password1'); ?></small>
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-lock"></span>
               </div>
             </div>
           </div>
+          <small class="form-text text-danger"><?= form_error('password1'); ?></small>
           <div class="row">
             <div class="col-4">
               <button type="submit" class="btn btn-primary btn-block">Sign In</button>

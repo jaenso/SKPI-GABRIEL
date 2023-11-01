@@ -37,6 +37,7 @@ class pengunjung extends CI_Controller
         $data['data'] = $this->akm->getKHS($username);
         is_logged_out();
         $data['user'] = get_user();
+        $data['mhs'] = $this->mhs->getMahasiswaByUsername($username);
         $data['title'] = 'Data Pengajuan Nilai';
         $data['sub_title'] = 'Data Pengajuan Input Nilai';
         $data['deskripsi'] = 'Pengajuan Input Nilai';
@@ -51,6 +52,7 @@ class pengunjung extends CI_Controller
         $data['data'] = $this->akm->getMBKM($username);
         is_logged_out();
         $data['user'] = get_user();
+        $data['mhs'] = $this->mhs->getMahasiswaByUsername($username);
         $data['title'] = 'Kegiatan Merdeka Belajar Kampus Merdeka';
         $data['sub_title'] = 'MBKM';
         $data['deskripsi'] = 'Merdeka Belajar Kampus Merdeka';
@@ -60,26 +62,13 @@ class pengunjung extends CI_Controller
         $this->load->view('temp_pengunjung/footer');
     }
 
-    public function rekap_nilai($username)
-    {
-        $data['data'] = $this->akm->getKHS($username);
-        is_logged_out();
-        $data['user'] = get_user();
-        $data['title'] = 'Data Rekapitulasi Nilai';
-        $data['sub_title'] = 'Akademik';
-        $data['deskripsi'] = 'Rekapitulasi Nilai';
-        $this->load->view('temp_pengunjung/header', $data);
-        $this->load->view('temp_pengunjung/sidebar', $data);
-        $this->load->view('pengunjung/rekap_nilai/index');
-        $this->load->view('temp_pengunjung/footer');
-    }
-
     public function organisasi($username)
     {
         $kategori = 'organisasi';
         $data['data'] = $this->kgt->getKegiatan($kategori, $username);
         is_logged_out();
         $data['user'] = get_user();
+        $data['mhs'] = $this->mhs->getMahasiswaByUsername($username);
         $data['title'] = 'Daftar Keikutsertaan';
         $data['sub_title'] = 'Data Keikutsertaan';
         $data['deskripsi'] = 'Organisasi/Kepanitiaan/Pembinaan Mahasiswa';
@@ -95,6 +84,7 @@ class pengunjung extends CI_Controller
         $data['data'] = $this->kgt->getKegiatan($kategori, $username);
         is_logged_out();
         $data['user'] = get_user();
+        $data['mhs'] = $this->mhs->getMahasiswaByUsername($username);
         $data['title'] = 'Daftar Keikutsertaan';
         $data['sub_title'] = 'Data Keikutsertaan';
         $data['deskripsi'] = 'Lomba/Prestasi Mahasiswa/Beasiswa';
@@ -110,6 +100,7 @@ class pengunjung extends CI_Controller
         $data['data'] = $this->kgt->getKegiatan($kategori, $username);
         is_logged_out();
         $data['user'] = get_user();
+        $data['mhs'] = $this->mhs->getMahasiswaByUsername($username);
         $data['title'] = 'Daftar Keikutsertaan';
         $data['sub_title'] = 'Data Keikutsertaan';
         $data['deskripsi'] = 'Pertemuan Ilmiah/Seminar/Kuliah Umum/Lokakarya';
@@ -125,6 +116,7 @@ class pengunjung extends CI_Controller
         $data['data'] = $this->kgt->getKegiatan($kategori, $username);
         is_logged_out();
         $data['user'] = get_user();
+        $data['mhs'] = $this->mhs->getMahasiswaByUsername($username);
         $data['title'] = 'Daftar Keikutsertaan';
         $data['sub_title'] = 'Data Keikutsertaan';
         $data['deskripsi'] = 'Pelatihan/Kursus';
@@ -140,6 +132,7 @@ class pengunjung extends CI_Controller
         $data['data'] = $this->kgt->getKegiatan($kategori, $username);
         is_logged_out();
         $data['user'] = get_user();
+        $data['mhs'] = $this->mhs->getMahasiswaByUsername($username);
         $data['title'] = 'Daftar Keikutsertaan';
         $data['sub_title'] = 'Data Keikutsertaan';
         $data['deskripsi'] = 'Kegiatan yang Menunjang Prestasi/Kompetensi/Pengalaman Kerja';
@@ -168,6 +161,7 @@ class pengunjung extends CI_Controller
         $data['data'] = $this->skpi->getSKPI($username);
         is_logged_out();
         $data['user'] = get_user();
+        $data['mhs'] = $this->mhs->getMahasiswaByUsername($username);
         $data['title'] = 'Data Pengajuan SKPI';
         $data['sub_title'] = 'Pengajuan SKPI';
         $data['deskripsi'] = 'Surat Keterangan Pengganti Ijazah';
@@ -182,6 +176,7 @@ class pengunjung extends CI_Controller
         $data['data'] = $this->skpi->getSKPI($username);
         is_logged_out();
         $data['user'] = get_user();
+        $data['mhs'] = $this->mhs->getMahasiswaByUsername($username);
         $data['title'] = 'Data Pengajuan SKPI';
         $data['sub_title'] = 'Pengajuan SKPI';
         $data['deskripsi'] = 'Surat Keterangan Pengganti Ijazah';

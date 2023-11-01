@@ -2,12 +2,6 @@
 
 class mahasiswa_m extends CI_Model
 {
-    public function getNamaDanNIM()
-    {
-        $query = $this->db->select('nama, nim')->from('tbl_mahasiswa')->get();
-        return $query->result();
-    }
-
     public function getMahasiswaOffline($status)
     {
         $this->db->select('*');

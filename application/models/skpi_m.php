@@ -37,7 +37,6 @@ class skpi_m extends CI_Model
         return $this->db->get_where('tbl_skpi', ['id_skpi' => $id])->row_array();;
     }
 
-
     public function TambahFileSKPI($nim, $tambah)
     {
         $this->db->where('nim', $nim);

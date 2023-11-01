@@ -9,14 +9,6 @@
         </div>
 
         <div class="card-body">
-          <div class="btn-group">
-            <a href="<?= base_url('skpi/tambahFileSKPI'); ?>">
-              <button class="btn btn-block btn-primary btn-flat">Tambah Data </button>
-            </a>
-          </div>
-        </div>
-
-        <div class="card-body">
           <table id="example1" class="table table-bordered table-striped">
             <thead>
               <tr align="center">

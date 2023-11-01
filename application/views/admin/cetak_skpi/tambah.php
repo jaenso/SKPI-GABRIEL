@@ -12,11 +12,7 @@
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Nama Mahasiswa</label>
-                                        <select name="nim" required class="form-control select2">
-                                            <?php foreach ($mhs as $mhs) : ?>
-                                                <option value="<?= $mhs->nim; ?>"><?= $mhs->nama . ' - ' . $mhs->nim; ?></option>
-                                            <?php endforeach; ?>
-                                        </select>
+                                        <input required type="text" class="form-control" name="nama" value="<?= $data['nama']; ?> - <?= $data['nim']; ?>">
                                     </div>
 
                                     <div class="form-group">

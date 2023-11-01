@@ -3,14 +3,11 @@
         <div class="col-12">
             <div class="card card-info">
                 <div class="card-body">
-                    <!-- left column -->
                     <div class="col-md-12">
-                        <!-- general form elements -->
                         <div class="box box-primary">
                             <div class="box-header with-border">
                                 <h3 class="box-title">Tambah <?= $title ?></h3>
-                            </div><!-- /.box-header -->
-                            <!-- form start -->
+                            </div>
                             <form method="post" enctype="multipart/form-data">
                                 <input type="hidden" name="id_user" value="1048">
                                 <input type="hidden" name="id_mahasiswa" value="1051">
@@ -60,24 +57,27 @@
                                                     <?= $no++ ?>
                                                 </td>
                                                 <td><?= $khs->semester ?></td>
-                                                <td> <label class="btn bg-warning"><?= $khs->validasi ?></label>
+                                                <td>
+                                                    <?php if ($khs->validasi == 'VALID') { ?>
+                                                        <label class="btn bg-green"><?= $khs->validasi ?> <i class="fa fa-check-square fa-lg"></i></label>
+                                                    <?php } else if ($khs->validasi == 'TIDAK VALID') { ?>
+                                                        <label class="btn bg-danger"><?= $khs->validasi ?></label>
+                                                    <?php } else if ($khs->validasi == 'BARU') { ?>
+                                                        <label class="btn bg-blue"><?= $khs->validasi ?></label>
+                                                    <?php } else if ($khs->validasi == 'TINJAU ULANG') { ?>
+                                                        <label class="btn bg-warning"><?= $khs->validasi ?></label>
+                                                    <?php } ?>
                                                 </td>
                                                 <td><?= $khs->ket_validasi ?></td>
                                             </tr>
-                                            <!-- <tr>
-                                                <td colspan=3>tidak ada data</td>
-                                            </tr> -->
                                         <?php endforeach ?>
                                     </tbody>
                                 </table>
-
-
                                 <hr>
                                 <div class="box-header with-border">
                                     <h3 class="box-title"><b>Data Akademik (MBKM)</b></h3>
                                     <font class="bg-orange">*) Pastikan Informasi MBKM telah LENGKAP DAN VALID sebelum mengajukan pembuatan SKPI</font>
                                 </div>
-
                                 <table class="table">
                                     <thead>
                                         <tr align="center">
@@ -95,12 +95,18 @@
                                                     <?= $no++ ?>
                                                 </td>
                                                 <td><?= $mbkm->kegiatan ?></td>
-                                                <td> <label class="btn bg-warning"><?= $mbkm->validasi ?></label>
+                                                <td>
+                                                    <?php if ($mbkm->validasi == 'VALID') { ?>
+                                                        <label class="btn bg-green"><?= $mbkm->validasi ?> <i class="fa fa-check-square fa-lg"></i></label>
+                                                    <?php } else if ($mbkm->validasi == 'TIDAK VALID') { ?>
+                                                        <label class="btn bg-danger"><?= $mbkm->validasi ?></label>
+                                                    <?php } else if ($mbkm->validasi == 'BARU') { ?>
+                                                        <label class="btn bg-blue"><?= $mbkm->validasi ?></label>
+                                                    <?php } else if ($mbkm->validasi == 'TINJAU ULANG') { ?>
+                                                        <label class="btn bg-warning"><?= $mbkm->validasi ?></label>
+                                                    <?php } ?>
                                                 </td>
                                             </tr>
-                                            <!-- <tr>
-                                                <td colspan=3>tidak ada data</td>
-                                            </tr> -->
                                         <?php endforeach ?>
                                     </tbody>
                                 </table>
@@ -123,18 +129,24 @@
                                     <tbody>
                                         <?php
                                         $no = 1;
-                                        foreach ($organisasi as $pts) : ?>
+                                        foreach ($organisasi as $ogn) : ?>
                                             <tr>
                                                 <td>
                                                     <?= $no++ ?>
                                                 </td>
-                                                <td><?= $pts->kegiatan ?></td>
-                                                <td> <label class="btn bg-warning"><?= $pts->validasi ?></label>
+                                                <td><?= $ogn->kegiatan ?></td>
+                                                <td>
+                                                    <?php if ($ogn->validasi == 'VALID') { ?>
+                                                        <label class="btn bg-green"><?= $ogn->validasi ?> <i class="fa fa-check-square fa-lg"></i></label>
+                                                    <?php } else if ($ogn->validasi == 'TIDAK VALID') { ?>
+                                                        <label class="btn bg-danger"><?= $ogn->validasi ?></label>
+                                                    <?php } else if ($ogn->validasi == 'BARU') { ?>
+                                                        <label class="btn bg-blue"><?= $ogn->validasi ?></label>
+                                                    <?php } else if ($ogn->validasi == 'TINJAU ULANG') { ?>
+                                                        <label class="btn bg-warning"><?= $ogn->validasi ?></label>
+                                                    <?php } ?>
                                                 </td>
                                             </tr>
-                                            <!-- <tr>
-                                                <td colspan=3>tidak ada data</td>
-                                            </tr> -->
                                         <?php endforeach ?>
                                     </tbody>
                                 </table>
@@ -156,18 +168,24 @@
                                     <tbody>
                                         <?php
                                         $no = 1;
-                                        foreach ($prestasi as $ogs) : ?>
+                                        foreach ($prestasi as $pts) : ?>
                                             <tr>
                                                 <td>
                                                     <?= $no++ ?>
                                                 </td>
-                                                <td><?= $ogs->kegiatan ?></td>
-                                                <td> <label class="btn bg-warning"><?= $ogs->validasi ?></label>
+                                                <td><?= $pts->kegiatan ?></td>
+                                                <td>
+                                                    <?php if ($pts->validasi == 'VALID') { ?>
+                                                        <label class="btn bg-green"><?= $pts->validasi ?> <i class="fa fa-check-square fa-lg"></i></label>
+                                                    <?php } else if ($pts->validasi == 'TIDAK VALID') { ?>
+                                                        <label class="btn bg-danger"><?= $pts->validasi ?></label>
+                                                    <?php } else if ($pts->validasi == 'BARU') { ?>
+                                                        <label class="btn bg-blue"><?= $pts->validasi ?></label>
+                                                    <?php } else if ($pts->validasi == 'TINJAU ULANG') { ?>
+                                                        <label class="btn bg-warning"><?= $pts->validasi ?></label>
+                                                    <?php } ?>
                                                 </td>
                                             </tr>
-                                            <!-- <tr>
-                                                <td colspan=3>tidak ada data</td>
-                                            </tr> -->
                                         <?php endforeach ?>
                                     </tbody>
                                 </table>
@@ -195,12 +213,18 @@
                                                     <?= $no++ ?>
                                                 </td>
                                                 <td><?= $ptm->kegiatan ?></td>
-                                                <td> <label class="btn bg-warning"><?= $ptm->validasi ?></label>
+                                                <td>
+                                                    <?php if ($ptm->validasi == 'VALID') { ?>
+                                                        <label class="btn bg-green"><?= $ptm->validasi ?> <i class="fa fa-check-square fa-lg"></i></label>
+                                                    <?php } else if ($ptm->validasi == 'TIDAK VALID') { ?>
+                                                        <label class="btn bg-danger"><?= $ptm->validasi ?></label>
+                                                    <?php } else if ($ptm->validasi == 'BARU') { ?>
+                                                        <label class="btn bg-blue"><?= $ptm->validasi ?></label>
+                                                    <?php } else if ($ptm->validasi == 'TINJAU ULANG') { ?>
+                                                        <label class="btn bg-warning"><?= $ptm->validasi ?></label>
+                                                    <?php } ?>
                                                 </td>
                                             </tr>
-                                            <!-- <tr>
-                                                <td colspan=3>tidak ada data</td>
-                                            </tr> -->
                                         <?php endforeach ?>
                                     </tbody>
                                 </table>
@@ -228,12 +252,18 @@
                                                     <?= $no++ ?>
                                                 </td>
                                                 <td><?= $plt->kegiatan ?></td>
-                                                <td> <label class="btn bg-warning"><?= $plt->validasi ?></label>
+                                                <td>
+                                                    <?php if ($plt->validasi == 'VALID') { ?>
+                                                        <label class="btn bg-green"><?= $plt->validasi ?> <i class="fa fa-check-square fa-lg"></i></label>
+                                                    <?php } else if ($plt->validasi == 'TIDAK VALID') { ?>
+                                                        <label class="btn bg-danger"><?= $plt->validasi ?></label>
+                                                    <?php } else if ($plt->validasi == 'BARU') { ?>
+                                                        <label class="btn bg-blue"><?= $plt->validasi ?></label>
+                                                    <?php } else if ($plt->validasi == 'TINJAU ULANG') { ?>
+                                                        <label class="btn bg-warning"><?= $plt->validasi ?></label>
+                                                    <?php } ?>
                                                 </td>
                                             </tr>
-                                            <!-- <tr>
-                                                <td colspan=3>tidak ada data</td>
-                                            </tr> -->
                                         <?php endforeach ?>
                                     </tbody>
                                 </table>
@@ -261,12 +291,18 @@
                                                     <?= $no++ ?>
                                                 </td>
                                                 <td><?= $pnj->kegiatan ?></td>
-                                                <td> <label class="btn bg-warning"><?= $pnj->validasi ?></label>
+                                                <td>
+                                                    <?php if ($pnj->validasi == 'VALID') { ?>
+                                                        <label class="btn bg-green"><?= $pnj->validasi ?> <i class="fa fa-check-square fa-lg"></i></label>
+                                                    <?php } else if ($pnj->validasi == 'TIDAK VALID') { ?>
+                                                        <label class="btn bg-danger"><?= $pnj->validasi ?></label>
+                                                    <?php } else if ($pnj->validasi == 'BARU') { ?>
+                                                        <label class="btn bg-blue"><?= $pnj->validasi ?></label>
+                                                    <?php } else if ($pnj->validasi == 'TINJAU ULANG') { ?>
+                                                        <label class="btn bg-warning"><?= $pnj->validasi ?></label>
+                                                    <?php } ?>
                                                 </td>
                                             </tr>
-                                            <!-- <tr>
-                                                <td colspan=3>tidak ada data</td>
-                                            </tr> -->
                                         <?php endforeach ?> </tr>
                                     </tbody>
                                 </table>
@@ -286,10 +322,10 @@
                                     <button type="button" class="btn btn-warning btn-flat" onClick="history.back();">Batalkan</button>
                                 </div>
                             </form>
-
-                        </div><!-- /.box-body -->
-                    </div><!-- /.box -->
-                </div><!--/.col (left) -->
-
-            </div><!-- /.box-body -->
-</section><!-- /.content --> <!-- /.content -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

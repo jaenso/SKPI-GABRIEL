@@ -1,43 +1,35 @@
 <section class="content">
     <div class="row">
         <div class="col-12">
-            <!-- /.box -->
-
             <div class="card card-info">
                 <div class="card-body">
-                    <!-- left column -->
                     <div class="col-md-12">
-                        <!-- general form elements -->
                         <div class="box box-primary">
                             <div class="box-header with-border">
                                 <h3 class="box-title">Edit Data Kegiatan Merdeka Belajar Kampus Merdeka</h3>
-                            </div><!-- /.box-header -->
-                            <!-- form start -->
+                            </div>
                             <form method="post" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Nama Mahasiswa</label>
-                                    <input required type="text" class="form-control" name="id_mahasiswa" value="<?= $data['nama'] ?> - <?= $data['nim'] ?>" readonly="readonly">
+                                    <input required type="text" class="form-control" name="id_mahasiswa" value="<?= $data['nama'] ?> - <?= $data['nim'] ?>" readonly>
                                 </div>
                                 <div class="box-body">
-
                                     <div style="margin:10px" class="callout callout-success">
                                         <h4>Ketentuan Khusus</h4>
                                         <p>
                                             [1] File Bukti MBKM berformat gambar <b><u> .JPG / .PNG </b></u>
                                         </p>
                                     </div>
-
                                     <div class="form-group">
                                         <label>Bentuk Kegiatan</label>
-                                        <input type="text" class="form-control" name="kegmbkm" value="<?= $data['kegiatan']; ?>">
+                                        <input type="text" class="form-control" name="kegmbkm" value="<?= $data['kegiatan']; ?>" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label>Keterangan</label>
-                                        <input type="text" class="form-control" name="ketmbkm" value="<?= $data['keterangan']; ?>">
+                                        <input type="text" class="form-control" name="ketmbkm" value="<?= $data['keterangan']; ?>" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label for="file_mbkm">File </label>
-                                        <input class="bg-green form-control" type="file" name="file_mbkm" id="file_mbkm" accept=".jpg, .png, .jpeg">
                                         <p class="help-block">Lihat File : <br>
                                             <?php if (!empty($data['file_akademik'])) : ?>
                                                 <img class="img-responsive pad" src="<?= base_url('uploads/AKADEMIK/' . $data['file_akademik']); ?>" alt="KHS">
@@ -62,12 +54,9 @@
                                         <button type="button" class="btn btn-warning btn-flat" onClick="history.back();">Batalkan</button>
                                     </div>
                             </form>
-                        </div><!-- /.box -->
-
-                    </div><!-- /.box-body -->
-                </div><!-- /.box -->
-
-            </div><!--/.col (left) -->
-
-        </div><!-- /.box-body -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 </section>
