@@ -62,7 +62,7 @@ CREATE TABLE `tbl_khs` (
   `file_akademik` text DEFAULT NULL,
   `path_akademik` text DEFAULT NULL,
   PRIMARY KEY (`id_khs`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `tbl_khs` */
 
@@ -70,7 +70,10 @@ insert  into `tbl_khs`(`id_khs`,`semester`,`jml_matkul`,`jml_sks_program`,`jml_s
 (13,40,6,20,122,'VALID','OKE','203020503044','flora2.png','./uploads/AKADEMIK/flora2.png'),
 (15,2,7,21,130,'VALID','astajim\r\n','203020503044','organisasi.png','./uploads/AKADEMIK/organisasi.png'),
 (17,12,123456123,123452,12345123,'BARU','Pengajuan Nilai Baru. Silahkan Input Nilai.','203020503044','1234_drawio_(3).png','./uploads/AKADEMIK/1234_drawio_(3).png'),
-(18,11,12345,123452,12345123,'BARU','Pengajuan Nilai Baru. Silahkan Input Nilai.','203020503045','flora4.png','./uploads/AKADEMIK/flora4.png');
+(18,11,12345,123452,12345123,'BARU','Pengajuan Nilai Baru. Silahkan Input Nilai.','203020503045','flora4.png','./uploads/AKADEMIK/flora4.png'),
+(19,123545,12345,123452,12345123,'BARU','Pengajuan Nilai Baru. Silahkan Input Nilai.','203020503044','WhatsApp_Image_2023-10-29_at_00_01_42.jpeg','./uploads/AKADEMIK/WhatsApp_Image_2023-10-29_at_00_01_42.jpeg'),
+(20,8,8,8,8,'BARU','Pengajuan Nilai Baru. Silahkan Input Nilai.','203020503044','WhatsApp_Image_2023-10-29_at_00_11_12.jpeg','./uploads/AKADEMIK/WhatsApp_Image_2023-10-29_at_00_11_12.jpeg'),
+(21,1,1,1,1,'BARU','Pengajuan Nilai Baru. Silahkan Input Nilai.','203020503044','WhatsApp_Image_2023-10-29_at_14_56_41.jpeg','./uploads/AKADEMIK/WhatsApp_Image_2023-10-29_at_14_56_41.jpeg');
 
 /*Table structure for table `tbl_mahasiswa` */
 
@@ -151,19 +154,21 @@ insert  into `tbl_mbkm`(`id_mbkm`,`kegiatan`,`keterangan`,`validasi`,`ket_valida
 DROP TABLE IF EXISTS `tbl_nilai`;
 
 CREATE TABLE `tbl_nilai` (
-  `id_nilai` int(11) NOT NULL AUTO_INCREMENT,
-  `id_matkul` int(11) NOT NULL,
-  `nilai` varchar(2) NOT NULL,
-  `nim` varchar(256) NOT NULL,
-  PRIMARY KEY (`id_nilai`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_matkul` varchar(256) DEFAULT NULL,
+  `nilai` varchar(256) DEFAULT NULL,
+  `nim` text DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `tbl_nilai` */
 
-insert  into `tbl_nilai`(`id_nilai`,`id_matkul`,`nilai`,`nim`) values 
-(7,0,'B+',''),
-(8,0,'A',''),
-(9,0,'B+','');
+insert  into `tbl_nilai`(`id`,`id_matkul`,`nilai`,`nim`) values 
+(10,'Keamanan Jaringan','A',NULL),
+(11,'Keamanan Jaringan','B+',NULL),
+(12,'Keamanan Jaringan','B+',NULL),
+(13,'Keamanan Jaringan','B',NULL),
+(14,'Basis Data II','B+',NULL);
 
 /*Table structure for table `tbl_skpi` */
 
