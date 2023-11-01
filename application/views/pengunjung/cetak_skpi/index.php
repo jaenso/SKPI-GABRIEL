@@ -22,20 +22,21 @@
               <?php
               $no = 1;
               foreach ($data as $data) : ?>
-                <tr>
-                  <td><?= $no++ ?></td>
-                  <td><?= $data->file_skpi ?></td>
-                  <td><?= $data->nim ?></td>
-                  <td>
-                    <a href="<?= base_url('uploads/IJAZAH/' . $data->file_skpi); ?>" target="_blank"><?= $data->file_skpi; ?></a>
-                  </td>
-                </tr>
+                <?php if ($data->status == 'selesai') { ?>
+                  <tr>
+                    <td><?= $no++ ?></td>
+                    <td><?= $data->nama_file_skpi ?></td>
+                    <td><?= $data->nim ?></td>
+                    <td>
+                      <a href="<?= base_url('uploads/IJAZAH/' . $data->file_skpi); ?>" target="_blank"><?= $data->file_skpi; ?></a>
+                    </td>
+                  </tr>
+                <?php }  ?>
               <?php endforeach ?>
             </tbody>
           </table>
-
-        </div><!-- /.box-body -->
-      </div><!-- /.box -->
-    </div><!-- /.col -->
-  </div><!-- /.data -->
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
