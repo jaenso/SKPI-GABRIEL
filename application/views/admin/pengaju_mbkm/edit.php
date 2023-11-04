@@ -32,7 +32,7 @@
                                         <label for="file_mbkm">File </label>
                                         <p class="help-block">Lihat File : <br>
                                             <?php if (!empty($data['file_akademik'])) : ?>
-                                                <img class="img-responsive pad" src="<?= base_url('uploads/AKADEMIK/' . $data['file_akademik']); ?>" alt="KHS">
+                                                <img class="img-responsive pad w-50" src="<?= base_url('uploads/AKADEMIK/' . $data['file_akademik']); ?>" alt="KHS">
                                         </p>
                                     <?php endif; ?> </p>
                                     </div>

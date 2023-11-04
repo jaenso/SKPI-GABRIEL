@@ -40,7 +40,7 @@
                                         <input class="bg-green form-control" type="file" name="file_akademik" id="file_akademik" accept=".jpg, .jpeg, .png">
                                         <?php if (!empty($data['file_akademik'])) : ?>
                                             <p class="help-block">Lihat KHS :
-                                                <img class="img-responsive pad" src="<?= base_url('uploads/AKADEMIK/' . $data['file_akademik']); ?>" alt="KHS">
+                                                <img class="img-responsive pad w-50" src="<?= base_url('uploads/AKADEMIK/' . $data['file_akademik']); ?>" alt="KHS">
                                             </p>
                                         <?php endif; ?>
                                     </div>

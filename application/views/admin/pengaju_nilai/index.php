@@ -87,12 +87,12 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-12">
-                        <div class="box box-primary">
-                            <div class="box-header with-border">
-                                <h2 class="box-title">File Upload KHS Semester <?= $data->semester ?></h2>
+                        <div class="card card-primary">
+                            <div class="card-header with-border">
+                                <h2 class="card-title">File Upload KHS Semester <?= $data->semester ?></h2>
                             </div>
                             <?php if (!empty($data->file_akademik)) : ?>
-                                <img class="img-responsive pad" src="<?= base_url('uploads/AKADEMIK/' . $data->file_akademik); ?>" alt="KHS">
+                                <img class="img-responsive pad w-50" src="<?= base_url('uploads/AKADEMIK/' . $data->file_akademik); ?>" alt="KHS">
                             <?php endif; ?>
                         </div>
                     </div>

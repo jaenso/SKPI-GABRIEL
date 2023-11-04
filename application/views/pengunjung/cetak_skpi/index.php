@@ -7,7 +7,6 @@
             Silahkan Cek Berkala pada menu ini, File Cetak SKPI akan kami kirimkan setelah pengajuan <b><u> VALID </b></u>
           </p>
         </div>
-
         <div class="card-body">
           <table id="example1" class="table table-bordered table-striped">
             <thead>

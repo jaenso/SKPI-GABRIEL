@@ -24,21 +24,21 @@
                         <span class="input-group-addon">Foto</span>
                         <p class="help-block"><img src="<?= base_url('uploads/MAHASISWA/' . $data['foto']); ?>" width="30%"></p>
                     </div>
-                </div>
-                <br>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <button class="btn btn-success">Validasi</button>
+                    <br>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-success">Validasi</button>
+                        </div>
+                        <select name="validasi" required class="form-control">
+                            <option value="aktif" <?= ($data['validasi'] == 'SETUJU') ? 'selected' : '' ?>>SETUJU</option>
+                            <option value="tidak_aktif" <?= ($data['validasi'] == 'TOLAK') ? 'selected' : '' ?>>TOLAK</option>
+                        </select>
                     </div>
-                    <select name="validasi" required class="form-control">
-                        <option value="aktif" <?= ($data['validasi'] == 'SETUJU') ? 'selected' : '' ?>>SETUJU</option>
-                        <option value="tidak_aktif" <?= ($data['validasi'] == 'TOLAK') ? 'selected' : '' ?>>TOLAK</option>
-                    </select>
-                </div>
-                <br>
-                <div class="box-footer">
-                    <button type="submit" class="btn btn-primary">Kirim</button>&nbsp;&nbsp;&nbsp;
-                    <button type="button" class="btn btn-warning btn-flat" onClick="history.back();">Batalkan</button>
+                    <br>
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-primary">Kirim</button>&nbsp;&nbsp;&nbsp;
+                        <button type="button" class="btn btn-warning btn-flat" onClick="history.back();">Batalkan</button>
+                    </div>
                 </div>
             </form>
         </div>

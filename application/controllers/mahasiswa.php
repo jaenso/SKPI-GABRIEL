@@ -153,4 +153,11 @@ class mahasiswa extends CI_Controller
             redirect('pengunjung/index/' . $username);
         }
     }
+
+    public function hapusMahasiswa($nim)
+    {
+        $this->mhs->hapusMahasiswa($nim);
+        $this->session->set_flashdata('flash', 'dihapus');
+        redirect('mahasiswa');
+    }
 }

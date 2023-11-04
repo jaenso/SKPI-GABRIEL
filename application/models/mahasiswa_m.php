@@ -47,4 +47,9 @@ class mahasiswa_m extends CI_Model
         $this->db->where('nim', $username);
         $this->db->update('tbl_mahasiswa', $edit);
     }
+
+    public function hapusMahasiswa($id)
+    {
+        $this->db->delete('tbl_mahasiswa', ['nim' => $id]);
+    }
 }

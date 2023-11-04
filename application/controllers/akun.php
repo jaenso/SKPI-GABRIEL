@@ -17,7 +17,7 @@ class akun extends CI_Controller
         $this->form_validation->set_rules('password', 'Password', 'required|trim');
 
         if ($this->form_validation->run() == false) {
-            $data['tittle'] = 'Login Akun';
+            $data['title'] = 'Login Akun';
             $this->load->view('temp_admin/header', $data);
             $this->load->view('akun/login');
             $this->load->view('temp_admin/footer');

@@ -27,7 +27,7 @@
                                         <?php if ($data->validasi == 'aktif') { ?>
                                             <label class="btn bg-green"><i class="fa fa-check-square fa-lg"></i></label>
                                         <?php } else if ($data->validasi == 'tidak_aktif') { ?>
-                                            <label class="btn bg-danger">DITOLAK</label>
+                                            <label class="btn bg-warning">MENUNGGU</label>
                                         <?php } ?>
                                     </td>
                                     <td align="center">
@@ -35,7 +35,7 @@
                                             <a class="btn bg-olive" href="<?= base_url('mahasiswa/validasiMahasiswa/' . $data->nim); ?>">
                                                 <i class="fa fa-edit fa-lg" title="Edit"></i></a>
                                         <?php } else { ?>
-                                            <a class="btn bg-orange" href="<?= base_url('mahasiswa/validasiMahasiswa/' . $data->nim); ?>" onclick="return confirm('Yakin?');">
+                                            <a class="btn bg-orange" href="<?= base_url('mahasiswa/hapusMahasiswa/' . $data->nim); ?>" onclick="return confirm('Yakin?');">
                                                 <i class="fa fa-trash fa-lg" title="Delete"></i></a>
                                         <?php } ?>
                                     </td>
