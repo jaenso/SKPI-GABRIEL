@@ -7,6 +7,7 @@ class akademik extends CI_Controller
         parent::__construct();
         $this->load->model('akademik_m', 'akm');
         $this->load->model('mahasiswa_m', 'mhs');
+        $this->load->model('mata_kuliah_m', 'mk');
         $this->load->library('form_validation');
     }
 
@@ -22,6 +23,12 @@ class akademik extends CI_Controller
         $this->form_validation->set_rules('jml_matkul', 'Jumlah Mata Kuliah', 'required|numeric');
         $this->form_validation->set_rules('jml_sks_program', 'Jumlah SKS yang Diprogramkan', 'required|numeric');
         $this->form_validation->set_rules('jml_sks_lulus', 'Jumlah SKS yang Lulus', 'required|numeric');
+    }
+
+    public function set_rulesNilai()
+    {
+        $this->form_validation->set_rules('id_matkul', 'Mata Kuliah', 'required');
+        $this->form_validation->set_rules('nilai', 'Nilai Mata Kuliah', 'required');
     }
 
     public function tambahKHS($nim)
@@ -75,6 +82,87 @@ class akademik extends CI_Controller
                 redirect('pengunjung/pengaju_nilai/' . $nim);
             }
         }
+    }
+
+    public function lihatNilai($id_khs, $nim)
+    {
+        $data['user'] = get_user();
+        $data['data'] = $this->akm->getKHSById($id_khs);
+        $data['mhs'] = $this->mhs->getMahasiswaByUsername($nim);
+        $data['mata_kuliah'] = $this->mk->getMatkulAdmin();
+        $data['penilaian'] = $this->mk->getPenilaianSubmit($id_khs, $nim);
+        $data['username'] = $nim;
+        $data['title'] = 'Data Pengajuan Nilai';
+        $data['sub_title'] = 'Data Pengajuan Input Nilai';
+        $data['deskripsi'] = 'Pengajuan Input Nilai';
+        $this->load->view('temp_pengunjung/header', $data);
+        $this->load->view('temp_pengunjung/sidebar', $data);
+        $this->load->view('pengunjung/pengaju_nilai/lihat_nilai', $data);
+        $this->load->view('temp_pengunjung/footer');
+    }
+
+    public function simpanNilai($nim)
+    {
+        $data['data'] = $this->akm->getKHS($nim);
+        $this->akm->updateKeterangan();
+        $data['user'] = get_user();
+        $data['mhs'] = $this->mhs->getMahasiswaByUsername($nim);
+        $data['title'] = 'Data Pengajuan Nilai';
+        $data['sub_title'] = 'Data Pengajuan Input Nilai';
+        $data['deskripsi'] = 'Pengajuan Input Nilai';
+        $this->load->view('temp_pengunjung/header', $data);
+        $this->load->view('temp_pengunjung/sidebar', $data);
+        $this->load->view('pengunjung/pengaju_nilai/index', $nim);
+        $this->load->view('temp_pengunjung/footer');
+    }
+
+    public function tambahNilai($id_khs, $nim)
+    {
+        $data['user'] = get_user();
+        $data['data'] = $this->akm->getKHSById($id_khs);
+        $data['mhs'] = $this->mhs->getMahasiswaByUsername($nim);
+        $data['mata_kuliah'] = $this->mk->getMatkulAdmin();
+        $data['penilaian'] = $this->mk->getPenilaian($id_khs, $nim);
+        $data['username'] = $nim;
+        $data['title'] = 'Data Pengajuan Nilai';
+        $data['sub_title'] = 'Data Pengajuan Input Nilai';
+        $data['deskripsi'] = 'Pengajuan Input Nilai';
+
+        $this->set_rulesNilai();
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('temp_pengunjung/header', $data);
+            $this->load->view('temp_pengunjung/sidebar', $data);
+            $this->load->view('pengunjung/pengaju_nilai/tambah_nilai', $data);
+            $this->load->view('temp_pengunjung/footer');
+        } else {
+            $nilai = $this->input->post('nilai', true);
+            $id_matkul = $this->input->post('id_matkul', true);
+            $tambah = array(
+                "nilai" => $nilai,
+                "id_matkul" => $id_matkul,
+                "nim" => $nim,
+                "id_khs" => $id_khs,
+            );
+            $this->akm->tambahNilai($tambah);
+            $this->session->set_flashdata('flash', 'ditambahkan');
+            redirect('akademik/tambahNilai/' . $id_khs . '/' . $nim);
+        }
+    }
+
+    public function getNilaiAdmin($id, $nim)
+    {
+        $data['data'] = $this->akm->getNilaiByIdAdmin($id);
+        $data['penilaian'] = $this->mk->getPenilaianSubmit($id, $nim);
+        $data['user'] = get_user();
+        $data['title'] = 'Data Pengajuan Nilai';
+        $data['sub_title'] = 'Data Pengajuan Input Nilai';
+        $data['deskripsi'] = 'Pengajuan Input Nilai';
+
+        $this->load->view('temp_admin/header', $data);
+        $this->load->view('temp_admin/sidebar', $data);
+        $this->load->view('admin/pengaju_nilai/lihat_nilai', $data);
+        $this->load->view('temp_admin/footer');
     }
 
     public function editKHSAdmin($id)

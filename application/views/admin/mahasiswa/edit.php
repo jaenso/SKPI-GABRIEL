@@ -21,6 +21,27 @@
                     </div>
                     <br>
                     <div class="input-group">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-secondary">Tanggal dan Tempat Lahir</button>
+                        </div>
+                        <input required type="text" class="form-control" name="tgl_lahir" value="<?= $data['tgl_lahir']; ?>, <?= $data['tempat_lahir']; ?>" disabled="disabled">
+                    </div>
+                    <br>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-secondary">Nomor Ponsel</button>
+                        </div>
+                        <input required type="text" class="form-control" name="no_hp" value="<?= $data['no_hp']; ?>, <?= $data['tempat_lahir']; ?>" disabled="disabled">
+                    </div>
+                    <br>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-secondary">Dosen Pembimbing Akademik</button>
+                        </div>
+                        <input required type="text" class="form-control" name="dosen_pa" value="<?= $data['dosen_pa']; ?>" disabled="disabled">
+                    </div>
+                    <br>
+                    <div class="input-group">
                         <span class="input-group-addon">Foto</span>
                         <p class="help-block"><img src="<?= base_url('uploads/MAHASISWA/' . $data['foto']); ?>" width="30%"></p>
                     </div>

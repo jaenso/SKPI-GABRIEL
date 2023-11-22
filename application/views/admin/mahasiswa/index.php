@@ -31,13 +31,10 @@
                                         <?php } ?>
                                     </td>
                                     <td align="center">
-                                        <?php if ($data->validasi != 'aktif') { ?>
-                                            <a class="btn bg-olive" href="<?= base_url('mahasiswa/validasiMahasiswa/' . $data->nim); ?>">
-                                                <i class="fa fa-edit fa-lg" title="Edit"></i></a>
-                                        <?php } else { ?>
-                                            <a class="btn bg-orange" href="<?= base_url('mahasiswa/hapusMahasiswa/' . $data->nim); ?>" onclick="return confirm('Yakin?');">
-                                                <i class="fa fa-trash fa-lg" title="Delete"></i></a>
-                                        <?php } ?>
+                                        <a class="btn bg-olive" href="<?= base_url('mahasiswa/validasiMahasiswa/' . $data->nim); ?>">
+                                            <i class="fa fa-edit fa-lg" title="Edit"></i></a>
+                                        <a class="btn bg-orange" href="<?= base_url('mahasiswa/hapusMahasiswa/' . $data->nim); ?>" onclick="return confirm('Yakin?');">
+                                            <i class="fa fa-trash fa-lg" title="Delete"></i></a>
                                     </td>
                                 </tr>
                             <?php endforeach ?>

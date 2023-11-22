@@ -10,6 +10,7 @@ class admin extends CI_Controller
         $this->load->model('kegiatan_m', 'kgt');
         $this->load->model('mahasiswa_m', 'mhs');
         $this->load->model('skpi_m', 'skpi');
+        $this->load->model('mata_kuliah_m', 'mk');
     }
 
     public function index()
@@ -26,6 +27,20 @@ class admin extends CI_Controller
         $this->load->view('temp_admin/header', $data);
         $this->load->view('temp_admin/sidebar', $data);
         $this->load->view('admin/dashboard', $data);
+        $this->load->view('temp_admin/footer');
+    }
+
+    public function mata_kuliah()
+    {
+        $data['data'] = $this->mk->getMatkulAdmin();
+        is_logged_out();
+        $data['user'] = get_user();
+        $data['title'] = 'Master Data Mata Kuliah';
+        $data['sub_title'] = 'Master Data';
+        $data['deskripsi'] = 'Data Mata Kuliah';
+        $this->load->view('temp_admin/header', $data);
+        $this->load->view('temp_admin/sidebar', $data);
+        $this->load->view('admin/mata_kuliah/index');
         $this->load->view('temp_admin/footer');
     }
 

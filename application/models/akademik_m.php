@@ -41,7 +41,7 @@ class akademik_m extends CI_Model
 
   public function tambahNilai($tambah)
   {
-    $this->db->insert('tbl_nilai', $tambah);
+    $this->db->insert('tbl_penilaian', $tambah);
   }
 
   public function getKHSByIdAdmin($id)
@@ -51,6 +51,26 @@ class akademik_m extends CI_Model
       ->join('tbl_mahasiswa mhs', 'khs.nim = mhs.nim')
       ->where('khs.id_khs', $id);
     return $this->db->get()->row_array();
+  }
+
+  public function getNilaiByIdAdmin($id)
+  {
+    $this->db->select('*')
+      ->from('tbl_penilaian pl')
+      ->join('tbl_khs khs', 'khs.id_khs = pl.id_khs')
+      ->join('tbl_mahasiswa mhs', 'pl.nim = mhs.nim')
+      ->where('pl.id_khs', $id);
+    return $this->db->get()->row_array();
+  }
+
+  public function getNilaiAdmin($id)
+  {
+    $this->db->select('*')
+      ->from('tbl_penilaian pl')
+      ->join('tbl_khs khs', 'khs.id_khs = pl.id_khs')
+      ->join('tbl_mahasiswa mhs', 'pl.nim = mhs.nim')
+      ->where('pl.id_khs', $id);
+    return $this->db->get()->result();
   }
 
   public function getKHSById($id)
@@ -101,5 +121,11 @@ class akademik_m extends CI_Model
   public function hapusMBKM($id)
   {
     $this->db->delete('tbl_mbkm', ['id_mbkm' => $id]);
+  }
+
+  public function updateKeterangan()
+  {
+    $data = array('keterangan' => 'Submit');
+    $this->db->update('tbl_penilaian', $data);
   }
 }

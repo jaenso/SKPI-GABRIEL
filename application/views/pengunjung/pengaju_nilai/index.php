@@ -41,11 +41,12 @@
                                         Jumlah SKS yang Diprogramkan : <?= $data->jml_sks_program ?><br>
                                         Jumlah SKS Lulus : <?= $data->jml_sks_lulus ?> </td>
                                     <td>
-                                        <?php if ($data->validasi != 'VALID') { ?>
-                                            <a href="#" type="button" class="btn btn-danger btn-md" data-toggle="modal" data-target="#myModal4437">
-                                                <i class="fa fa-tasks fa-lg" title="Input KHS"></i> Cek Input KHS</a>
+                                        <?php if ($data->validasi != 'VALID' && $data->validasi != 'BARU') { ?>
+                                            <a href="<?= base_url('akademik/tambahNilai/' . $data->id_khs . '/' . $user['username']); ?>" class="btn btn-danger btn-md">
+                                                <i class="fa fa-tasks fa-lg" title="Input Nilai"></i>Isi Nilai</a>
                                         <?php } else if ($data->validasi == 'VALID') { ?>
-                                            <label class="btn bg-green"><?= $data->validasi ?> <i class="fa fa-check-square fa-lg"></i></label>
+                                            <a href="<?= base_url('akademik/lihatNilai/' . $data->id_khs . '/' . $user['username']); ?>" class="btn btn-success btn-md">
+                                                <i class="fa fa-tasks fa-lg" title="Input Nilai"></i> Cek Input Nilai</a>
                                         <?php } ?>
                                     </td>
                                     <td>
@@ -86,26 +87,3 @@
         </div>
     </div>
 </section>
-<div class="modal fade" id="myModal4437" role="dialog">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="box box-primary">
-                            <div class="box-header with-border">
-                                <h2 class="box-title">File Upload KHS Semester <?= $data->semester ?></h2>
-                            </div>
-                            <?php if (!empty($data->file_akademik)) : ?>
-                                <img class="img-responsive pad w-50" src="<?= base_url('uploads/AKADEMIK/' . $data->file_akademik); ?>" alt="KHS">
-                            <?php endif; ?>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>

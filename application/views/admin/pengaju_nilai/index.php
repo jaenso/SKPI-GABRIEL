@@ -41,8 +41,8 @@
                                         Jumlah SKS yang Diprogramkan : <?= $data->jml_sks_program ?><br>
                                         Jumlah SKS Lulus : <?= $data->jml_sks_lulus ?> </td>
                                     <td>
-                                        <a href="#" type="button" class="btn btn-danger btn-md" data-toggle="modal" data-target="#myModal4437">
-                                            <i class="fa fa-tasks fa-lg" title="Input KHS"></i> Cek Input KHS</a>
+                                        <a href="<?= base_url('akademik/getNilaiAdmin/' . $data->id_khs . '/' . $data->nim) ?>" class="btn btn-success btn-md">
+                                            <i class="fa fa-tasks fa-lg" title="Input Nilai"></i> Cek Input Nilai</a>
                                     </td>
                                     <td>
                                         <?php if ($data->validasi == 'VALID') { ?>
@@ -78,26 +78,3 @@
         </div>
     </div>
 </section>
-<div class="modal fade" id="myModal4437" role="dialog">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card card-primary">
-                            <div class="card-header with-border">
-                                <h2 class="card-title">File Upload KHS Semester <?= $data->semester ?></h2>
-                            </div>
-                            <?php if (!empty($data->file_akademik)) : ?>
-                                <img class="img-responsive pad w-50" src="<?= base_url('uploads/AKADEMIK/' . $data->file_akademik); ?>" alt="KHS">
-                            <?php endif; ?>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>

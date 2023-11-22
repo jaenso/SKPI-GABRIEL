@@ -75,12 +75,31 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="<?= base_url(); ?>mahasiswa" class="nav-link">
-                <i class="nav-icon fas fa-users"></i>
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-cloud"></i>
                 <p>
-                  Master Data Mahasiswa
+                  Master Data
+                  <i class="fas fa-angle-left right"></i>
                 </p>
               </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="<?= base_url(); ?>mahasiswa" class="nav-link">
+                    <i class="nav-icon fas fa-users"></i>
+                    <p>
+                      Master Data Mahasiswa
+                    </p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?= base_url(); ?>admin/mata_kuliah" class="nav-link">
+                    <i class="fas fa-book nav-icon"></i>
+                    <p>
+                      Master Data Mata Kuliah
+                    </p>
+                  </a>
+                </li>
+              </ul>
             </li>
             <li class="nav-item">
               <a href="<?= base_url(); ?>admin/pengaju_nilai" class="nav-link">
