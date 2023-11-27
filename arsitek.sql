@@ -62,12 +62,13 @@ CREATE TABLE `tbl_khs` (
   `file_akademik` text DEFAULT NULL,
   `path_akademik` text DEFAULT NULL,
   PRIMARY KEY (`id_khs`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `tbl_khs` */
 
 insert  into `tbl_khs`(`id_khs`,`semester`,`jml_matkul`,`jml_sks_program`,`jml_sks_lulus`,`validasi`,`ket_validasi`,`nim`,`file_akademik`,`path_akademik`) values 
-(22,12,12,12,12,'TINJAU ULANG','berhasil','203020503044','PROFIL_KKN.jpg','./uploads/AKADEMIK/PROFIL_KKN.jpg');
+(22,12,12,12,12,'VALID','berhasil','203020503044','PROFIL_KKN.jpg','./uploads/AKADEMIK/PROFIL_KKN.jpg'),
+(24,1,2,3,4,'BARU','Pengajuan Nilai Baru. Silahkan Input Nilai.','203020503045','berita-1.png','./uploads/AKADEMIK/berita-1.png');
 
 /*Table structure for table `tbl_mahasiswa` */
 
@@ -95,13 +96,30 @@ CREATE TABLE `tbl_mahasiswa` (
   `prodi` varchar(245) DEFAULT NULL,
   `path_foto` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`id_mhs`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `tbl_mahasiswa` */
 
 insert  into `tbl_mahasiswa`(`id_mhs`,`nama`,`tgl_lahir`,`tempat_lahir`,`no_hp`,`email`,`kelamin`,`agama`,`nik`,`alamat_pky`,`alamat_asal`,`ayah`,`ibu`,`tgl_masuk`,`dosen_pa`,`foto`,`nim`,`angkatan`,`prodi`,`path_foto`) values 
 (3,'Jason Statham','2023-10-27','Sydenham, Inggris','+6287811914076','joshuaevansavero@gmail.com','Pria','Protestan','1234','Jl. Ranying Suring No. 2','Jl. Ranying Suring No. 2','astyu','ASSTT',NULL,'Dr. Rudi Waluyo, S.T., M.T.','NUR.png','203020503044','2023','Teknik Sipil','./uploads/MAHASISWA/NUR.png'),
 (5,'Chara Sinta','2023-10-30','Jawa Tengah','+6287811914076','saverojoshua@gmail.com','Pria','Protestan','1234','0','0','astyu','ASSTT',NULL,'Dr. Rudi Waluyo, S.T., M.T.',NULL,'203020503045','2023','Teknik Sipil',NULL);
+
+/*Table structure for table `tbl_matkul` */
+
+DROP TABLE IF EXISTS `tbl_matkul`;
+
+CREATE TABLE `tbl_matkul` (
+  `id_matkul` int(11) NOT NULL AUTO_INCREMENT,
+  `mata_kuliah` varchar(256) DEFAULT NULL,
+  `semester` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_matkul`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `tbl_matkul` */
+
+insert  into `tbl_matkul`(`id_matkul`,`mata_kuliah`,`semester`) values 
+(2,'1',8),
+(4,'12345',12345);
 
 /*Table structure for table `tbl_mbkm` */
 
@@ -117,12 +135,37 @@ CREATE TABLE `tbl_mbkm` (
   `file_akademik` text DEFAULT NULL,
   `path_akademik` text DEFAULT NULL,
   PRIMARY KEY (`id_mbkm`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `tbl_mbkm` */
 
 insert  into `tbl_mbkm`(`id_mbkm`,`kegiatan`,`keterangan`,`validasi`,`ket_validasi`,`nim`,`file_akademik`,`path_akademik`) values 
-(7,'12','12','TINJAU ULANG','berhasil','203020503044','tabel_tb_tiket.jpeg','./uploads/AKADEMIK/tabel_tb_tiket.jpeg');
+(7,'12','12','TINJAU ULANG','berhasil','203020503044','tabel_tb_tiket.jpeg','./uploads/AKADEMIK/tabel_tb_tiket.jpeg'),
+(8,'123','1234','BARU','Pengajuan Baru. Belum Validasi.','203020503044','Activity_Diagram-Pengunjung.jpg','./uploads/AKADEMIK/Activity_Diagram-Pengunjung.jpg'),
+(9,'kontol','kontol','BARU','Pengajuan Baru. Belum Validasi.','203020503044','Activity_Diagram-Pengunjung1.jpg','./uploads/AKADEMIK/Activity_Diagram-Pengunjung1.jpg');
+
+/*Table structure for table `tbl_penilaian` */
+
+DROP TABLE IF EXISTS `tbl_penilaian`;
+
+CREATE TABLE `tbl_penilaian` (
+  `id_penilaian` int(11) NOT NULL AUTO_INCREMENT,
+  `id_matkul` int(11) DEFAULT NULL,
+  `nim` varchar(256) DEFAULT NULL,
+  `id_khs` int(11) DEFAULT NULL,
+  `nilai` varchar(256) DEFAULT NULL,
+  `keterangan` varchar(256) DEFAULT 'Belum Submit',
+  PRIMARY KEY (`id_penilaian`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `tbl_penilaian` */
+
+insert  into `tbl_penilaian`(`id_penilaian`,`id_matkul`,`nim`,`id_khs`,`nilai`,`keterangan`) values 
+(16,2,'203020503045',24,'A','Submit'),
+(17,4,'203020503045',24,'B+','Submit'),
+(18,4,'203020503044',22,'A','Submit'),
+(19,2,'203020503044',22,'B+','Submit'),
+(20,2,'203020503044',22,'A','Submit');
 
 /*Table structure for table `tbl_skpi` */
 
@@ -147,7 +190,7 @@ CREATE TABLE `tbl_skpi` (
 /*Data for the table `tbl_skpi` */
 
 insert  into `tbl_skpi`(`id_skpi`,`nim`,`nomor_ijazah`,`tanggal_lulus`,`validasi`,`ket_validasi`,`file_ijazah`,`path_ijazah`,`file_skpi`,`path_skpi`,`nama_file_skpi`,`status`) values 
-(6,'203020503044','skpi1','2023-11-01','VALID','ok','desc_tbl.jpeg','./uploads/IJAZAH/desc_tbl.jpeg','TIDAK_MAGANG.pdf','./uploads/IJAZAH/TIDAK_MAGANG.pdf','akhirnya yeeee','selesai');
+(6,'203020503044','skpi1','2023-11-01','VALID','ok','desc_tbl.jpeg','./uploads/IJAZAH/desc_tbl.jpeg','KTM1.pdf','./uploads/IJAZAH/KTM1.pdf','yang satu udah beres ygy','selesai');
 
 /*Table structure for table `user` */
 
@@ -161,15 +204,28 @@ CREATE TABLE `user` (
   `id_role` int(11) DEFAULT NULL,
   `validasi` varchar(256) DEFAULT 'tidak_aktif',
   PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `user` */
 
 insert  into `user`(`id_user`,`nama`,`username`,`password`,`id_role`,`validasi`) values 
 (1,'Admin','123','$2y$10$PlENJmkK85./6WMD1p87muLxVWhSY0II0DVJ8ZHRwPts4BLgbxEN.',1,'aktif'),
-(3,'Gabriel Ambatukan','321','$2y$10$gEeGQVwDKnCaFbitkjVcpu22aHhJN8/h9l4owHQwWrKuAeCZMqTpu',2,'aktif'),
 (11,'Jason Statham','203020503044','$2y$10$XB0joOFr7YfZn8kgKLnf2.8gaiXOrHFCJhL/Dz0asUM6/d0E3Nqbu',2,'aktif'),
 (13,'Chara','203020503045','$2y$10$Yhn7juWEOvgLVSGsqjB80uBupxQ4N9SB2eP/sELB2u44TRLYPAq3C',2,'aktif');
+
+/* Trigger structure for table `tbl_mahasiswa` */
+
+DELIMITER $$
+
+/*!50003 DROP TRIGGER*//*!50032 IF EXISTS */ /*!50003 `hapusMahasiswa` */$$
+
+/*!50003 CREATE */ /*!50017 DEFINER = 'root'@'localhost' */ /*!50003 TRIGGER `hapusMahasiswa` AFTER DELETE ON `tbl_mahasiswa` FOR EACH ROW 
+BEGIN
+    DELETE FROM `USER` WHERE `username` = OLD.`nim`;
+END */$$
+
+
+DELIMITER ;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
