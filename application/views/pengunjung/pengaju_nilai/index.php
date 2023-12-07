@@ -41,7 +41,7 @@
                                         Jumlah SKS yang Diprogramkan : <?= $data->jml_sks_program ?><br>
                                         Jumlah SKS Lulus : <?= $data->jml_sks_lulus ?> </td>
                                     <td>
-                                        <?php if ($data->validasi != 'VALID' && $data->validasi != 'BARU') { ?>
+                                        <?php if ($data->validasi != 'VALID') { ?>
                                             <a href="<?= base_url('akademik/tambahNilai/' . $data->id_khs . '/' . $user['username']); ?>" class="btn btn-danger btn-md">
                                                 <i class="fa fa-tasks fa-lg" title="Input Nilai"></i>Isi Nilai</a>
                                         <?php } else if ($data->validasi == 'VALID') { ?>

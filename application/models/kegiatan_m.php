@@ -30,6 +30,16 @@ class kegiatan_m extends CI_Model
         return $this->db->get()->result();
     }
 
+    public function getKegiatanValid($kategori, $nim)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_kegiatan');
+        $this->db->where('kategori', $kategori);
+        $this->db->where('nim', $nim);
+        $this->db->where('validasi', 'VALID');
+        return $this->db->get()->result();
+    }
+
     public function tambahKegiatan($tambah)
     {
         $this->db->insert('tbl_kegiatan', $tambah);

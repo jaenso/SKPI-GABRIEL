@@ -4,12 +4,12 @@
             <div class="card card-info">
                 <div class="card-body">
                     <div class="col-md-12">
-                        <div class="box box-primary">
-                            <div class="box-header with-border">
-                                <h3 class="box-title">Edit Data Pengajuan SKPI</h3>
+                        <div class="card card-primary">
+                            <div class="card-header with-border">
+                                <h3 class="card-title">Edit Data Pengajuan SKPI</h3>
                             </div>
                             <form method="post" enctype="multipart/form-data">
-                                <div class="box-body">
+                                <div class="card-body">
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Nama Mahasiswa</label>
                                         <input required type="text" class="form-control" name="id_mahasiswa" value="<?= $data['nim']; ?> - <?= $data['nama']; ?>" readonly="readonly">
@@ -40,8 +40,8 @@
                                         <?php endif; ?>
                                     </div>
                                     <hr>
-                                    <div class="box-header with-border">
-                                        <h3 class="box-title"><b>Data Akademik (KHS)</b></h3>
+                                    <div class="card-header with-border">
+                                        <h3 class="card-title"><b>Data Akademik (KHS)</b></h3>
                                         <font class="bg-orange">*) Pastikan Data KHS telah LENGKAP DAN VALID sebelum mengajukan pembuatan SKPI</font>
                                     </div>
                                     <table class="table">
@@ -79,8 +79,8 @@
                                         </tbody>
                                     </table>
                                     <hr>
-                                    <div class="box-header with-border">
-                                        <h3 class="box-title"><b>Data Akademik (MBKM)</b></h3>
+                                    <div class="card-header with-border">
+                                        <h3 class="card-title"><b>Data Akademik (MBKM)</b></h3>
                                         <font class="bg-orange">*) Pastikan Informasi MBKM telah LENGKAP DAN VALID sebelum mengajukan pembuatan SKPI</font>
                                     </div>
                                     <table class="table">
@@ -116,8 +116,8 @@
                                         </tbody>
                                     </table>
                                     <hr>
-                                    <div class="box-header with-border">
-                                        <h3 class="box-title"><b>Daftar Keikutsertaan dalam Organisasi/Kepanitiaan/Pembinaan Mahasiswa</b></h3><br>
+                                    <div class="card-header with-border">
+                                        <h3 class="card-title"><b>Daftar Keikutsertaan dalam Organisasi/Kepanitiaan/Pembinaan Mahasiswa</b></h3><br>
                                         <font class="bg-orange">*) Pastikan Informasi Keikutsertaan telah LENGKAP DAN VALID sebelum mengajukan pembuatan SKPI</font>
                                     </div>
                                     <table class="table">
@@ -153,8 +153,8 @@
                                         </tbody>
                                     </table>
                                     <hr>
-                                    <div class="box-header with-border">
-                                        <h3 class="box-title"><b>Daftar Keikutsertaan dalam Lomba/Prestasi Mahasiswa/Beasiswa</b></h3><br>
+                                    <div class="card-header with-border">
+                                        <h3 class="card-title"><b>Daftar Keikutsertaan dalam Lomba/Prestasi Mahasiswa/Beasiswa</b></h3><br>
                                         <font class="bg-orange">*) Pastikan Informasi Keikutsertaan telah LENGKAP DAN VALID sebelum mengajukan pembuatan SKPI</font>
                                     </div>
                                     <table class="table">
@@ -190,8 +190,8 @@
                                         </tbody>
                                     </table>
                                     <hr>
-                                    <div class="box-header with-border">
-                                        <h3 class="box-title"><b>Daftar Keikutsertaan dalam Pertemuan Ilmiah/Seminar/Kuliah Umum/Lokakarya</b></h3><br>
+                                    <div class="card-header with-border">
+                                        <h3 class="card-title"><b>Daftar Keikutsertaan dalam Pertemuan Ilmiah/Seminar/Kuliah Umum/Lokakarya</b></h3><br>
                                         <font class="bg-orange">*) Pastikan Informasi Keikutsertaan telah LENGKAP DAN VALID sebelum mengajukan pembuatan SKPI</font>
                                     </div>
                                     <table class="table">
@@ -227,8 +227,8 @@
                                         </tbody>
                                     </table>
                                     <hr>
-                                    <div class="box-header with-border">
-                                        <h3 class="box-title"><b>Daftar Keikutsertaan dalam Pelatihan/Kursus</b></h3><br>
+                                    <div class="card-header with-border">
+                                        <h3 class="card-title"><b>Daftar Keikutsertaan dalam Pelatihan/Kursus</b></h3><br>
                                         <font class="bg-orange">*) Pastikan Informasi Keikutsertaan telah LENGKAP DAN VALID sebelum mengajukan pembuatan SKPI</font>
                                     </div>
                                     <table class="table">
@@ -264,8 +264,8 @@
                                         </tbody>
                                     </table>
                                     <hr>
-                                    <div class="box-header with-border">
-                                        <h3 class="box-title"><b>Daftar Keikutsertaan dalam Kegiatan yang Menunjang Prestasi/Kompetensi/Pengalaman Kerja/Jurnal/Prosiding</b></h3><br>
+                                    <div class="card-header with-border">
+                                        <h3 class="card-title"><b>Daftar Keikutsertaan dalam Kegiatan yang Menunjang Prestasi/Kompetensi/Pengalaman Kerja/Jurnal/Prosiding</b></h3><br>
                                         <font class="bg-orange">*) Pastikan Informasi Keikutsertaan telah LENGKAP DAN VALID sebelum mengajukan pembuatan SKPI</font>
                                     </div>
                                     <table class="table">

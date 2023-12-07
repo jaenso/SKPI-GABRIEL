@@ -59,8 +59,11 @@
                       <a class="btn bg-olive" href="<?= base_url('skpi/editSKPIAdmin/' . $data->id_skpi . '/' . $data->nim); ?>">
                         <i class="fa fa-edit fa-lg" title="Edit"></i>
                       </a>
+                      <a class="btn bg-danger" href="<?= base_url('skpi/cetakSKPIAdmin/' . $data->id_skpi . '/' . $data->nim); ?>">
+                        <i class="fa fa-print fa-lg" title="Cetak SKPI"></i>
+                      </a>
                       <a class="btn bg-blue" href="<?= base_url('skpi/tambahFileSKPI/' . $data->id_skpi); ?>">
-                        <i class="fa fa-envelope fa-lg" title="Cetak SKPI"></i>
+                        <i class="fa fa-envelope fa-lg" title="Kirim SKPI"></i>
                       </a>
                     <?php } ?>
                     <a class="btn bg-orange" href="<?= base_url('skpi/hapusSKPIAdmin/' . $data->id_skpi); ?>" onclick="return confirm('Yakin?');">

@@ -65,10 +65,9 @@ class akun extends CI_Controller
 
     public function registrasi()
     {
-
         $this->form_validation->set_rules('email', 'Email', 'required');
         $this->form_validation->set_rules('nama', 'Nama', 'required');
-        $this->form_validation->set_rules('username', 'Username', 'required|trim');
+        $this->form_validation->set_rules('username', 'Username', 'required|trim|is_unique[user.username]');
         $this->form_validation->set_rules('password', 'Password', 'required');
 
         if ($this->form_validation->run() == false) {

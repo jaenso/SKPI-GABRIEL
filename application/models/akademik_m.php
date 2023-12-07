@@ -18,6 +18,15 @@ class akademik_m extends CI_Model
     return $this->db->get()->result();
   }
 
+  public function getKHSValid($username)
+  {
+    $this->db->select('*');
+    $this->db->from('tbl_khs');
+    $this->db->where('nim', $username);
+    $this->db->where('validasi', 'VALID');
+    return $this->db->get()->result();
+  }
+
   public function getMBKMAdmin()
   {
     $this->db->select('*');
@@ -31,6 +40,15 @@ class akademik_m extends CI_Model
     $this->db->select('*');
     $this->db->from('tbl_mbkm');
     $this->db->where('nim', $username);
+    return $this->db->get()->result();
+  }
+
+  public function getMBKMValid($username)
+  {
+    $this->db->select('*');
+    $this->db->from('tbl_mbkm');
+    $this->db->where('nim', $username);
+    $this->db->where('validasi', 'VALID');
     return $this->db->get()->result();
   }
 

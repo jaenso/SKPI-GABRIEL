@@ -1,4 +1,5 @@
 <?php
+require FCPATH . 'vendor/autoload.php';
 
 class skpi extends CI_Controller
 {
@@ -10,6 +11,29 @@ class skpi extends CI_Controller
         $this->load->model('mahasiswa_m', 'mhs');
         $this->load->model('skpi_m', 'skpi');
         $this->load->library('form_validation');
+    }
+
+    public function cetakSKPIAdmin($id, $nim)
+    {
+        $data['khs'] = $this->akm->getKHSValid($nim);
+        $data['mbkm'] = $this->akm->getMBKMValid($nim);
+        $data['organisasi'] = $this->kgt->getKegiatanValid('organisasi', $nim);
+        $data['prestasi'] = $this->kgt->getKegiatanValid('prestasi', $nim);
+        $data['pertemuan'] = $this->kgt->getKegiatanValid('pertemuan', $nim);
+        $data['pelatihan'] = $this->kgt->getKegiatanValid('pelatihan', $nim);
+        $data['penunjang'] = $this->kgt->getKegiatanValid('penunjang', $nim);
+        $data['data'] = $this->skpi->getSKPIByIdAdmin($id);
+
+        $data['user'] = get_user();
+        $data['title'] = 'Data Pengajuan SKPI';
+        $data['sub_title'] = 'Pengajuan SKPI';
+        $data['deskripsi'] = 'Surat Keterangan Pengganti Ijazah';
+
+        $html = $this->load->view('admin/pengaju_skpi/cetak', $data, true);
+
+        $mpdf = new \Mpdf\Mpdf();
+        $mpdf->WriteHTML($html);
+        $mpdf->Output('SKPI.pdf', \Mpdf\Output\Destination::DOWNLOAD);
     }
 
     public function tambahSKPI($nim)
@@ -70,13 +94,13 @@ class skpi extends CI_Controller
 
     public function editSKPIAdmin($id, $nim)
     {
-        $data['khs'] = $this->akm->getKHS($nim);
-        $data['mbkm'] = $this->akm->getMBKM($nim);
-        $data['organisasi'] = $this->kgt->getKegiatan('organisasi', $nim);
-        $data['prestasi'] = $this->kgt->getKegiatan('prestasi', $nim);
-        $data['pertemuan'] = $this->kgt->getKegiatan('pertemuan', $nim);
-        $data['pelatihan'] = $this->kgt->getKegiatan('pelatihan', $nim);
-        $data['penunjang'] = $this->kgt->getKegiatan('penunjang', $nim);
+        $data['khs'] = $this->akm->getKHSValid($nim);
+        $data['mbkm'] = $this->akm->getMBKMValid($nim);
+        $data['organisasi'] = $this->kgt->getKegiatanValid('organisasi', $nim);
+        $data['prestasi'] = $this->kgt->getKegiatanValid('prestasi', $nim);
+        $data['pertemuan'] = $this->kgt->getKegiatanValid('pertemuan', $nim);
+        $data['pelatihan'] = $this->kgt->getKegiatanValid('pelatihan', $nim);
+        $data['penunjang'] = $this->kgt->getKegiatanValid('penunjang', $nim);
         $data['data'] = $this->skpi->getSKPIByIdAdmin($id);
 
         $data['user'] = get_user();
@@ -108,13 +132,13 @@ class skpi extends CI_Controller
 
     public function editSKPI($id, $nim)
     {
-        $data['khs'] = $this->akm->getKHS($nim);
-        $data['mbkm'] = $this->akm->getMBKM($nim);
-        $data['organisasi'] = $this->kgt->getKegiatan('organisasi', $nim);
-        $data['prestasi'] = $this->kgt->getKegiatan('prestasi', $nim);
-        $data['pertemuan'] = $this->kgt->getKegiatan('pertemuan', $nim);
-        $data['pelatihan'] = $this->kgt->getKegiatan('pelatihan', $nim);
-        $data['penunjang'] = $this->kgt->getKegiatan('penunjang', $nim);
+        $data['khs'] = $this->akm->getKHSValid($nim);
+        $data['mbkm'] = $this->akm->getMBKMValid($nim);
+        $data['organisasi'] = $this->kgt->getKegiatanValid('organisasi', $nim);
+        $data['prestasi'] = $this->kgt->getKegiatanValid('prestasi', $nim);
+        $data['pertemuan'] = $this->kgt->getKegiatanValid('pertemuan', $nim);
+        $data['pelatihan'] = $this->kgt->getKegiatanValid('pelatihan', $nim);
+        $data['penunjang'] = $this->kgt->getKegiatanValid('penunjang', $nim);
         $data['data'] = $this->skpi->getSKPIById($id);
 
         $data['user'] = get_user();
